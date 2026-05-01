@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microbiology High-Yield Reviewer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card: #ffffff;
+    --border: #e2ddd6;
+    --text: #1a1814;
+    --muted: #6b6560;
+    --accent1: #2d6a4f; /* green - gram+ */
+    --accent2: #c05621; /* orange - gram- */
+    --accent3: #6b46c1; /* purple - mycobacteria */
+    --accent4: #2b6cb0; /* blue - anaerobes */
+    --accent5: #b7791f; /* gold - rickettsia */
+    --accent6: #c53030; /* red - danger/high yield */
+    --accent7: #276749; /* dark green */
+    --light1: #f0fff4;
+    --light2: #fffaf0;
+    --light3: #faf5ff;
+    --light4: #ebf8ff;
+    --light5: #fffff0;
+    --light6: #fff5f5;
+    --tag-bg: #e8f4f0;
+    --tag-text: #2d6a4f;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #1a3a2a 0%, #2d6a4f 50%, #3d8b6e 100%);
+    padding: 40px 40px 30px;
+    color: white;
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .site-header p { font-size: 1rem; opacity: 0.8; font-weight: 300; }
+  .header-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .header-tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* NAV */
+  .sticky-nav {
+    background: #fff;
+    border-bottom: 2px solid var(--border);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-btn {
+    padding: 14px 16px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: none;
+    border-left: none; border-right: none; border-top: none;
+    letter-spacing: 0.3px;
+  }
+  .nav-btn:hover { color: var(--accent1); border-bottom-color: var(--accent1); }
+  .nav-btn.active { color: var(--accent1); border-bottom-color: var(--accent1); }
+
+  /* LAYOUT */
+  .container { max-width: 1300px; margin: 0 auto; padding: 32px 40px; }
+
+  /* SECTION TITLE */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+  .section-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .badge-count {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    background: var(--border);
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* PAGE SECTION */
+  .page-section { display: none; }
+  .page-section.active { display: block; }
+
+  /* CARD */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* TABLES */
+  .hy-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    margin-top: 4px;
+  }
+  .hy-table th {
+    background: #1a3a2a;
+    color: white;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .hy-table th:first-child { border-radius: 6px 0 0 0; }
+  .hy-table th:last-child { border-radius: 0 6px 0 0; }
+  .hy-table td { padding: 8px 12px; border-bottom: 1px solid #f0ede8; vertical-align: top; }
+  .hy-table tr:nth-child(even) td { background: #fafaf8; }
+  .hy-table tr:last-child td { border-bottom: none; }
+  .hy-table tr:hover td { background: #f0fdf4; }
+
+  /* COLOR VARIANTS */
+  .th-orange th { background: #7b341e; }
+  .th-purple th { background: #44337a; }
+  .th-blue th { background: #1a365d; }
+  .th-gold th { background: #744210; }
+  .th-red th { background: #742a2a; }
+  .th-teal th { background: #234e52; }
+
+  /* HIGHLIGHT BADGES */
+  .hy-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+  }
+  .badge-red { background: #fed7d7; color: #c53030; }
+  .badge-green { background: #c6f6d5; color: #276749; }
+  .badge-blue { background: #bee3f8; color: #2c5282; }
+  .badge-orange { background: #feebc8; color: #c05621; }
+  .badge-purple { background: #e9d8fd; color: #553c9a; }
+  .badge-gray { background: #e2e8f0; color: #4a5568; }
+  .badge-gold { background: #fefcbf; color: #744210; }
+
+  /* ALGORITHM BOX */
+  .algo-box {
+    background: linear-gradient(135deg, #f0fff4, #e6fffa);
+    border: 2px solid #9ae6b4;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .algo-box h4 { color: #276749; font-size: 0.95rem; margin-bottom: 10px; font-weight: 700; }
+  .algo-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+  }
+  .algo-num {
+    width: 22px; height: 22px;
+    background: #276749;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .algo-arrow { color: #276749; font-weight: 700; margin: 0 4px; }
+
+  /* WARNING BOX */
+  .warn-box {
+    background: #fff5f5;
+    border-left: 4px solid #fc8181;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+  }
+  .warn-box strong { color: #c53030; }
+
+  .info-box {
+    background: #ebf8ff;
+    border-left: 4px solid #63b3ed;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+  }
+  .info-box strong { color: #2c5282; }
+
+  .gold-box {
+    background: #fffff0;
+    border-left: 4px solid #d69e2e;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+  }
+  .gold-box strong { color: #744210; }
+
+  /* KEY FACT PILL */
+  .key-fact {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e8f4f0;
+    border: 1px solid #9ae6b4;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #276749;
+    margin: 3px;
+  }
+  .key-fact::before { content: "⭐"; font-size: 0.72rem; }
+
+  /* MCQ */
+  .mcq-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .mcq-q { font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; }
+  .mcq-options { display: flex; flex-direction: column; gap: 8px; }
+  .mcq-opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: all 0.15s;
+  }
+  .mcq-opt:hover { border-color: #9ae6b4; background: #f0fff4; }
+  .mcq-opt.correct { background: #c6f6d5; border-color: #38a169; color: #276749; }
+  .mcq-opt.wrong { background: #fed7d7; border-color: #e53e3e; color: #9b2c2c; }
+  .mcq-opt.revealed { pointer-events: none; }
+  .opt-letter {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .mcq-explain {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #f0fff4;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    border-left: 3px solid #38a169;
+    color: #276749;
+  }
+  .mcq-explain.show { display: block; }
+
+  /* BUZZWORDS */
+  .bw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .bw-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bw-word {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88rem;
+    color: #744210;
+    font-weight: 500;
+  }
+  .bw-answer {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #276749;
+  }
+  .bw-note { font-size: 0.78rem; color: var(--muted); }
+
+  /* COMPARE TABLE */
+  .compare-header {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap { margin-top: 6px; }
+  .progress-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 3px; }
+  .progress-bar { height: 5px; background: #e2e8f0; border-radius: 3px; }
+  .progress-fill { height: 100%; border-radius: 3px; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  /* SMALL TEXT */
+  small { font-size: 0.8rem; color: var(--muted); }
+  strong { font-weight: 600; }
+  em { font-style: italic; color: #c05621; font-style: normal; font-weight: 600; }
+
+  /* SCROLL MARGIN */
+  .page-section { scroll-margin-top: 60px; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .container { padding: 20px; }
+    .site-header { padding: 24px 20px; }
+    .site-header h1 { font-size: 2rem; }
+    .sticky-nav { padding: 0 16px; }
+  }
+
+  ul { padding-left: 16px; }
+  ul li { margin-bottom: 3px; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <h1>Microbiology &amp; Parasitology</h1>
+  <p>High-Yield Reviewer · A.Y. 2025–2026 · MCP 2 &amp; 3</p>
+  <div class="header-tags">
+    <span class="header-tag">Gram+ Bacilli</span>
+    <span class="header-tag">Anaerobes</span>
+    <span class="header-tag">Mycobacteria</span>
+    <span class="header-tag">Mycoplasma · Legionella · Bartonella</span>
+    <span class="header-tag">Rickettsia · Yersinia · Pasteurella</span>
+    <span class="header-tag">MCQ Review</span>
+    <span class="header-tag">Buzzwords</span>
+  </div>
+</div>
+
+<nav class="sticky-nav" id="mainNav">
+  <button class="nav-btn active" onclick="showPage('gp-nonspore')">GP Non-Spore</button>
+  <button class="nav-btn" onclick="showPage('gp-spore')">GP Spore</button>
+  <button class="nav-btn" onclick="showPage('anaerobes')">Anaerobes</button>
+  <button class="nav-btn" onclick="showPage('mycobacteria')">Mycobacteria</button>
+  <button class="nav-btn" onclick="showPage('myco-legio-bart')">Myco·Legio·Bart</button>
+  <button class="nav-btn" onclick="showPage('rickettsia')">Rickettsia·Yersinia</button>
+  <button class="nav-btn" onclick="showPage('mcq')">MCQ 🧠</button>
+  <button class="nav-btn" onclick="showPage('buzzwords')">Buzzwords ⚡</button>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1: GP NON-SPORE FORMERS
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section active" id="gp-nonspore">
+  <div class="section-title">
+    <div class="section-icon" style="background:#e8f4f0;">🧫</div>
+    <h2 style="color:#2d6a4f;">Gram+ Bacilli · Non-Spore Formers</h2>
+    <span class="badge-count">5 organisms</span>
+  </div>
+
+  <!-- CORYNEBACTERIUM -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#2d6a4f;"></span>Corynebacterium diphtheriae</div>
+    <div class="grid-2">
+      <div>
+        <table class="hy-table">
+          <tr><th colspan="2">Key Features</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Gram+, club-shaped rods <span class="hy-badge badge-red">HY</span></td></tr>
+          <tr><td><strong>Arrangement</strong></td><td>Palisading / Chinese letter / acute angles</td></tr>
+          <tr><td><strong>Stain</strong></td><td>Albert's stain → metachromatic (polar/volutin) granules</td></tr>
+          <tr><td><strong>Culture</strong></td><td>CTBA / Tinsdale agar (K-tellurite) → black colonies</td></tr>
+          <tr><td><strong>Toxin</strong></td><td>Diphtheria Toxin (tox gene, β-prophage) → ADP-ribosylates EF-2 → stops protein synthesis</td></tr>
+          <tr><td><strong>Incubation</strong></td><td>2–5 days</td></tr>
+          <tr><td><strong>Tx</strong></td><td>Antitoxin (20k–120k U) + Penicillin/Macrolides</td></tr>
+          <tr><td><strong>Prevention</strong></td><td>DPT at 6, 10, 14 weeks (Philippines EPI)</td></tr>
+        </table>
+        <div class="divider"></div>
+        <div class="warn-box"><strong>❌ DO NOT remove pseudomembrane</strong> — exposes capillaries → bleeding</div>
+        <div class="warn-box"><strong>Biovars:</strong> gravis (severe) · mitis (mild) · intermedius · belfanti (non-toxigenic)</div>
+      </div>
+      <div>
+        <div class="algo-box">
+          <h4>🔬 Pathogenesis Algorithm</h4>
+          <div class="algo-step"><div class="algo-num">1</div><span>DT absorbed at tonsils/pharynx/larynx</span></div>
+          <div class="algo-step"><div class="algo-num">2</div><span>Necrosis → grayish <strong>pseudomembrane</strong></span></div>
+          <div class="algo-step"><div class="algo-num">3</div><span>β-subunit binds HB-EGF receptor → endocytosis</span></div>
+          <div class="algo-step"><div class="algo-num">4</div><span>A-subunit released (low pH) → ADP-ribosylates EF-2</span></div>
+          <div class="algo-step"><div class="algo-num">5</div><span>Protein synthesis stops → cell death</span></div>
+          <div class="algo-step"><div class="algo-num">6</div><span>Systemic: myocarditis, neuritis (demyelination), tubular necrosis</span></div>
+        </div>
+        <div class="gold-box">
+          <strong>🎯 Pathognomonic Signs:</strong><br>
+          • Grayish pseudomembrane (bleeds on removal)<br>
+          • "Bull neck" — edematous cervical lymph nodes<br>
+          • Cutaneous lesions (tropics/homeless)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LISTERIA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#c05621;"></span>Listeria monocytogenes</div>
+    <div class="grid-2">
+      <div>
+        <table class="hy-table th-orange">
+          <tr><th colspan="2">Key Features</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Gram+, short rods (pairs — resembles Streptococci)</td></tr>
+          <tr><td><strong>Motility</strong></td><td><em>Tumbling "end-over-end"</em> at 22–28°C, NOT at 37°C <span class="hy-badge badge-red">HY</span></td></tr>
+          <tr><td><strong>Growth</strong></td><td>Survives refrigerator (4°C), high salt, low pH</td></tr>
+          <tr><td><strong>MOT</strong></td><td>Ingestion (contaminated food) <span class="hy-badge badge-red">HY</span></td></tr>
+          <tr><td><strong>Tx</strong></td><td>Ampicillin</td></tr>
+        </table>
+        <div class="divider"></div>
+        <table class="hy-table th-orange">
+          <tr><th>Syndrome</th><th>Features</th></tr>
+          <tr><td><strong>Granulomatosis Infantiseptica</strong></td><td>Early onset (&lt;6 days), transplacental, pyogranulomas on skin/organs</td></tr>
+          <tr><td><strong>Neonatal Listeriosis</strong></td><td>Late onset (7–28 days), meningitis, delivery/nosocomial</td></tr>
+          <tr><td><strong>Pregnancy</strong></td><td>Miscarriage, stillbirth, preterm — flu-like in mother</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="algo-box">
+          <h4>🔬 Pathogenesis (Intracellular Escape)</h4>
+          <div class="algo-step"><div class="algo-num">1</div><span>Internalins (A&B) bind E-cadherin → phagocytosis</span></div>
+          <div class="algo-step"><div class="algo-num">2</div><span>Listeriolysin O lyses phagolysosome membrane</span></div>
+          <div class="algo-step"><div class="algo-num">3</div><span>Released into cytoplasm → replicates</span></div>
+          <div class="algo-step"><div class="algo-num">4</div><span>ActA → actin polymerization → propels to membrane</span></div>
+          <div class="algo-step"><div class="algo-num">5</div><span>Forms filopods → ingested by adjacent cells (cell-to-cell spread)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOCARDIA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>Nocardia spp.</div>
+    <div class="grid-3">
+      <div>
+        <table class="hy-table th-purple">
+          <tr><th colspan="2">Key Facts</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Gram+, filamentous rods (non-spore)</td></tr>
+          <tr><td><strong>Acid-fast</strong></td><td><em>Weakly acid-fast</em> <span class="hy-badge badge-purple">HY</span></td></tr>
+          <tr><td><strong>Habitat</strong></td><td>Soil → inhalation → pulmonary</td></tr>
+          <tr><td><strong>Looks like</strong></td><td>Mimics pulmonary TB (but NO granulomas/caseation)</td></tr>
+          <tr><td><strong>Host</strong></td><td>Immunocompromised patients</td></tr>
+          <tr><td><strong>Spread</strong></td><td>Lungs → blood → brain (abscesses)</td></tr>
+          <tr><td><strong>Tx</strong></td><td>TMP-SMX (first line)</td></tr>
+          <tr><td><strong>Culture</strong></td><td>Heat-irregular waxy colonies; Catalase+, Urease+</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="info-box"><strong>💡 Nocardia vs TB:</strong><br>Both: pulmonary, inhalation, immunocompromised<br><strong>Nocardia unique:</strong> weakly acid-fast, NO granulomas/caseation, brain abscesses common, TMP-SMX treatment</div>
+        <div class="info-box"><strong>Skin disease:</strong> N. brasiliensis → primary cutaneous infection after trauma (rarely spreads)</div>
+      </div>
+      <div>
+        <table class="hy-table th-purple">
+          <tr><th>Species</th><th>Culture</th></tr>
+          <tr><td>N. brasiliensis</td><td>Yellowish wrinkled</td></tr>
+          <tr><td>N. farcinica</td><td>Smooth → turns orange</td></tr>
+          <tr><td>N. asteroides</td><td>Chalky white</td></tr>
+          <tr><td>N. cyriacigeorgica</td><td>Powdery + aerial hyphae</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ERYSIPELOTHRIX & RHODOCOCCUS -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#2b6cb0;"></span>Erysipelothrix rhusiopathiae</div>
+      <table class="hy-table th-blue">
+        <tr><th colspan="2">Key Features</th></tr>
+        <tr><td><strong>Shape</strong></td><td>Gram+ (may appear Gram− due to easy decolorization)</td></tr>
+        <tr><td><strong>H₂S</strong></td><td><em>H₂S (+) on TSI → black butt</em> <span class="hy-badge badge-red">Only Gram+ rod!</span></td></tr>
+        <tr><td><strong>Hemolysis</strong></td><td>α-hemolytic on BAP</td></tr>
+        <tr><td><strong>Catalase</strong></td><td>Negative</td></tr>
+        <tr><td><strong>Motility</strong></td><td>Non-motile at 25°C</td></tr>
+        <tr><td><strong>Resistance</strong></td><td>Intrinsically resistant to Vancomycin</td></tr>
+        <tr><td><strong>Disease</strong></td><td>Erysipeloid — zoonotic (fishermen/butchers), violaceous lesion, NO pus</td></tr>
+        <tr><td><strong>MOT</strong></td><td>Direct inoculation (cut/abrasion) from fish/animal products</td></tr>
+        <tr><td><strong>Tx</strong></td><td>Penicillin G</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="warn-box"><strong>Erysipeloid ≠ Erysipelas!</strong> Erysipeloid → E. rhusiopathiae · Erysipelas → Group A β-Strep</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#b7791f;"></span>Rhodococcus equi</div>
+      <table class="hy-table th-gold">
+        <tr><th colspan="2">Key Features</th></tr>
+        <tr><td><strong>Shape</strong></td><td>Gram+, coccoid (starts as bacilli → becomes coccoid with complete incubation)</td></tr>
+        <tr><td><strong>Colony</strong></td><td>Salmon pink to red after 24h</td></tr>
+        <tr><td><strong>Acid-fast</strong></td><td>Weakly acid-fast (modified Kinyoun)</td></tr>
+        <tr><td><strong>Disease</strong></td><td>Necrotizing pneumonia with cavitation (immunocompromised)</td></tr>
+        <tr><td><strong>Host</strong></td><td>HIV+ patients, transplant patients</td></tr>
+        <tr><td><strong>Reservoir</strong></td><td>Soil, dung of herbivores; causes disease in foals</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="info-box"><strong>Differentiation Table: E. rhusiopathiae vs L. monocytogenes</strong></div>
+      <table class="hy-table">
+        <tr><th>Test</th><th>E. rhusiopathiae</th><th>L. monocytogenes</th></tr>
+        <tr><td>Hemolysis</td><td>α</td><td>β</td></tr>
+        <tr><td>Catalase</td><td>−</td><td>+</td></tr>
+        <tr><td>Motility (25°C)</td><td>−</td><td>+ (tumbling)</td></tr>
+        <tr><td>H₂S (TSI)</td><td><strong>+</strong> (black butt)</td><td>−</td></tr>
+        <tr><td>Treatment</td><td>Penicillin G</td><td>Ampicillin</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2: GP SPORE FORMERS
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="gp-spore">
+  <div class="section-title">
+    <div class="section-icon" style="background:#fff3e0;">🧪</div>
+    <h2 style="color:#c05621;">Gram+ Bacilli · Spore Formers</h2>
+    <span class="badge-count">Clostridium + Bacillus</span>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#c05621;"></span>Clostridium spp. — Master Comparison</div>
+    <table class="hy-table th-orange">
+      <tr>
+        <th>Feature</th>
+        <th>C. tetani</th>
+        <th>C. perfringens</th>
+        <th>C. botulinum</th>
+        <th>C. difficile</th>
+      </tr>
+      <tr>
+        <td><strong>Spore Location</strong></td>
+        <td><em>Terminal</em> → drumstick 🥁</td>
+        <td><em>Subterminal</em> → bowling pin 🎳</td>
+        <td>Oval, subterminal</td>
+        <td>Subterminal</td>
+      </tr>
+      <tr>
+        <td><strong>Motility</strong></td>
+        <td>Motile (peritrichous)</td>
+        <td><em>NON-motile</em> <span class="hy-badge badge-red">HY</span></td>
+        <td>Motile</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Capsule</strong></td>
+        <td>—</td>
+        <td><em>Capsulated</em> <span class="hy-badge badge-red">HY</span></td>
+        <td>None</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Toxin</strong></td>
+        <td>Tetanospasmin (neurotoxin)</td>
+        <td>α-toxin (lecithinase C)</td>
+        <td>Botulinum toxin (exotoxin)</td>
+        <td>Toxin A (entero) + Toxin B (cyto)</td>
+      </tr>
+      <tr>
+        <td><strong>Neurotransmitter Effect</strong></td>
+        <td>Blocks <em>inhibitory</em> NT (glycine, GABA) → SPASTIC paralysis <span class="hy-badge badge-red">HY</span></td>
+        <td>Not neurologic</td>
+        <td>Blocks ACh release → FLACCID paralysis <span class="hy-badge badge-red">HY</span></td>
+        <td>Not neurologic</td>
+      </tr>
+      <tr>
+        <td><strong>Clinical</strong></td>
+        <td>Tetanus, lockjaw, opisthotonus, neonatal tetanus</td>
+        <td>Gas gangrene, food poisoning, necrotizing enteritis</td>
+        <td>Food-borne botulism, infant botulism (honey), wound</td>
+        <td>Pseudomembranous colitis (antibiotic-associated)</td>
+      </tr>
+      <tr>
+        <td><strong>Key Lab</strong></td>
+        <td>Clinical diagnosis; tetanospasmin production</td>
+        <td>Nagler reaction (+), stormy milk fermentation, double/target hemolysis</td>
+        <td>Mouse bioassay (GOLD STANDARD) <span class="hy-badge badge-red">HY</span></td>
+        <td>Toxin in stool; endoscopy → pseudomembranes</td>
+      </tr>
+      <tr>
+        <td><strong>Culture</strong></td>
+        <td>Obligate anaerobe</td>
+        <td>Aerotolerant</td>
+        <td>Strict anaerobe</td>
+        <td>Obligate anaerobe</td>
+      </tr>
+      <tr>
+        <td><strong>Treatment</strong></td>
+        <td>Antitoxin + Penicillin/Metronidazole + Diazepam</td>
+        <td>Debridement + Antitoxin + Hyperbaric O₂ + Antibiotics</td>
+        <td>Anti-toxin + ICU support (BIG for infants)</td>
+        <td>Stop causative antibiotic + Metronidazole/Vancomycin/Fidaxomicin</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#c05621;"></span>C. tetani vs C. botulinum — Critical Distinction</div>
+      <table class="hy-table th-orange">
+        <tr><th></th><th>C. tetani (Tetanus)</th><th>C. botulinum (Botulism)</th></tr>
+        <tr><td><strong>Paralysis type</strong></td><td>SPASTIC (rigid)</td><td>FLACCID</td></tr>
+        <tr><td><strong>Mechanism</strong></td><td>Blocks inhibitory NT (glycine/GABA)</td><td>Blocks ACh release (excitatory)</td></tr>
+        <tr><td><strong>Source</strong></td><td>Wound (soil/feces)</td><td>Food/honey/wound</td></tr>
+        <tr><td><strong>Direction</strong></td><td>Localized → generalized (ascending)</td><td>Descending paralysis</td></tr>
+        <tr><td><strong>Consciousness</strong></td><td>Intact</td><td>Intact <span class="hy-badge badge-red">HY</span></td></tr>
+        <tr><td><strong>Spore</strong></td><td>Terminal (drumstick 🥁)</td><td>Subterminal, oval</td></tr>
+      </table>
+      <div class="warn-box" style="margin-top:12px;"><strong>Remember:</strong> Tetanus = Spastic (inhibitory blocks) | Botulism = Flaccid (excitatory blocks)</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#c05621;"></span>C. difficile &amp; C. perfringens Quick Facts</div>
+      <div class="gold-box">
+        <strong>C. difficile — Antibiotic-Associated Diarrhea</strong><br>
+        Antibiotics implicated: <em>Ampicillin, Clindamycin</em> (classic) + Cephalosporins, Fluoroquinolones<br>
+        Toxin A = Enterotoxin | Toxin B = Cytotoxin (both have glycosyltransferase activity)<br>
+        Tx: Stop antibiotic → Metronidazole / Vancomycin / Fidaxomicin; Fecal transplant for recurrence
+      </div>
+      <div class="gold-box">
+        <strong>C. perfringens — Clinical Summary</strong><br>
+        Type A → Gas gangrene + Food poisoning (8–24h, self-limited diarrhea)<br>
+        Type C → Necrotizing enteritis (β-toxin; fatal in children)<br>
+        α-toxin (lecithinase C) = MOST POTENT TOXIN; detected by Nagler test<br>
+        C. perfringens = ONLY non-motile, capsulated Clostridium
+      </div>
+    </div>
+  </div>
+
+  <!-- BACILLUS -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#276749;"></span>Bacillus spp. — Aerobic Spore Formers</div>
+    <table class="hy-table">
+      <tr><th>Species</th><th>Disease</th><th>Key Feature</th><th>Virulence</th><th>Treatment/Notes</th></tr>
+      <tr>
+        <td><strong>B. anthracis</strong></td>
+        <td>Anthrax (cutaneous most common, inhalation most fatal)</td>
+        <td>Gram+ rods in chains; poly-D-glutamic acid capsule; bioterrorism weapon</td>
+        <td>PA + EF (edema toxin) + LF (lethal toxin) <span class="hy-badge badge-red">HY</span></td>
+        <td>Black eschar (malignant pustule); inhalation → mediastinal hemorrhage</td>
+      </tr>
+      <tr>
+        <td><strong>B. cereus</strong></td>
+        <td>Food poisoning</td>
+        <td>Emetic (fried rice/milk) + Diarrheal (meat dishes) types</td>
+        <td>Emetic toxin</td>
+        <td>Self-limiting (24h); vomiting (emetic) or diarrhea</td>
+      </tr>
+      <tr>
+        <td><strong>B. subtilis</strong></td>
+        <td>Rare human disease</td>
+        <td>Common soil saprophyte; puncture wound source</td>
+        <td>—</td>
+        <td>Very uncommon pathogen</td>
+      </tr>
+    </table>
+    <div class="divider"></div>
+    <div class="gold-box">
+      <strong>🎯 Anthrax Toxin Algorithm:</strong> Protective Antigen (PA) binds cell receptor → allows entry of Edema Factor (EF = adenylate cyclase → ↑cAMP → edema) and Lethal Factor (LF = zinc protease → cell death, major cause of death)
+    </div>
+    <div class="info-box">
+      <strong>Cutaneous Anthrax (Most Common):</strong> Pruritic papule → edematous/vesicular → malignant pustule → BLACK ESCHAR with ring of vesicles + lymphangitis. Severe: sepsis + meningitis. MOT: Skin trauma from animals.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 3: ANAEROBES
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="anaerobes">
+  <div class="section-title">
+    <div class="section-icon" style="background:#e0f2fe;">🦠</div>
+    <h2 style="color:#2b6cb0;">Anaerobic Bacteria</h2>
+    <span class="badge-count">Non-spore formers</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#2b6cb0;"></span>Classification Overview</div>
+    <div class="grid-2">
+      <table class="hy-table th-blue">
+        <tr><th colspan="3">Non-Spore Forming Anaerobes</th></tr>
+        <tr><th>Shape</th><th>Gram+</th><th>Gram−</th></tr>
+        <tr>
+          <td>Bacillus</td>
+          <td>Propionibacterium/Cutibacterium<br>Bifidobacterium<br>Eubacterium<br><em>Actinomyces</em><br>Mobiluncus<br>Lactobacillus</td>
+          <td><em>Bacteroides (fragilis)</em> <span class="hy-badge badge-red">Most pathogenic</span><br>Prevotella<br>Porphyromonas<br><em>Fusobacterium (necrophorum)</em></td>
+        </tr>
+        <tr>
+          <td>Coccus</td>
+          <td>Peptostreptococcus<br>Gemella</td>
+          <td>Veillonella</td>
+        </tr>
+      </table>
+      <div>
+        <div class="info-box">
+          <strong>Characteristics of Anaerobic Infections:</strong><br>
+          • Endogenous origin (normal flora → sterile sites)<br>
+          • Chronic, pyogenic (pus-forming)<br>
+          • Foul-smelling discharge<br>
+          • Gas formation in tissues<br>
+          • Poor response to aminoglycosides <span class="hy-badge badge-red">HY</span><br>
+          • Aerobic culture negative (need anaerobic culture)<br>
+          • Direct smear from discharge positive
+        </div>
+        <div class="warn-box"><strong>Oxygen Intolerance:</strong> Anaerobes lack catalase (peroxidase) and superoxide dismutase → accumulate toxic H₂O₂ and toxic radicals</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- ACTINOMYCES -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#276749;"></span>Actinomyces</div>
+      <table class="hy-table">
+        <tr><th>Species</th><th>O₂ Requirement</th></tr>
+        <tr><td>A. israelii (most common)</td><td>Anaerobe</td></tr>
+        <tr><td>A. naeslundii</td><td>Facultative anaerobe</td></tr>
+        <tr><td>Arachnia propionica</td><td>Facultative anaerobe</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="gold-box">
+        <strong>Actinomycosis:</strong> Chronic suppurative + granulomatous infection<br>
+        • Pyogenic lesions with interconnecting sinuses<br>
+        • <em>Sulfur granules</em> (yellowish, ~1mm, lobulated) <span class="hy-badge badge-red">HY</span><br>
+        • 3 types: Cervicofacial ("lumpy jaw" — most common) · Thoracic · Abdominal/pelvic
+      </div>
+      <div class="info-box"><strong>Lumpy jaw:</strong> Big, fluctuant mass with reddish-purple discoloration</div>
+    </div>
+
+    <!-- BACTEROIDES FRAGILIS -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#c05621;"></span>Bacteroides fragilis — Most Pathogenic</div>
+      <table class="hy-table th-orange">
+        <tr><th colspan="2">Key Features</th></tr>
+        <tr><td><strong>Most important VF</strong></td><td>Capsule (+ LPS outer membrane)</td></tr>
+        <tr><td><strong>Growth</strong></td><td>Stimulated by bile; moderate anaerobe (aerotolerant with blood)</td></tr>
+        <tr><td><strong>Colony</strong></td><td>White-gray, pleomorphic bacilli with vacuoles</td></tr>
+        <tr><td><strong>Enzymes</strong></td><td>Can produce superoxide dismutase + catalase (with hemin)</td></tr>
+        <tr><td><strong>Habitat</strong></td><td>Fecal flora → intra-abdominal infections + septicemia</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="info-box"><strong>Fusobacterium nucleatum:</strong> Thin bacilli with pointed ends → Lemierre's syndrome (septic thrombophlebitis of internal jugular vein)</div>
+    </div>
+  </div>
+
+  <!-- ANAEROBIC INFECTIONS BY SITE -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#2b6cb0;"></span>Anaerobic Infections by Anatomical Site</div>
+    <table class="hy-table th-blue">
+      <tr><th>Site</th><th>Common Anaerobes</th><th>Key Causes/Risk Factors</th></tr>
+      <tr>
+        <td><strong>Intra-abdominal</strong></td>
+        <td>Bacteroides (B. fragilis), Clostridium, Fusobacterium, Anaerobic Gram+ cocci</td>
+        <td>Spillage of fecal matter: penetrating wounds, appendicitis, malignancy</td>
+      </tr>
+      <tr>
+        <td><strong>OB-GYN</strong></td>
+        <td>Prevotella, Anaerobic Gram+ cocci</td>
+        <td>Salpingitis, tubo-ovarian abscess, post-abortal sepsis</td>
+      </tr>
+      <tr>
+        <td><strong>Pleuro-pulmonary</strong></td>
+        <td>Fusobacterium nucleatum, Prevotella, Porphyromonas, Anaerobic Gram+ cocci</td>
+        <td>Aspiration, lung abscess, necrotizing pneumonia</td>
+      </tr>
+      <tr>
+        <td><strong>Septicemia</strong></td>
+        <td>B. fragilis, Prevotella</td>
+        <td>From GI/pelvic source</td>
+      </tr>
+      <tr>
+        <td><strong>CNS</strong></td>
+        <td>Peptostreptococcus, Fusobacterium</td>
+        <td>Brain abscesses, meningitis</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 4: MYCOBACTERIA
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="mycobacteria">
+  <div class="section-title">
+    <div class="section-icon" style="background:#faf5ff;">🔴</div>
+    <h2 style="color:#6b46c1;">Mycobacteria</h2>
+    <span class="badge-count">TB · Leprosy · MAC</span>
+  </div>
+
+  <!-- TB -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>Mycobacterium tuberculosis</div>
+    <div class="grid-2">
+      <div>
+        <table class="hy-table th-purple">
+          <tr><th colspan="2">Key Characteristics</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Thin, straight rods (0.4 × 3μm), non-spore</td></tr>
+          <tr><td><strong>Gram stain</strong></td><td>Gram-invisible / "ghost" — USE AFB STAIN <span class="hy-badge badge-red">HY</span></td></tr>
+          <tr><td><strong>Acid-fastness</strong></td><td>Mycolic acid (outermost layer) + Arabinogalactan + Peptidoglycan → resists acid alcohol decolorization</td></tr>
+          <tr><td><strong>MOT</strong></td><td>Respiratory droplets</td></tr>
+          <tr><td><strong>Culture</strong></td><td>Löwenstein-Jensen (LJ) medium → cauliflower-like, non-pigmented, rough, dry colonies</td></tr>
+          <tr><td><strong>Primary Dx</strong></td><td>GeneXpert MTB/RIF (PCR) → detects MTB + Rifampicin resistance (rpoB gene)</td></tr>
+          <tr><td><strong>Alternative Dx</strong></td><td>DSSM (2–3 sputum samples); Auramine Rhodamine (more sensitive)</td></tr>
+          <tr><td><strong>Treatment</strong></td><td>HRZE (Isoniazid + Rifampicin + Pyrazinamide + Ethambutol)</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="algo-box">
+          <h4>🔬 Histopathologic Findings (Cell Wall Components)</h4>
+          <div class="algo-step"><div class="algo-num">1</div><span><strong>Muramyl peptides + Mycolic acids</strong> → Granuloma formation (Langhans giant cells, epithelioid histiocytes, ring of lymphocytes)</span></div>
+          <div class="algo-step"><div class="algo-num">2</div><span><strong>Phospholipids</strong> → Caseous necrosis</span></div>
+          <div class="algo-step"><div class="algo-num">3</div><span><strong>Cord Factor</strong> → Serpentine cord formation (virulent strains)</span></div>
+        </div>
+        <div class="algo-box">
+          <h4>🔬 AFB Stain Algorithm</h4>
+          <div class="algo-step"><div class="algo-num">1</div><span>Primary stain: Carbol fuchsin → AFB = RED</span></div>
+          <div class="algo-step"><div class="algo-num">2</div><span>Decolorizer: Acid alcohol → Non-AFB lose color (mycolic acid resists)</span></div>
+          <div class="algo-step"><div class="algo-num">3</div><span>Counterstain: Methylene blue or Malachite green → Non-AFB = BLUE/GREEN</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="grid-3">
+      <div class="gold-box">
+        <strong>Ghon Complex:</strong> Calcified subpleural granuloma (mid-lung) + hilar lymph node granuloma → seen in children (primary TB)
+      </div>
+      <div class="gold-box">
+        <strong>Apical Scarring/Cavitation:</strong> Adults → apex/upper lobe (higher O₂ tension); Scrofula = cervical tuberculous lymphadenitis
+      </div>
+      <div class="gold-box">
+        <strong>Miliary TB:</strong> Hematogenous spread → diffuse distribution (extrapulmonary); resides in monocytes, reticuloendothelial cells
+      </div>
+    </div>
+  </div>
+
+  <!-- TB TREATMENT TABLE -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>TB Treatment &amp; Drug Resistance</div>
+    <div class="grid-2">
+      <table class="hy-table th-purple">
+        <tr><th>Regimen</th><th>Phases</th><th>Indications</th></tr>
+        <tr>
+          <td>Regimen 1 (2HRZE/4HR)</td>
+          <td>2mo HRZE → 4mo HR</td>
+          <td>PTB or EPTB (except CNS, bones, joints)</td>
+        </tr>
+        <tr>
+          <td>Regimen 2 (2HRZE/10HR)</td>
+          <td>2mo HRZE → 10mo HR</td>
+          <td>EPTB of CNS, bones, joints</td>
+        </tr>
+        <tr>
+          <td>MDR-TB</td>
+          <td colspan="2">Resistant to Isoniazid + Rifampicin</td>
+        </tr>
+        <tr>
+          <td>XDR-TB</td>
+          <td colspan="2">Resistant to H+R + any fluoroquinolone + any of 3 injectable 2nd-line drugs</td>
+        </tr>
+      </table>
+      <table class="hy-table th-purple">
+        <tr><th>Drug</th><th>Resistance Gene</th><th>Mechanism</th></tr>
+        <tr><td>Isoniazid</td><td>katG</td><td>Catalase-peroxidase</td></tr>
+        <tr><td>Isoniazid</td><td>inhA</td><td>Mycolic acid synthesis</td></tr>
+        <tr><td>Rifampicin</td><td><em>rpoB</em> <span class="hy-badge badge-red">GeneXpert!</span></td><td>β-subunit RNA polymerase</td></tr>
+        <tr><td>Fluoroquinolones</td><td>gyrA</td><td>DNA gyrase</td></tr>
+        <tr><td>Streptomycin</td><td>rpsL / rrs</td><td>Ribosomal S12 / 16S rRNA</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- TB DIAGNOSTICS -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>Tuberculin Test vs IGRA</div>
+    <table class="hy-table th-purple">
+      <tr><th>Feature</th><th>Tuberculin Test (Mantoux/PPD)</th><th>IGRA (QFT-Plus)</th></tr>
+      <tr><td>Type</td><td>Intradermal injection; read at 48–72h (induration)</td><td>Blood test; CD4+ and CD8+ T-cell response</td></tr>
+      <tr><td>BCG effect</td><td>False positive if BCG vaccinated</td><td><em>NOT affected by BCG</em> <span class="hy-badge badge-red">HY</span></td></tr>
+      <tr><td>Positive: High Risk</td><td>&gt;5mm (HIV, exposed to active TB)</td><td>TB1/TB2 &gt;25% of negative control</td></tr>
+      <tr><td>Positive: Medium Risk</td><td>&gt;10mm (immigrants, HCW, IV drug users)</td><td>—</td></tr>
+      <tr><td>Positive: Low Risk</td><td>&gt;15mm</td><td>—</td></tr>
+      <tr><td>Visits</td><td>Requires 2 visits</td><td>1 visit only</td></tr>
+    </table>
+  </div>
+
+  <!-- LEPROSY + MAC -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>Mycobacterium leprae — Leprosy</div>
+      <table class="hy-table th-purple">
+        <tr><th colspan="2">Key Facts</th></tr>
+        <tr><td><strong>Temp preference</strong></td><td>27–33°C → cooler areas of body (skin, peripheral nerves)</td></tr>
+        <tr><td><strong>MOT</strong></td><td>Respiratory route / nasal discharge</td></tr>
+        <tr><td><strong>Dx</strong></td><td>AFB stain (skin scrapings), skin biopsy, PCR</td></tr>
+        <tr><td><strong>Tx</strong></td><td>Dapsone + Rifampicin + Clofazimine</td></tr>
+        <tr><td><strong>Incubation</strong></td><td>2–10 years → screen household contacts</td></tr>
+      </table>
+      <div class="divider"></div>
+      <table class="hy-table th-purple">
+        <tr><th>Tuberculoid Leprosy</th><th>Lepromatous Leprosy</th></tr>
+        <tr><td>Few affected nerves</td><td>Thickening of peripheral nerves</td></tr>
+        <tr><td>Significant early sensory loss</td><td>Extensive sensory loss (long period)</td></tr>
+        <tr><td>Milder, few bacteria</td><td>Severe, large numbers bacteria</td></tr>
+        <tr><td>Minimal disfigurement</td><td>Facial deformities, paralysis, "lion face"</td></tr>
+        <tr><td>Good immune response</td><td>Low immune response</td></tr>
+        <tr><td>WHO: Paucibacillary (TT, BT)</td><td>WHO: Multibacillary (BB, BL, LL)</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#276749;"></span>MAC &amp; Runyon's Classification</div>
+      <div class="info-box">
+        <strong>MAC (M. avium complex):</strong><br>
+        • Association with HIV/AIDS (CD4+ &lt;100/μL = disseminated risk) <span class="hy-badge badge-red">HY</span><br>
+        • "Lady Windermere syndrome" — middle-aged/elderly women, no chronic lung disease<br>
+        • Symptoms: fever, night sweats, abdominal pain, diarrhea, weight loss<br>
+        • Tx: Macrolides (clarithromycin/azithromycin) + Ethambutol ± Antiretrovirals
+      </div>
+      <div class="divider"></div>
+      <table class="hy-table">
+        <tr><th>Runyon Group</th><th>Type</th><th>Pigment</th></tr>
+        <tr><td>Group I</td><td>Photochromogens</td><td>Pigmented in LIGHT only</td></tr>
+        <tr><td>Group II</td><td>Scotochromogens</td><td>Pigmented in light AND dark</td></tr>
+        <tr><td>Group III</td><td>Nonphotochromogens</td><td>NON-pigmented (light + dark)</td></tr>
+        <tr><td>Group IV</td><td>Rapid Growers</td><td>Grow within 7 days</td></tr>
+      </table>
+      <div class="divider"></div>
+      <div class="info-box"><strong>Culture Media Summary:</strong><br>
+        Primary: MGIT (broth, fluorometric)<br>
+        Secondary: Löwenstein-Jensen (LJ) → cauliflower colonies<br>
+        Sensitivity: Middlebrook 7H10 agar (drug susceptibility)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 5: MYCOPLASMA · LEGIONELLA · BARTONELLA
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="myco-legio-bart">
+  <div class="section-title">
+    <div class="section-icon" style="background:#f0fff4;">🫁</div>
+    <h2 style="color:#276749;">Mycoplasma · Legionella · Bartonella</h2>
+    <span class="badge-count">Atypical pneumonia</span>
+  </div>
+
+  <!-- MYCOPLASMA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#276749;"></span>Mycoplasma spp.</div>
+    <div class="grid-2">
+      <div>
+        <div class="warn-box"><strong>❌ NO CELL WALL</strong> → Resistant to penicillin, cephalosporins, vancomycin<br>Gram stain NOT helpful <span class="hy-badge badge-red">HY</span></div>
+        <table class="hy-table">
+          <tr><th>Species</th><th>Clinical Significance</th></tr>
+          <tr><td><strong>M. pneumoniae</strong></td><td>Atypical pneumonia, erythema multiforme, <em>hemolytic anemia</em>, neurologic involvement</td></tr>
+          <tr><td><strong>M. hominis</strong></td><td>Postpartum/postabortal fever, salpingitis, tubo-ovarian abscess</td></tr>
+          <tr><td><strong>Ureaplasma urealyticum</strong></td><td>Non-gonococcal, non-chlamydial urethritis; premature infants/low birth weight</td></tr>
+          <tr><td><strong>M. genitalium</strong></td><td>Urethral and urogenital infections</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="gold-box">
+          <strong>🎯 Hemolytic Anemia Mechanism (M. pneumoniae):</strong><br>
+          Cold agglutinin antibodies → anti-I antigen (I-antigen on erythrocytes AND respiratory epithelium)<br>
+          Cold temperature in extremities → Ab binding → complement-mediated hemolysis
+        </div>
+        <div class="info-box">
+          <strong>Early Infection Paradox:</strong> Mild symptoms BUT severe consolidation on CXR <span class="hy-badge badge-red">HY</span><br>
+          Most common pathological findings: interstitial, peribronchial pneumonitis + necrotizing bronchiolitis<br>
+          Adhesin: P1 (M. pneumoniae) / MgPa (M. genitalium)
+        </div>
+        <div class="info-box">
+          <strong>Culture:</strong> Fried egg appearance (center buried in agar, not on top)<br>
+          Media needs: Serum (sterols) + Glucose + Yeast extract<br>
+          Exception: Ureaplasma uses UREA instead of glucose
+        </div>
+        <div class="warn-box"><strong>Treatment:</strong> Tetracycline / Macrolides / Fluoroquinolones (does not always eradicate — can reside intra + extracellularly)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGIONELLA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#c05621;"></span>Legionella pneumophila</div>
+    <div class="grid-2">
+      <div>
+        <table class="hy-table th-orange">
+          <tr><th colspan="2">Key Features</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Fastidious, aerobic, Gram− (0.5–1μm wide, 2–50μm long), non-encapsulated</td></tr>
+          <tr><td><strong>Serogroup</strong></td><td>16 serogroups; Serogroup 1 = Philadelphia strain (1976 outbreak)</td></tr>
+          <tr><td><strong>Reservoir</strong></td><td>Warm, moist environments (A/C systems, shower heads, cooling towers)</td></tr>
+          <tr><td><strong>MOT</strong></td><td>Aerosol inhalation (NOT person-to-person)</td></tr>
+          <tr><td><strong>Culture</strong></td><td><em>BCYE (Buffered Charcoal Yeast Extract)</em> — preferred medium <span class="hy-badge badge-red">HY</span></td></tr>
+          <tr><td><strong>BCYE Components</strong></td><td>α-ketoglutarate + L-cysteine + Iron; Charcoal = detoxicant</td></tr>
+          <tr><td><strong>Biochemical</strong></td><td>Catalase+, Oxidase+, Hydrolyzes hippurate</td></tr>
+          <tr><td><strong>Treatment</strong></td><td>Macrolides or Quinolones (intracellular activity required) ≤3 weeks</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="hy-table th-orange">
+          <tr><th></th><th>Legionnaire's Disease</th><th>Pontiac Fever</th></tr>
+          <tr><td>Severity</td><td>Severe pneumonia</td><td>Self-limited flu</td></tr>
+          <tr><td>Symptoms</td><td>High fever, chills, non-productive cough, hypoxia, diarrhea, DELIRIUM</td><td>Fever, chills, myalgia, dizziness, photophobia, neck stiffness</td></tr>
+          <tr><td>CXR</td><td>Patchy/multilobar consolidation <span class="hy-badge badge-red">HY</span></td><td>Normal</td></tr>
+          <tr><td>Mortality</td><td>~10% in outbreaks</td><td>Very low</td></tr>
+        </table>
+        <div class="algo-box" style="margin-top:12px;">
+          <h4>🔬 Intracellular Survival Mechanism</h4>
+          <div class="algo-step"><div class="algo-num">1</div><span>Mip protein → adheres + enters macrophages</span></div>
+          <div class="algo-step"><div class="algo-num">2</div><span>Forms LCVs (Legionella-containing vacuoles)</span></div>
+          <div class="algo-step"><div class="algo-num">3</div><span>LCVs evade lysosomal fusion → no degradation</span></div>
+          <div class="algo-step"><div class="algo-num">4</div><span>Dot/Icm type IV secretion system → replication</span></div>
+          <div class="algo-step"><div class="algo-num">5</div><span>Fe (transferrin) → intracellular growth → bursts macrophage</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARTONELLA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#6b46c1;"></span>Bartonella spp.</div>
+    <table class="hy-table th-purple">
+      <tr>
+        <th>Species</th>
+        <th>Disease</th>
+        <th>Reservoir/Vector</th>
+        <th>Key Features</th>
+        <th>Treatment</th>
+      </tr>
+      <tr>
+        <td><strong>B. bacilliformis</strong></td>
+        <td><em>Oroya Fever</em> (Stage 1) → <em>Verruga Peruana</em> (Stage 2)</td>
+        <td>Sandfly</td>
+        <td>Stage 1: 85% mortality, severe anemia, hepatosplenomegaly | Stage 2: vascular nodular skin lesions, low mortality. Can have Stage 2 WITHOUT Stage 1.</td>
+        <td>Ciprofloxacin / Doxycycline / Macrolides / TMP-SMX</td>
+      </tr>
+      <tr>
+        <td><strong>B. henselae</strong></td>
+        <td><em>Cat Scratch Disease</em> + Bacillary Angiomatosis</td>
+        <td>Domestic cats</td>
+        <td>Benign, self-limited; fever + lymphadenopathy (1–3 wks post-scratch); Parinaud's oculoglandular syndrome (preauricular LAD + conjunctivitis); Granulomas → necrosis/stellate abscesses</td>
+        <td>Usually resolves without Abx; Erythromycin or Doxycycline for 2mo (bacillary angiomatosis)</td>
+      </tr>
+      <tr>
+        <td><strong>B. quintana</strong></td>
+        <td><em>Trench Fever</em> + Bacillary Angiomatosis</td>
+        <td>Human body louse (reservoir: humans)</td>
+        <td>Quintan fever (every 3–5 days, lasts 5 days); shin pain; culture-negative endocarditis; homeless individuals at risk. Bacillary angiomatosis: red papules → lobular capillary proliferation + cuboidal endothelial cells + peliosis hepatis</td>
+        <td>Erythromycin or Doxycycline for 2 months</td>
+      </tr>
+    </table>
+    <div class="divider"></div>
+    <div class="warn-box"><strong>⚠️ Bacillary Angiomatosis vs Kaposi Sarcoma:</strong> Both show vascular skin lesions. B. angiomatosis: more common with B. quintana; caused by bacteria (treatable); lobular capillary proliferation histologically. KS: HHV-8, HIV.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 6: RICKETTSIA · EHRLICHIA · YERSINIA · PASTEURELLA
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="rickettsia">
+  <div class="section-title">
+    <div class="section-icon" style="background:#fffff0;">🕷️</div>
+    <h2 style="color:#b7791f;">Rickettsia · Ehrlichia · Yersinia · Pasteurella</h2>
+    <span class="badge-count">Vector-borne</span>
+  </div>
+
+  <!-- RICKETTSIA MASTER TABLE -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#b7791f;"></span>Rickettsial Disease Master Table</div>
+    <div class="warn-box"><strong>All characteristics:</strong> Small, obligate intracellular G− rods | Pleomorphic coccobacilli | Difficult to diagnose | BSL-3 lab required | Main pathology: Vasculitis + Eschar at bite site | Main vectors: Ticks, lice, mites | Treatment: Doxycycline | ❌ Sulfonamides worsen disease!</div>
+    <table class="hy-table th-gold">
+      <tr><th>Disease</th><th>Agent</th><th>Vector</th><th>Key Differentiator</th><th>Eschar?</th></tr>
+      <tr>
+        <td><strong>Epidemic Typhus</strong></td>
+        <td>R. prowazekii</td>
+        <td>Body louse (Pediculus humanus) — human-to-human</td>
+        <td>Brill-Zinsser disease (recrudescence — bacteria persist in lymph nodes for years); Fatal if &gt;40 yo</td>
+        <td>❌ No</td>
+      </tr>
+      <tr>
+        <td><strong>Endemic/Murine Typhus</strong></td>
+        <td>R. typhi</td>
+        <td>Oriental Rat Flea (Xenopsylla sp.) — feces rubbed in wound</td>
+        <td>Milder than epidemic; rat reservoir; rarely fatal</td>
+        <td>❌ No</td>
+      </tr>
+      <tr>
+        <td><strong>Scrub Typhus</strong></td>
+        <td>Orientia tsutsugamushi</td>
+        <td>Mite/chigger (Leptotrombidium sp.)</td>
+        <td>Eschar indicates bite site; generalized LAD + lymphocytosis; Far East (Myanmar); 30% mortality</td>
+        <td>✅ Yes <span class="hy-badge badge-red">HY</span></td>
+      </tr>
+      <tr>
+        <td><strong>RMSF</strong></td>
+        <td>R. rickettsii</td>
+        <td>Tick (Dermacentor sp.)</td>
+        <td>Rash appears day 3–5; <em>DISTAL extremities → centripetal</em> (palms/soles → trunk) <span class="hy-badge badge-red">HY</span></td>
+        <td>❌ No (rash, not eschar)</td>
+      </tr>
+      <tr>
+        <td><strong>Rickettsialpox</strong></td>
+        <td>R. akari</td>
+        <td>Mite (Liponyssoides sp.)</td>
+        <td>Milder than RMSF; rash resembles Varicella; Papule → Vesicle → Eschar; <em>Weil-Felix NEGATIVE</em> <span class="hy-badge badge-red">HY</span></td>
+        <td>✅ Yes</td>
+      </tr>
+      <tr>
+        <td><strong>Ehrlichiosis (HME)</strong></td>
+        <td>E. chaffeensis</td>
+        <td>Tick (Amblyomma americanum — lone star tick)</td>
+        <td>Monocytes; morulae in WBCs; NO rash; Southeast/South Central US; 5–6× more common than RMSF</td>
+        <td>❌ No</td>
+      </tr>
+      <tr>
+        <td><strong>Anaplasmosis (HGA)</strong></td>
+        <td>Anaplasma phagocytophilum</td>
+        <td>Tick (Ixodes sp.)</td>
+        <td>Granulocytes; morulae in WBCs; Upper Midwest/Lyme areas; formerly HGE</td>
+        <td>❌ No</td>
+      </tr>
+      <tr>
+        <td><strong>Q Fever</strong></td>
+        <td>Coxiella burnetii</td>
+        <td><em>Inhalation</em> of aerosols from livestock <span class="hy-badge badge-red">NOT arthropod!</span></td>
+        <td>Acute: resembles influenza, rash rare | Chronic: INFECTIVE ENDOCARDITIS (most common chronic form) &gt;6 months; slaughterhouse workers; vaccine available</td>
+        <td>❌ No</td>
+      </tr>
+    </table>
+    <div class="gold-box" style="margin-top:12px;">
+      <strong>⭐ Weil-Felix Reaction:</strong> Presumptive (non-specific) agglutination test using Proteus vulgaris O antigens (cross-react with Rickettsia). Low sensitivity/specificity → NO longer routinely recommended. IFA preferred. NOTE: Rickettsialpox does NOT react with Weil-Felix!
+    </div>
+  </div>
+
+  <!-- RICKETTSIAL DIAGNOSIS -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#b7791f;"></span>Rickettsia Diagnosis &amp; Staining</div>
+      <table class="hy-table th-gold">
+        <tr><th>Method</th><th>Detail</th></tr>
+        <tr><td>Gold standard Dx</td><td>IFA (Indirect Immunofluorescence Assay)</td></tr>
+        <tr><td>Best tissue Dx</td><td>IHC/IHF stains (most useful for confirmation)</td></tr>
+        <tr><td>Special stains</td><td>Gimenez, Giemsa, Acridine Orange</td></tr>
+        <tr><td>Gram stain</td><td>Gram− wall but does NOT stain well</td></tr>
+        <tr><td>Location in cell</td><td>Typhus group → cytoplasm; Spotted fever → nucleus</td></tr>
+        <tr><td>PCR</td><td>rt-PCR available</td></tr>
+        <tr><td>Culture</td><td>BSL-3 lab only; yolk sac of embryonated eggs; dangerous</td></tr>
+      </table>
+      <div class="warn-box" style="margin-top:12px;"><strong>❌ Sulfonamides</strong> make rickettsial disease WORSE!<br>✅ Treatment: <strong>Tetracyclines (Doxycycline)</strong> or Chloramphenicol</div>
+    </div>
+
+    <!-- YERSINIA -->
+    <div class="card">
+      <div class="card-title"><span class="dot" style="background:#c53030;"></span>Yersinia pestis — Plague</div>
+      <table class="hy-table th-red">
+        <tr><th colspan="2">Key Features</th></tr>
+        <tr><td><strong>Shape</strong></td><td>G− bacilli with <em>bipolar staining (safety-pin appearance)</em> <span class="hy-badge badge-red">HY</span></td></tr>
+        <tr><td><strong>Stain</strong></td><td>Wright or Giemsa stains best</td></tr>
+        <tr><td><strong>Vector</strong></td><td>Xenopsylla cheopis (rat flea) — most common</td></tr>
+        <tr><td><strong>Host</strong></td><td>Primary: rodents. Humans = incidental dead-end hosts</td></tr>
+        <tr><td><strong>Virulence</strong></td><td>V &amp; W antigens (essential), capsular protein (anti-phagocytic), T3SS, coagulases</td></tr>
+        <tr><td><strong>Biochemical</strong></td><td>Catalase+, Indole−, Oxidase−, Urease−</td></tr>
+        <tr><td><strong>Mortality</strong></td><td>Untreated: ~50%; Pneumonic untreated: ~100%</td></tr>
+        <tr><td><strong>Treatment</strong></td><td>Streptomycin / Gentamicin / Doxycycline / Ciprofloxacin</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- PLAGUE TYPES + YERSINIA OTHER + PASTEURELLA -->
+  <div class="card">
+    <div class="card-title"><span class="dot" style="background:#c53030;"></span>Types of Plague + Other Yersinia + Pasteurella</div>
+    <div class="grid-3">
+      <div>
+        <table class="hy-table th-red">
+          <tr><th colspan="2">3 Types of Plague</th></tr>
+          <tr><td><strong>Bubonic</strong></td><td>Incubation 2–7d; flea bite; inguinal bubo (enlarged, suppurate); fever, chills; gangrene of skin/fingers/penis</td></tr>
+          <tr><td><strong>Pneumonic</strong></td><td>Droplet MOT; hemorrhagic pneumonia; hemoptysis; 1–4d onset; cyanosis; can follow bubonic (hematogenous)</td></tr>
+          <tr><td><strong>Septicemic</strong></td><td>Terminal event of bubonic/pneumonic; DIC, shock, organ failure; "Black Death" (hemorrhages in skin/mucosa)</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="hy-table">
+          <tr><th colspan="2">Other Yersinia spp.</th></tr>
+          <tr><td><strong>Y. enterocolitica</strong></td><td>Enterocolitis: fever, abd pain, watery→bloody diarrhea; Post-infectious: arthritis/erythema nodosum (&gt;HLA-B27 patients) ~2wks after diarrhea</td></tr>
+          <tr><td><strong>Y. pseudotuberculosis</strong></td><td>Mesenteric adenitis ("pseudoappendicitis"); children/young adults; can cause sepsis</td></tr>
+          <tr><td>Both</td><td>Zoonotic, fecal-oral, G−, urease+, oxidase−</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="hy-table">
+          <tr><th colspan="2">Pasteurella multocida</th></tr>
+          <tr><td><strong>Shape</strong></td><td>Non-motile, G− coccobacilli, bipolar appearance</td></tr>
+          <tr><td><strong>Source</strong></td><td>Cat/dog bites (most common organism)</td></tr>
+          <tr><td><strong>Biochemical</strong></td><td>Oxidase+, Catalase+</td></tr>
+          <tr><td><strong>Presentation</strong></td><td>Animal bite history + rapid onset (&lt;24h) of redness, swelling, pain</td></tr>
+          <tr><td><strong>Treatment</strong></td><td><em>Penicillin G</em> (DOC) or Tetracyclines/Fluoroquinolones</td></tr>
+          <tr><td><strong>Note</strong></td><td>Also causes hemorrhagic septicemia in animals (rabbits, cattle, sheep)</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 7: MCQ
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="mcq">
+  <div class="section-title">
+    <div class="section-icon" style="background:#fff5f5;">🧠</div>
+    <h2 style="color:#c53030;">MCQ Review — 25 Questions</h2>
+    <span class="badge-count">Click to reveal</span>
+  </div>
+
+  <div class="info-box" style="margin-bottom:20px;"><strong>Instructions:</strong> Click on an answer to reveal if it's correct. The explanation will appear below.</div>
+
+  <!-- Q1 -->
+  <div class="mcq-card">
+    <div class="mcq-q">1. A fisherman develops a painful, violaceous raised lesion on his finger after handling fish — NO pus is present. Culture shows a Gram+ bacillus that is H₂S(+) on TSI, catalase(−), α-hemolytic. What is the organism?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 1)"><span class="opt-letter">A</span>Listeria monocytogenes</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 1)"><span class="opt-letter">B</span>Erysipelothrix rhusiopathiae</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 1)"><span class="opt-letter">C</span>Nocardia brasiliensis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 1)"><span class="opt-letter">D</span>Corynebacterium diphtheriae</div>
+    </div>
+    <div class="mcq-explain" id="exp1">✅ E. rhusiopathiae: ONLY Gram+ rod that produces H₂S on TSI (black butt), α-hemolytic, catalase(−). Causes erysipeloid — zoonotic from fish/pork, NO pus (unlike staph/strep). Treatment: Penicillin G. Resistant to vancomycin.</div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="mcq-card">
+    <div class="mcq-q">2. Which drug should NEVER be used to treat Rocky Mountain Spotted Fever?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 2)"><span class="opt-letter">A</span>Doxycycline</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 2)"><span class="opt-letter">B</span>Chloramphenicol</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 2)"><span class="opt-letter">C</span>Trimethoprim-sulfamethoxazole</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 2)"><span class="opt-letter">D</span>Tetracycline</div>
+    </div>
+    <div class="mcq-explain" id="exp2">✅ Sulfonamides (TMP-SMX) make rickettsial infections WORSE by delaying bacterial clearance. Treatment of choice: Doxycycline. Chloramphenicol is an alternative.</div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="mcq-card">
+    <div class="mcq-q">3. A 9-month-old infant presents with hypotonia, constipation, weak cry, and poor feeding ("floppy baby"). Parents mention giving honey. Which is the confirmatory test for this condition?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 3)"><span class="opt-letter">A</span>Blood culture for C. botulinum</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 3)"><span class="opt-letter">B</span>ELISA for toxin in serum</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 3)"><span class="opt-letter">C</span>Mouse toxicity (bioassay) test on feces</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 3)"><span class="opt-letter">D</span>PCR for botulinum gene in blood</div>
+    </div>
+    <div class="mcq-explain" id="exp3">✅ Mouse bioassay is the GOLD STANDARD for botulism. In INFANTS: specimen is FECES (not serum). In adults/foodborne: serum or leftover food. Mouse dies rapidly = positive. C. botulinum blocks ACh release → flaccid paralysis.</div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="mcq-card">
+    <div class="mcq-q">4. A patient on anti-TB therapy develops resistance detected by GeneXpert. Which gene mutation would explain this?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 4)"><span class="opt-letter">A</span>katG — resistance to Rifampicin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 4)"><span class="opt-letter">B</span>rpoB — resistance to Rifampicin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 4)"><span class="opt-letter">C</span>gyrA — resistance to Isoniazid</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 4)"><span class="opt-letter">D</span>inhA — resistance to Rifampicin</div>
+    </div>
+    <div class="mcq-explain" id="exp4">✅ rpoB encodes the β-subunit of RNA polymerase → Rifampicin resistance. GeneXpert ONLY detects rpoB (Rifampicin resistance) — no test for Isoniazid on GeneXpert. katG/inhA = Isoniazid resistance. gyrA = Fluoroquinolone resistance.</div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="mcq-card">
+    <div class="mcq-q">5. Ehrlichia chaffeensis characteristically infects which cell type, and what is the diagnostic finding?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 5)"><span class="opt-letter">A</span>Granulocytes; intranuclear inclusions</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 5)"><span class="opt-letter">B</span>Monocytes; morulae in WBCs (HME)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 5)"><span class="opt-letter">C</span>Lymphocytes; morulae in lymph nodes</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 5)"><span class="opt-letter">D</span>Granulocytes; morulae → HME</div>
+    </div>
+    <div class="mcq-explain" id="exp5">✅ E. chaffeensis → Human Monocytic Ehrlichiosis (HME) → monocytes. Anaplasma phagocytophilum → Human Granulocytic Anaplasmosis (HGA) → granulocytes. Diagnosis: morulae in WBCs (most sensitive in 1st week). No rash!</div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="mcq-card">
+    <div class="mcq-q">6. A 29-year-old pregnant woman eats unpasteurized cheese, develops fever, and delivers a stillborn with pyogranulomatous lesions. The organism survives refrigeration and shows tumbling motility at 25°C. Treatment?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 6)"><span class="opt-letter">A</span>Ampicillin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 6)"><span class="opt-letter">B</span>Penicillin G</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 6)"><span class="opt-letter">C</span>TMP-SMX</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 6)"><span class="opt-letter">D</span>Doxycycline</div>
+    </div>
+    <div class="mcq-explain" id="exp6">✅ Listeria monocytogenes: survives refrigerator (4°C), tumbling motility at 22–28°C (NOT 37°C), fecal-oral MOT, causes granulomatosis infantiseptica (early onset &lt;6 days) or neonatal listeriosis (7–28 days). Treatment: Ampicillin.</div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="mcq-card">
+    <div class="mcq-q">7. Coxiella burnetii (Q fever) differs from typical Rickettsia in which key way?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 7)"><span class="opt-letter">A</span>Gram-negative coccobacillus with arthropod transmission</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 7)"><span class="opt-letter">B</span>Produces eschar at the bite site</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 7)"><span class="opt-letter">C</span>Acquired by inhalation of aerosols from infected livestock — NOT arthropod bite</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 7)"><span class="opt-letter">D</span>Causes fever and maculopapular rash</div>
+    </div>
+    <div class="mcq-explain" id="exp7">✅ Q fever is ATYPICAL — no arthropod vector, no eschar, no rash! Acquired by INHALATION of aerosols from infected animals (cattle, sheep, goats). Prevalent in slaughterhouse workers. Chronic form: infective ENDOCARDITIS (most common). Treatment: Doxycycline. Stains with Gimenez.</div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="mcq-card">
+    <div class="mcq-q">8. Which organism causes Lemierre's syndrome (septic thrombophlebitis of the internal jugular vein)?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 8)"><span class="opt-letter">A</span>Fusobacterium nucleatum</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 8)"><span class="opt-letter">B</span>Bacteroides fragilis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 8)"><span class="opt-letter">C</span>Prevotella bivia</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 8)"><span class="opt-letter">D</span>Peptostreptococcus</div>
+    </div>
+    <div class="mcq-explain" id="exp8">✅ Fusobacterium nucleatum — thin bacilli with pointed ends; causes Lemierre's syndrome + oral infections + lung abscesses. B. fragilis = most pathogenic non-spore former (intra-abdominal infections, capsule). B. fragilis = only one that grows in bile.</div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="mcq-card">
+    <div class="mcq-q">9. A 56-year-old hotel guest has high fever, cough, diarrhea, and delirium. CXR shows multilobar consolidation. Gram stain negative. Culture requires iron + L-cysteine supplementation. Best treatment?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 9)"><span class="opt-letter">A</span>Penicillin + Aminoglycosides</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 9)"><span class="opt-letter">B</span>Macrolides or Fluoroquinolones</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 9)"><span class="opt-letter">C</span>TMP-SMX</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 9)"><span class="opt-letter">D</span>Cephalosporins</div>
+    </div>
+    <div class="mcq-explain" id="exp9">✅ Legionella pneumophila (Legionnaire's Disease). Key clues: hotel/water source exposure, diarrhea, delirium, multilobar CXR, Gram stain negative, BCYE medium (L-cysteine + iron + charcoal). Treatment must have intracellular activity: Macrolides (azithromycin/erythromycin) or Quinolones (levofloxacin). Up to 3 weeks Tx.</div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="mcq-card">
+    <div class="mcq-q">10. Which statement about Mycoplasma pneumoniae is TRUE?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 10)"><span class="opt-letter">A</span>It is Gram-negative and responds to penicillin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 10)"><span class="opt-letter">B</span>Chest X-ray is always normal in early infection</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 10)"><span class="opt-letter">C</span>Early infection: mild symptoms but severe CXR consolidation</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 10)"><span class="opt-letter">D</span>Hemolytic anemia is caused by warm agglutinins</div>
+    </div>
+    <div class="mcq-explain" id="exp10">✅ Paradox of M. pneumoniae ("walking pneumonia"): early infection has mild/moderate symptoms but SEVERE CXR consolidation. No cell wall → NOT Gram+/−, resistant to β-lactams. Hemolytic anemia: COLD agglutinin antibodies (anti-I antigen). Culture: fried egg colonies.</div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="mcq-card">
+    <div class="mcq-q">11. A 35-year-old woman develops hand swelling within 10 hours of a cat bite. The isolate is oxidase(+), Gram− coccobacilli, bipolar-staining, penicillin-sensitive. Diagnosis?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 11)"><span class="opt-letter">A</span>Yersinia pestis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 11)"><span class="opt-letter">B</span>Pasteurella multocida</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 11)"><span class="opt-letter">C</span>Y. enterocolitica</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 11)"><span class="opt-letter">D</span>E. chaffeensis</div>
+    </div>
+    <div class="mcq-explain" id="exp11">✅ Pasteurella multocida: rapid onset (&lt;24h) after cat/dog bite, oxidase+, bipolar Gram− coccobacilli, penicillin-sensitive (DOC: Penicillin G). Yersinia pestis also has bipolar staining but is oxidase−, urease−, and transmitted by fleas/rodents — not cat bites.</div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="mcq-card">
+    <div class="mcq-q">12. Which finding differentiates Nocardia from Mycobacterium tuberculosis?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 12)"><span class="opt-letter">A</span>Pulmonary infection by inhalation</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 12)"><span class="opt-letter">B</span>Presence of mycolic acids in cell wall</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 12)"><span class="opt-letter">C</span>Dissemination to the brain causing abscesses; granulomas/caseation are RARE</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 12)"><span class="opt-letter">D</span>Weakly acid-fast staining</div>
+    </div>
+    <div class="mcq-explain" id="exp12">✅ Key differentiator: Nocardia → brain abscesses common; NO granulomas/caseation. TB → granulomas with caseation, Langhans giant cells. Both have mycolic acids (Nocardia has FEWER → weakly AFB). Both cause pulmonary disease by inhalation. Treatment: Nocardia = TMP-SMX; TB = HRZE.</div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="mcq-card">
+    <div class="mcq-q">13. The rash of RMSF classically:</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 13)"><span class="opt-letter">A</span>Starts on trunk and spreads outward</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 13)"><span class="opt-letter">B</span>Starts on distal extremities (wrists/ankles) and moves centripetally toward trunk</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 13)"><span class="opt-letter">C</span>Begins on day 1 of illness</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 13)"><span class="opt-letter">D</span>Begins as vesicles on the face</div>
+    </div>
+    <div class="mcq-explain" id="exp13">✅ RMSF rash: Appears on day 3–5 (NOT day 1), starts DISTALLY (wrists/ankles/palms/soles) and moves CENTRIPETALLY toward trunk. This centripetal spread from palms and soles is the HIGH-YIELD distinguishing feature. Not all patients have rash.</div>
+  </div>
+
+  <!-- Q14 -->
+  <div class="mcq-card">
+    <div class="mcq-q">14. What is the most common form of chronic Q fever?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 14)"><span class="opt-letter">A</span>Atypical pneumonia (self-resolving)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 14)"><span class="opt-letter">B</span>Culture-negative endocarditis (especially with valvular disease)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 14)"><span class="opt-letter">C</span>Hepatic granulomas with caseation</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 14)"><span class="opt-letter">D</span>Recurrent vasculitis with rash</div>
+    </div>
+    <div class="mcq-explain" id="exp14">✅ Chronic Q fever (>6 months) most commonly presents as INFECTIVE ENDOCARDITIS (culture-negative) especially in patients with pre-existing valvular disease. Diagnosis: Indirect immunofluorescence. Treatment: Doxycycline.</div>
+  </div>
+
+  <!-- Q15 -->
+  <div class="mcq-card">
+    <div class="mcq-q">15. A 24-year-old Peruvian man has high fever, pallor, hepatosplenomegaly, and severe hemolytic anemia. Six weeks later, he develops vascular nodular skin lesions but feels well. Which matches his current stage?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 15)"><span class="opt-letter">A</span>Oroya fever — nodular skin lesions, low mortality</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 15)"><span class="opt-letter">B</span>Verruga peruana — vascular skin lesions, low mortality, little systemic reaction</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 15)"><span class="opt-letter">C</span>Oroya fever — severe anemia, high mortality (85%)</td></div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 15)"><span class="opt-letter">D</span>Verruga peruana — hemorrhage into lymph nodes</div>
+    </div>
+    <div class="mcq-explain" id="exp15">✅ B. bacilliformis: Stage 1 (Oroya fever) = severe anemia, hepatosplenomegaly, 85% mortality. Stage 2 (Verruga peruana) = eruptive vascular nodular skin lesions, LOW mortality, minimal systemic reaction. Patient CAN have Stage 2 WITHOUT prior Stage 1.</div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="mcq-card">
+    <div class="mcq-q">16. Which Clostridium species is the EXCEPTION — it is NON-motile and CAPSULATED?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 16)"><span class="opt-letter">A</span>C. tetani</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 16)"><span class="opt-letter">B</span>C. perfringens</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 16)"><span class="opt-letter">C</span>C. botulinum</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 16)"><span class="opt-letter">D</span>C. difficile</div>
+    </div>
+    <div class="mcq-explain" id="exp16">✅ C. perfringens = the ONLY Clostridium that is non-motile AND capsulated (most Clostridia are motile with peritrichous flagella). Also unique: subterminal spore (bowling pin shape), aerotolerant, most common cause of gas gangrene (myonecrosis).</div>
+  </div>
+
+  <!-- Q17 -->
+  <div class="mcq-card">
+    <div class="mcq-q">17. A patient with HIV has a CD4+ count of 75/μL. They develop fever, night sweats, diarrhea, and abdominal pain. Which organism is most likely?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 17)"><span class="opt-letter">A</span>Mycobacterium tuberculosis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 17)"><span class="opt-letter">B</span>Mycobacterium avium complex (MAC)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 17)"><span class="opt-letter">C</span>Legionella pneumophila</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 17)"><span class="opt-letter">D</span>Nocardia asteroides</div>
+    </div>
+    <div class="mcq-explain" id="exp17">✅ MAC: disseminated infection risk when CD4+ &lt;100/μL. Classic symptoms: fever, night sweats, abdominal pain, diarrhea, weight loss. Culture: smooth, non-pigmented colonies. Treatment: Macrolides (clarithromycin/azithromycin) + Ethambutol + Antiretrovirals.</div>
+  </div>
+
+  <!-- Q18 -->
+  <div class="mcq-card">
+    <div class="mcq-q">18. Diphtheria toxin causes systemic damage by which mechanism?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 18)"><span class="opt-letter">A</span>Activates complement → cell lysis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 18)"><span class="opt-letter">B</span>ADP-ribosylation of EF-2 → inhibition of protein synthesis → cell death</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 18)"><span class="opt-letter">C</span>Cleaves SNARE proteins → blocks neurotransmitter release</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 18)"><span class="opt-letter">D</span>Activates adenylate cyclase → increased cAMP → edema</div>
+    </div>
+    <div class="mcq-explain" id="exp18">✅ Diphtheria toxin (A subunit) catalyzes ADP-ribosylation of EF-2 (elongation factor 2) → inhibits protein synthesis → cell death. This causes myocarditis, neuritis (demyelination), tubular necrosis. Toxin encoded by tox gene (β-prophage). HB-EGF receptor for attachment.</div>
+  </div>
+
+  <!-- Q19 -->
+  <div class="mcq-card">
+    <div class="mcq-q">19. A soldier returns from a tropical region with recurrent fever every 5 days, shin pain, and skin papules. He is homeless. Which organism?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 19)"><span class="opt-letter">A</span>Bartonella henselae</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 19)"><span class="opt-letter">B</span>Bartonella quintana</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 19)"><span class="opt-letter">C</span>Bartonella bacilliformis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 19)"><span class="opt-letter">D</span>Rickettsia typhi</div>
+    </div>
+    <div class="mcq-explain" id="exp19">✅ B. quintana (Trench Fever): quintan fever (every 3–5 days, lasts 5 days), shin pain, culture-negative endocarditis, reservoir = humans + body louse, common in homeless. B. henselae = cat scratch disease. B. bacilliformis = Oroya fever (Peru). Treatment: Erythromycin or Doxycycline 2 months.</div>
+  </div>
+
+  <!-- Q20 -->
+  <div class="mcq-card">
+    <div class="mcq-q">20. The Nagler reaction is used to identify which organism and which toxin?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 20)"><span class="opt-letter">A</span>C. tetani — Tetanospasmin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 20)"><span class="opt-letter">B</span>C. perfringens — α-toxin (lecithinase C)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 20)"><span class="opt-letter">C</span>C. botulinum — Botulinum toxin</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 20)"><span class="opt-letter">D</span>C. difficile — Toxin B</div>
+    </div>
+    <div class="mcq-explain" id="exp20">✅ Nagler reaction = growth on egg yolk agar → dense opalescence caused by α-toxin (lecithinase C) of C. perfringens. Also: stormy fermentation of milk + double/target hemolysis on BAP. α-toxin is the MOST POTENT toxin of C. perfringens → destroys erythrocytes, leukocytes, platelets → hemolysis, necrosis.</div>
+  </div>
+
+  <!-- Q21 -->
+  <div class="mcq-card">
+    <div class="mcq-q">21. Which statement about Actinomycosis is CORRECT?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 21)"><span class="opt-letter">A</span>It is acid-fast and resembles Mycobacterium</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 21)"><span class="opt-letter">B</span>Lesions contain sulfur granules (yellowish ~1mm) in draining sinuses</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 21)"><span class="opt-letter">C</span>Gram-negative anaerobic bacillus</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 21)"><span class="opt-letter">D</span>Commonly causes pseudomembranous colitis</div>
+    </div>
+    <div class="mcq-explain" id="exp21">✅ Actinomycosis (usually A. israelii): sulfur granules (yellowish, lobulated, ~1mm) in pyogenic draining sinuses. GRAM-POSITIVE filamentous bacilli. NOT acid-fast. 3 types: Cervicofacial ("lumpy jaw" — most common) → Thoracic → Abdominal. Sulfur granules = lobulated tissue cells + bacterial filaments.</div>
+  </div>
+
+  <!-- Q22 -->
+  <div class="mcq-card">
+    <div class="mcq-q">22. Plague has a mortality of ~50% untreated. Which type has nearly 100% mortality if untreated?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 22)"><span class="opt-letter">A</span>Bubonic plague</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 22)"><span class="opt-letter">B</span>Pneumonic plague</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 22)"><span class="opt-letter">C</span>Septicemic plague</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 22)"><span class="opt-letter">D</span>All have equal mortality</div>
+    </div>
+    <div class="mcq-explain" id="exp22">✅ Pneumonic plague: ~100% mortality untreated. Transmitted by respiratory droplets (person-to-person) → hemorrhagic pneumonia. Most dangerous/infectious form. Treatment: Streptomycin/Gentamicin/Doxycycline/Ciprofloxacin (URGENT). Y. pestis = bipolar "safety-pin" staining on Wright/Giemsa.</div>
+  </div>
+
+  <!-- Q23 -->
+  <div class="mcq-card">
+    <div class="mcq-q">23. A Mantoux test in a healthcare worker shows 12mm induration. She received BCG in childhood. IGRA test is positive. Correct interpretation?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 23)"><span class="opt-letter">A</span>Mantoux is false-positive due to BCG; IGRA confirms no TB</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 23)"><span class="opt-letter">B</span>Positive latent TB infection (both tests positive; IGRA not affected by BCG)</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 23)"><span class="opt-letter">C</span>Indeterminate — repeat IGRA needed</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 23)"><span class="opt-letter">D</span>Only high-risk if HCW with &gt;5mm</div>
+    </div>
+    <div class="mcq-explain" id="exp23">✅ HCW = medium risk → positive at &gt;10mm (12mm = positive). IGRA is NOT affected by BCG vaccination (advantage over TST). Both tests positive = latent TB infection. IGRA: TB1 (CD4+) and TB2 (CD4+ + CD8+) &gt;25% of negative control = positive.</div>
+  </div>
+
+  <!-- Q24 -->
+  <div class="mcq-card">
+    <div class="mcq-q">24. Which Rickettsialpox feature differentiates it from other spotted fever group?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 24)"><span class="opt-letter">A</span>Transmitted by tick; produces vasculitis</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 24)"><span class="opt-letter">B</span>Negative Weil-Felix reaction; rash resembles varicella; Papule→Vesicle→Eschar progression</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 24)"><span class="opt-letter">C</span>Causes severe hemorrhagic pneumonia</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 24)"><span class="opt-letter">D</span>Occurs in Far East, 30% mortality</div>
+    </div>
+    <div class="mcq-explain" id="exp24">✅ Rickettsialpox (R. akari / mite-borne): NEGATIVE Weil-Felix, varicella-like rash, Papule→Vesicle→Eschar (1 week before fever onset). Milder than RMSF. Agent: R. akari. Vector: Liponyssoides (mite). Transitional group. Treatment: Doxycycline.</div>
+  </div>
+
+  <!-- Q25 -->
+  <div class="mcq-card">
+    <div class="mcq-q">25. Bacillary angiomatosis caused by Bartonella shows which histological feature that may be confused with Kaposi sarcoma?</div>
+    <div class="mcq-options">
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 25)"><span class="opt-letter">A</span>Stellate necrosis surrounded by palisading histiocytes</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, true, 25)"><span class="opt-letter">B</span>Lobular capillary proliferation with cuboidal endothelial cells protruding into vascular lumen + epithelioid histiocytes in fibromyxoid stroma</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 25)"><span class="opt-letter">C</span>Granulomas with follicular hyperplasia and microabscesses</div>
+      <div class="mcq-opt" onclick="checkAnswer(this, false, 25)"><span class="opt-letter">D</span>Caseous necrosis with Langhans giant cells</div>
+    </div>
+    <div class="mcq-explain" id="exp25">✅ Bacillary angiomatosis (B. quintana > B. henselae): red papule → lobular capillary proliferation + cuboidal endothelial cells + loose fibromyxoid stroma + peliosis hepatis. Resembles Kaposi sarcoma clinically and histologically, but is BACTERIAL (treatable!). Treatment: Erythromycin or Doxycycline 2 months.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 8: BUZZWORDS
+═══════════════════════════════════════════════════════════ -->
+<section class="page-section" id="buzzwords">
+  <div class="section-title">
+    <div class="section-icon" style="background:#fffff0;">⚡</div>
+    <h2 style="color:#744210;">Buzzword Summary</h2>
+    <span class="badge-count">High-yield associations</span>
+  </div>
+
+  <div class="info-box" style="margin-bottom:20px;"><strong>Strategy:</strong> See the buzzword → immediately recall the organism + key fact. These are the associations that appear in board exams!</div>
+
+  <div class="bw-grid">
+    <div class="bw-card"><div class="bw-word">Safety-pin / bipolar staining (blood smear)</div><div class="bw-answer">Yersinia pestis (plague)</div><div class="bw-note">Also Pasteurella multocida. Use Wright/Giemsa for Yersinia.</div></div>
+    <div class="bw-card"><div class="bw-word">Drumstick appearance (terminal spore)</div><div class="bw-answer">Clostridium tetani</div><div class="bw-note">Motile, obligate anaerobe, tetanospasmin (spastic paralysis)</div></div>
+    <div class="bw-card"><div class="bw-word">Bowling pin appearance (subterminal spore)</div><div class="bw-answer">Clostridium perfringens</div><div class="bw-note">NON-motile, capsulated, aerotolerant. α-toxin. Gas gangrene.</div></div>
+    <div class="bw-card"><div class="bw-word">Fried egg appearance (colonies in agar)</div><div class="bw-answer">Mycoplasma spp.</div><div class="bw-note">Center buried in agar (not on surface). No cell wall → penicillin resistant.</div></div>
+    <div class="bw-card"><div class="bw-word">Sulfur granules</div><div class="bw-answer">Actinomyces israelii</div><div class="bw-note">Cervicofacial actinomycosis ("lumpy jaw"). Pyogenic + granulomatous infection.</div></div>
+    <div class="bw-card"><div class="bw-word">Cauliflower colonies, non-pigmented, rough</div><div class="bw-answer">Mycobacterium tuberculosis on LJ medium</div><div class="bw-note">Löwenstein-Jensen → 42 days incubation for slow growers</div></div>
+    <div class="bw-card"><div class="bw-word">Chinese letter / palisading arrangement</div><div class="bw-answer">Corynebacterium spp.</div><div class="bw-note">C. diphtheriae = most pathogenic. Club-shaped. Albert's stain → metachromatic granules.</div></div>
+    <div class="bw-card"><div class="bw-word">Tumbling (end-over-end) motility at 22–28°C</div><div class="bw-answer">Listeria monocytogenes</div><div class="bw-note">NOT at 37°C. Survives refrigerator. Fecal-oral. Ampicillin.</div></div>
+    <div class="bw-card"><div class="bw-word">H₂S (+) on TSI → black butt (Only Gram+)</div><div class="bw-answer">Erysipelothrix rhusiopathiae</div><div class="bw-note">α-hemolytic, catalase−, vancomycin resistant. Fishermen/butchers.</div></div>
+    <div class="bw-card"><div class="bw-word">Morulae in WBCs</div><div class="bw-answer">Ehrlichia spp. / Anaplasma</div><div class="bw-note">HME (monocytes, E. chaffeensis) · HGA (granulocytes, A. phagocytophilum). Tick-borne. No rash.</div></div>
+    <div class="bw-card"><div class="bw-word">Eschar at bite site</div><div class="bw-answer">Scrub typhus (Orientia tsutsugamushi)</div><div class="bw-note">Mite (chigger). Also RMSF has no eschar (rash, not eschar). Also: Rickettsialpox has eschar.</div></div>
+    <div class="bw-card"><div class="bw-word">Rash from distal extremities → centripetal (palms/soles)</div><div class="bw-answer">RMSF (R. rickettsii)</div><div class="bw-note">Day 3–5 of illness. Dermacentor tick. Doxycycline. ❌ Sulfonamides.</div></div>
+    <div class="bw-card"><div class="bw-word">Brill-Zinsser disease (recrudescence)</div><div class="bw-answer">R. prowazekii (Epidemic Typhus)</div><div class="bw-note">Bacteria persist in lymph nodes for years. Body louse vector.</div></div>
+    <div class="bw-card"><div class="bw-word">Weil-Felix NEGATIVE (in spotted fever group)</div><div class="bw-answer">Rickettsialpox (R. akari)</div><div class="bw-note">Only rickettsial disease that doesn't react. Varicella-like rash. Mite vector.</div></div>
+    <div class="bw-card"><div class="bw-word">Culture-negative endocarditis (chronic)</div><div class="bw-answer">Q Fever (Coxiella burnetii)</div><div class="bw-note">Also: Bartonella quintana (in homeless). Q fever = inhalation (NOT arthropod).</div></div>
+    <div class="bw-card"><div class="bw-word">Infective endocarditis (chronic Q fever)</div><div class="bw-answer">Coxiella burnetii</div><div class="bw-note">Most common form of chronic disease. Valvular disease predisposes. Doxycycline Tx.</div></div>
+    <div class="bw-card"><div class="bw-word">Inhalation from livestock (no eschar, no rash)</div><div class="bw-answer">Q Fever (Coxiella burnetii)</div><div class="bw-note">Slaughterhouse workers, farmers. BSL-3. Gimenez stain. ≠ arthropod-borne.</div></div>
+    <div class="bw-card"><div class="bw-word">Bubonic bubo + inguinal lymphadenopathy</div><div class="bw-answer">Yersinia pestis (Bubonic Plague)</div><div class="bw-note">Flea bite on legs → inguinal nodes. Xenopsylla cheopis (rat flea).</div></div>
+    <div class="bw-card"><div class="bw-word">Floppy baby syndrome</div><div class="bw-answer">C. botulinum (infant botulism via honey)</div><div class="bw-note">Constipation, poor feeding, weak cry, hypotonia. Feces (not serum) for diagnosis.</div></div>
+    <div class="bw-card"><div class="bw-word">Spastic paralysis (lockjaw, opisthotonus)</div><div class="bw-answer">C. tetani (tetanospasmin)</div><div class="bw-note">Blocks inhibitory NT (GABA/glycine). Antitoxin + Penicillin + Diazepam.</div></div>
+    <div class="bw-card"><div class="bw-word">Flaccid descending paralysis</div><div class="bw-answer">C. botulinum (blocks ACh)</div><div class="bw-note">Mentation intact! No fever. Mouse bioassay = gold standard.</div></div>
+    <div class="bw-card"><div class="bw-word">Pseudomembranous colitis + antibiotics</div><div class="bw-answer">Clostridium difficile</div><div class="bw-note">Ampicillin, Clindamycin most implicated. Tx: stop Ab + Metronidazole/Vancomycin.</div></div>
+    <div class="bw-card"><div class="bw-word">Black eschar (malignant pustule)</div><div class="bw-answer">Bacillus anthracis (cutaneous anthrax)</div><div class="bw-note">Ring of vesicles → necrotic center → black eschar. Lymphangitis. Most common type.</div></div>
+    <div class="bw-card"><div class="bw-word">Cord factor (serpentine cords)</div><div class="bw-answer">Mycobacterium tuberculosis (virulent strains)</div><div class="bw-note">Snake-like appearance on culture.</div></div>
+    <div class="bw-card"><div class="bw-word">Ghon complex</div><div class="bw-answer">Mycobacterium tuberculosis (primary TB)</div><div class="bw-note">Calcified subpleural granuloma + hilar lymph node. Children → mid/lower lung.</div></div>
+    <div class="bw-card"><div class="bw-word">Lady Windermere syndrome</div><div class="bw-answer">MAC (M. avium complex)</div><div class="bw-note">Middle-aged/elderly women; pulmonary MAC without chronic lung disease.</div></div>
+    <div class="bw-card"><div class="bw-word">CD4+ &lt;100/μL → disseminated infection</div><div class="bw-answer">MAC in HIV/AIDS patients</div><div class="bw-note">Macrolides + Ethambutol ± Antiretrovirals</div></div>
+    <div class="bw-card"><div class="bw-word">Weakly acid-fast, brain abscesses, NO granulomas</div><div class="bw-answer">Nocardia spp.</div><div class="bw-note">Mimics TB but key difference: no caseating granulomas, brain involvement, TMP-SMX tx.</div></div>
+    <div class="bw-card"><div class="bw-word">Walking pneumonia (mild symptoms, severe CXR)</div><div class="bw-answer">Mycoplasma pneumoniae</div><div class="bw-note">Cold agglutinins → hemolytic anemia. No cell wall → β-lactam resistant.</div></div>
+    <div class="bw-card"><div class="bw-word">BCYE agar + L-cysteine + iron</div><div class="bw-answer">Legionella pneumophila</div><div class="bw-note">Buffered Charcoal Yeast Extract. Charcoal = detoxicant. Dot/Icm for intracellular survival.</div></div>
+    <div class="bw-card"><div class="bw-word">Quintan fever (every 3–5 days) + shin pain</div><div class="bw-answer">Bartonella quintana (trench fever)</div><div class="bw-note">Body louse vector. Homeless individuals. Culture-negative endocarditis.</div></div>
+    <div class="bw-card"><div class="bw-word">Parinaud's oculoglandular syndrome</div><div class="bw-answer">Bartonella henselae (cat scratch disease)</div><div class="bw-note">Preauricular LAD + conjunctivitis. 5–10% of CSD cases. Benign, self-limited.</div></div>
+    <div class="bw-card"><div class="bw-word">Stormy fermentation of milk + Nagler (+)</div><div class="bw-answer">Clostridium perfringens</div><div class="bw-note">α-toxin (lecithinase C) = most potent. Double/target hemolysis on BAP.</div></div>
+    <div class="bw-card"><div class="bw-word">rpoB gene mutation → detected by GeneXpert</div><div class="bw-answer">Rifampicin resistance in MTB</div><div class="bw-note">β-subunit RNA polymerase. Only resistance GeneXpert can detect.</div></div>
+    <div class="bw-card"><div class="bw-word">Langhans giant cells + caseous necrosis</div><div class="bw-answer">Mycobacterium tuberculosis granuloma</div><div class="bw-note">Muramyl peptides/mycolic acids → granuloma; Phospholipids → caseous necrosis.</div></div>
+    <div class="bw-card"><div class="bw-word">Erysipeloid ≠ Erysipelas</div><div class="bw-answer">Erysipeloid → E. rhusiopathiae | Erysipelas → Group A Strep</div><div class="bw-note">Erysipeloid: NO pus, violaceous, fishermen/butchers. Tx: Penicillin G.</div></div>
+    <div class="bw-card"><div class="bw-word">Cat/dog bite + rapid onset cellulitis (&lt;24h)</div><div class="bw-answer">Pasteurella multocida</div><div class="bw-note">Oxidase+, bipolar Gram− coccobacilli. DOC: Penicillin G.</div></div>
+    <div class="bw-card"><div class="bw-word">Pseudomembrane bleeds when removed</div><div class="bw-answer">Corynebacterium diphtheriae</div><div class="bw-note">DO NOT remove! DPT vaccine given at 6, 10, 14 weeks (PH EPI program).</div></div>
+    <div class="bw-card"><div class="bw-word">Oroya fever → Verruga peruana</div><div class="bw-answer">Bartonella bacilliformis</div><div class="bw-note">Can have Stage 2 WITHOUT Stage 1. Stage 1: 85% mortality. Stage 2: vascular skin lesions, low mortality.</div></div>
+  </div>
+
+  <div class="divider" style="margin-top:30px;"></div>
+
+  <!-- TREATMENT CHEAT SHEET -->
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title"><span class="dot" style="background:#276749;"></span>Treatment Cheat Sheet — Critical DOCs</div>
+    <table class="hy-table">
+      <tr><th>Organism/Disease</th><th>Drug of Choice</th><th>Avoid / Notes</th></tr>
+      <tr><td>Rickettsia / RMSF / Ehrlichia</td><td>Doxycycline</td><td>❌ Sulfonamides (worsen disease)</td></tr>
+      <tr><td>Q fever (Coxiella burnetii)</td><td>Doxycycline</td><td>Vaccine available for prevention</td></tr>
+      <tr><td>C. tetani (Tetanus)</td><td>Antitoxin + Penicillin/Metronidazole + Diazepam</td><td>Active immunization (DPT)</td></tr>
+      <tr><td>C. botulinum</td><td>Anti-toxin + ICU support; BIG for infants</td><td>Mouse bioassay to confirm</td></tr>
+      <tr><td>C. difficile</td><td>Stop causative Ab → Metronidazole / Vancomycin / Fidaxomicin</td><td>Fecal transplant for recurrence</td></tr>
+      <tr><td>Mycobacterium tuberculosis</td><td>HRZE (Regimen 1: 2HRZE/4HR)</td><td>TB-DOTS for compliance</td></tr>
+      <tr><td>Mycobacterium leprae</td><td>Dapsone + Rifampicin + Clofazimine</td><td>Screen household contacts</td></tr>
+      <tr><td>MAC</td><td>Macrolides + Ethambutol</td><td>Antiretrovirals if HIV+</td></tr>
+      <tr><td>C. diphtheriae</td><td>Antitoxin (mandatory) + Penicillin/Macrolides</td><td>DO NOT remove pseudomembrane</td></tr>
+      <tr><td>Listeria monocytogenes</td><td>Ampicillin</td><td>Avoid some antibiotics in pregnancy</td></tr>
+      <tr><td>Nocardia</td><td>TMP-SMX (first-line)</td><td>Susceptibility testing required (species-specific)</td></tr>
+      <tr><td>E. rhusiopathiae (Erysipeloid)</td><td>Penicillin G</td><td>Intrinsically resistant to Vancomycin</td></tr>
+      <tr><td>Pasteurella multocida</td><td>Penicillin G (DOC)</td><td>Also: Tetracyclines, Fluoroquinolones</td></tr>
+      <tr><td>Yersinia pestis (Plague)</td><td>Streptomycin / Gentamicin</td><td>Also: Doxycycline, Ciprofloxacin</td></tr>
+      <tr><td>Mycoplasma pneumoniae</td><td>Macrolides / Tetracyclines / Fluoroquinolones</td><td>❌ β-lactams (no cell wall)</td></tr>
+      <tr><td>Legionella pneumophila</td><td>Macrolides or Fluoroquinolones</td><td>Must penetrate intracellularly</td></tr>
+      <tr><td>Bartonella (CSD/bacillary angiomatosis)</td><td>Erythromycin or Doxycycline (2 months)</td><td>CSD usually self-limited (no Abx needed)</td></tr>
+    </table>
+  </div>
+</section>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <strong>Microbiology &amp; Parasitology High-Yield Reviewer</strong> · A.Y. 2025–2026<br>
+  For study purposes only.
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function checkAnswer(el, isCorrect, qNum) {
+  const opts = el.parentElement.querySelectorAll('.mcq-opt');
+  if ([...opts].some(o => o.classList.contains('revealed'))) return;
+  opts.forEach(o => o.classList.add('revealed'));
+  if (isCorrect) {
+    el.classList.add('correct');
+  } else {
+    el.classList.add('wrong');
+    opts.forEach(o => {
+      if (o.getAttribute('onclick').includes('true')) o.classList.add('correct');
+    });
+  }
+  document.getElementById('exp' + qNum).classList.add('show');
+}
+</script>
+</body>
+</html>
