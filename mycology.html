@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Mycology — High-Yield Reviewer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f7f4;
+    --surface: #ffffff;
+    --surface2: #f0f4f0;
+    --primary: #2d6a4f;
+    --primary-light: #52b788;
+    --primary-pale: #d8f3dc;
+    --accent: #e76f51;
+    --accent-pale: #fde8e3;
+    --warn: #f4a261;
+    --warn-pale: #fef3e2;
+    --blue: #3a86ff;
+    --blue-pale: #ddeeff;
+    --purple: #7c3aed;
+    --purple-pale: #ede9fe;
+    --text: #1a2e1a;
+    --text2: #4a6741;
+    --text3: #7a9b76;
+    --border: #c8e0cc;
+    --hy: #c0392b;
+    --hy-pale: #fdecea;
+    --shadow: 0 2px 12px rgba(45,106,79,0.08);
+    --shadow-lg: 0 8px 32px rgba(45,106,79,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 60%, #40916c 100%);
+    color: white;
+    padding: 36px 40px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  header p { font-size: 0.82rem; opacity: 0.75; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ─── NAV TABS ─── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    background: #1b4332;
+    padding: 0 40px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.9); }
+  .tab-btn.active { color: #b7e4c7; border-bottom-color: #b7e4c7; }
+
+  /* ─── MAIN LAYOUT ─── */
+  main { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── SECTIONS ─── */
+  .section { margin-bottom: 36px; }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--primary);
+    border-left: 4px solid var(--primary-light);
+    padding-left: 14px;
+    margin-bottom: 16px;
+  }
+  .subsection-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .subsection-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .card-mini {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card-mini h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── TABLES ─── */
+  .table-wrap { overflow-x: auto; border-radius: 10px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  thead { background: var(--primary); color: white; }
+  thead th { padding: 11px 14px; text-align: left; font-weight: 600; letter-spacing: 0.03em; }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody tr:nth-child(odd) { background: var(--surface); }
+  tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:hover { background: var(--primary-pale); }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* ─── HIGH YIELD BADGES ─── */
+  .hy {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--hy-pale);
+    color: var(--hy);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+    border: 1px solid #f5c6c2;
+  }
+  .hy::before { content: '⭐'; font-size: 0.65rem; }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+  .badge-green { background: var(--primary-pale); color: var(--primary); }
+  .badge-red { background: var(--hy-pale); color: var(--hy); }
+  .badge-orange { background: var(--warn-pale); color: #c05c00; }
+  .badge-blue { background: var(--blue-pale); color: #1a56cc; }
+  .badge-purple { background: var(--purple-pale); color: var(--purple); }
+
+  /* ─── ALERT BOXES ─── */
+  .alert {
+    padding: 13px 18px;
+    border-radius: 9px;
+    margin-bottom: 14px;
+    font-size: 0.85rem;
+    border-left: 4px solid;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .alert-red { background: var(--hy-pale); border-color: var(--hy); color: #7b1c1c; }
+  .alert-green { background: var(--primary-pale); border-color: var(--primary); color: #1b4332; }
+  .alert-orange { background: var(--warn-pale); border-color: var(--warn); color: #7c4a00; }
+  .alert-blue { background: var(--blue-pale); border-color: var(--blue); color: #1a3a7c; }
+
+  /* ─── ALGORITHM STEPS ─── */
+  .algo {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 32px;
+    margin: 14px 0;
+  }
+  .algo::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 20px;
+    bottom: 20px;
+    width: 2px;
+    background: var(--border);
+  }
+  .algo-step {
+    position: relative;
+    padding: 10px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+  .algo-step::before {
+    content: attr(data-n);
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  .algo-step strong { color: var(--primary); }
+
+  /* ─── MCQ ─── */
+  .mcq-item {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .mcq-q {
+    font-weight: 600;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .mcq-q .stem { color: var(--text3); font-size: 0.82rem; font-weight: 400; font-style: italic; }
+  .mcq-options { display: flex; flex-direction: column; gap: 8px; }
+  .mcq-opt {
+    padding: 9px 16px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    background: var(--surface2);
+    font-size: 0.84rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .mcq-opt:hover { border-color: var(--primary-light); background: var(--primary-pale); }
+  .mcq-opt.correct { background: #d1fae5; border-color: #059669; color: #064e3b; }
+  .mcq-opt.wrong { background: #fee2e2; border-color: #dc2626; color: #7f1d1d; }
+  .mcq-opt .letter { font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; opacity: 0.7; }
+  .mcq-rationale {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--primary-pale);
+    border-radius: 8px;
+    font-size: 0.83rem;
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+  }
+  .mcq-rationale.show { display: block; animation: fadeIn 0.25s; }
+  .mcq-score {
+    font-size: 0.75rem;
+    color: var(--text3);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ─── BUZZWORD TABLE ─── */
+  .buzzword-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .buzzword-card {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .buzzword-card .organism {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+    margin-bottom: 4px;
+  }
+  .buzzword-card .buzz {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .buzzword-card .detail {
+    font-size: 0.78rem;
+    color: var(--text2);
+  }
+
+  /* ─── SCORE TRACKER ─── */
+  #score-bar {
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    background: var(--primary);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
+    display: none;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ─── MISC ─── */
+  ul { padding-left: 18px; }
+  li { margin-bottom: 4px; font-size: 0.85rem; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--surface2);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--primary);
+  }
+  strong { color: var(--text); }
+  .italic { font-style: italic; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
+  .text-red { color: var(--hy); font-weight: 600; }
+  .text-green { color: var(--primary); font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } header { padding: 20px; } main { padding: 20px 14px 80px; } }
+
+  /* ─── COMPARISON STRIP ─── */
+  .vs-strip {
+    display: flex;
+    gap: 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .vs-col {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 0.82rem;
+  }
+  .vs-col h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; }
+  .vs-a { background: var(--primary-pale); }
+  .vs-a h4 { color: var(--primary); }
+  .vs-b { background: var(--accent-pale); }
+  .vs-b h4 { color: var(--accent); }
+
+  /* progress pill */
+  .progress-pill {
+    display: inline-block;
+    background: var(--primary-pale);
+    color: var(--primary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── TINEA GRID ─── */
+  .tinea-card {
+    background: var(--surface);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    font-size: 0.83rem;
+    box-shadow: var(--shadow);
+  }
+  .tinea-card .tinea-name {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+  .tinea-card .tinea-loc {
+    font-size: 0.75rem;
+    color: var(--text3);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Medical Mycology — High-Yield Reviewer</h1>
+  <p>Superficial · Cutaneous · Opportunistic · Endemic Fungi</p>
+</header>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('superficial')">🌿 Superficial</button>
+  <button class="tab-btn" onclick="showTab('cutaneous')">🔬 Cutaneous</button>
+  <button class="tab-btn" onclick="showTab('opportunistic')">⚠️ Opportunistic</button>
+  <button class="tab-btn" onclick="showTab('endemic')">🌎 Endemic</button>
+  <button class="tab-btn" onclick="showTab('buzzwords')">⚡ Buzzwords</button>
+  <button class="tab-btn" onclick="showTab('mcq')">📝 MCQ Review</button>
+</div>
+
+<main>
+
+<!-- ══════════ SUPERFICIAL ══════════ -->
+<div id="tab-superficial" class="tab-content active">
+  <div class="section">
+    <div class="section-title">I. Superficial Mycoses</div>
+    <div class="alert alert-green"><span class="alert-icon">💡</span> <div>Superficial mycoses = infections <strong>limited to the stratum corneum</strong> (outermost, dead skin layer). They do NOT invade deeper tissue. Think of them as surface colonizers causing cosmetic changes.</div></div>
+
+    <div class="subsection-title">Big Picture Overview</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mycosis</th><th>Causative Agent</th><th>Key Clue / HY Fact</th><th>Location</th><th>Dx Tool</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Pityriasis versicolor</strong> <span class="hy">HY</span></td><td><em>Malassezia spp.</em> (M. globosa, M. furfur, M. sympodialis)</td><td>Spaghetti & meatballs on KOH; Lipophilic; Wood's lamp fluorescence</td><td>Chest, upper back, arms, abdomen</td><td>KOH skin scrapings</td></tr>
+          <tr><td><strong>Tinea nigra</strong></td><td><em>Hortaea (Exophiala) werneckii</em></td><td>Melanized cell walls; dark palm; dematiaceous fungus</td><td>Palm (usually)</td><td>KOH — branched septate hyphae + melanized budding yeast</td></tr>
+          <tr><td><strong>Black piedra</strong></td><td><em>Piedraia hortae</em></td><td>Hard, black nodules on hair shaft</td><td>Scalp hair</td><td>Visual + microscopy</td></tr>
+          <tr><td><strong>White piedra</strong></td><td><em>Trichosporon spp.</em></td><td>Soft, yellowish nodules</td><td>Axilla, genitalia, beard, scalp</td><td>Visual + microscopy</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">A. Malassezia (Pityriasis Versicolor) <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Lipophilic yeast — <strong>requires lipid in growth medium</strong></li>
+          <li>Normal skin flora (endogenous cause)</li>
+          <li>14 species; M. globosa, M. furfur most common</li>
+          <li>Hypo- OR hyperpigmented macules</li>
+          <li>Also causes: dandruff, folliculitis, fungemia in TPN infants</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Diagnostic Clues</h4>
+        <ul>
+          <li>KOH skin scraping: <strong>"Spaghetti and meatballs"</strong></li>
+          <li>Spaghetti = short, unbranched, non-pigmented hyphae</li>
+          <li>Meatballs = spherical yeast cells</li>
+          <li>Skin biopsy: <strong>purplish hyphae</strong> in stratum corneum</li>
+          <li>Lesions <strong>fluoresce</strong> under Wood's lamp</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Treatment</h4>
+        <ul>
+          <li>Selenium sulfide (Selsun Blue) — daily application</li>
+          <li>Topical or oral azoles</li>
+          <li>Goal: Reduce to <strong>commensal levels</strong>, NOT eradicate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">B. Tinea Nigra</div>
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>Causative agent: <em>Hortaea (Exophiala) werneckii</em></li>
+            <li><strong>Dematiaceous</strong> = melanin-containing cell walls</li>
+            <li>Asymptomatic, chronic, superficial infection</li>
+            <li>Common in warm coastal areas; young women</li>
+            <li>Clinical: <strong>Dark brown to black discoloration on the palm</strong></li>
+          </ul>
+        </div>
+        <div>
+          <p class="subsection-title" style="margin-top:0; font-size:0.82rem;">Diagnosis</p>
+          <ul>
+            <li>KOH skin scraping: branched septate hyphae + budding yeast with <strong>melanized (brown) cell walls</strong></li>
+            <li>Skin biopsy: brown hyphae in thick stratum corneum</li>
+          </ul>
+          <p style="margin-top:8px; font-size:0.82rem; font-weight:600; color:var(--primary);">Tx: Keratolytics, salicylic acid, azoles</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection-title">C. Piedra</div>
+    <div class="vs-strip">
+      <div class="vs-col vs-a">
+        <h4>Black Piedra</h4>
+        <ul><li><em>Piedraia hortae</em></li><li>Hard, nodular infection of hair shaft</li><li>Tropical countries; scalp hair</li></ul>
+      </div>
+      <div class="vs-col vs-b">
+        <h4>White Piedra</h4>
+        <ul><li><em>Trichosporon spp.</em></li><li>Large, <strong>soft, yellowish</strong> nodules on hair</li><li>Axilla, genitalia, beard, scalp</li></ul>
+      </div>
+    </div>
+    <div class="alert alert-orange"><span class="alert-icon">💊</span><div>Treatment for both piedras: <strong>Remove infected hair</strong> + topical antifungals</div></div>
+  </div>
+</div>
+
+<!-- ══════════ CUTANEOUS ══════════ -->
+<div id="tab-cutaneous" class="tab-content">
+  <div class="section">
+    <div class="section-title">II. Cutaneous Mycoses — Dermatophytosis</div>
+    <div class="alert alert-green"><span class="alert-icon">💡</span><div>Dermatophytes infect <strong>only keratinized tissue</strong> (skin, hair, nails). Most cannot grow at 37°C or in serum — so they stay superficial. 3 genera: <strong>Trichophyton, Microsporum, Epidermophyton</strong></div></div>
+
+    <div class="subsection-title">The 3 Genera at a Glance <span class="hy">HY</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Genus</th><th>Macroconidia</th><th>Microconidia</th><th>Key Species</th><th>Memory Hook</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Trichophyton</strong></td>
+            <td>Cylindrical, smooth-walled</td>
+            <td>✅ Yes — varies by species</td>
+            <td>T. rubrum, T. mentagrophytes, T. tonsurans</td>
+            <td><em>Tricho</em> = hair; most common genus</td>
+          </tr>
+          <tr>
+            <td><strong>Microsporum</strong></td>
+            <td>Multicellular, <strong>echinulate (rough)</strong> walls</td>
+            <td>✅ Yes</td>
+            <td>M. canis, M. gypseum</td>
+            <td><em>Micro</em> = spiny macroconidia</td>
+          </tr>
+          <tr>
+            <td><strong>Epidermophyton floccosum</strong></td>
+            <td>Smooth, club-shaped, 2–4 cells, in clusters</td>
+            <td>❌ ABSENT</td>
+            <td><em>E. floccosum</em> only</td>
+            <td>Only macro — no micro; club-shaped</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Trichophyton Species Details</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Species</th><th>Microconidia Morphology</th><th>Common Infections</th></tr></thead>
+        <tbody>
+          <tr><td><em>T. rubrum</em></td><td>Small, <strong>pear-shaped</strong></td><td>Tinea pedis, unguium, cruris, corporis</td></tr>
+          <tr><td><em>T. mentagrophytes</em></td><td><strong>Grape-like clusters</strong> of spherical microconidia</td><td>Tinea pedis, barbae, capitis</td></tr>
+          <tr><td><em>T. tonsurans</em></td><td><strong>Elongated</strong> microconidia</td><td>Tinea capitis (black dot type — endothrix)</td></tr>
+          <tr><td><em>T. verrucosum</em></td><td>—</td><td>Tinea barbae</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Microsporum Species Details</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Species</th><th>Macroconidia</th><th>Special Feature</th></tr></thead>
+        <tbody>
+          <tr><td><em>M. canis</em></td><td>Thick-walled, <strong>8–15 cells</strong>; curved/hooked tips</td><td>Tinea capitis; <strong>ectothrix</strong>; Wood's lamp (+) fluorescence</td></tr>
+          <tr><td><em>M. gypseum</em></td><td>Thin-walled, <strong>4–6 cells</strong></td><td>Soil-associated; less common</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Tinea Infections — Location, Findings, Fungi <span class="hy">HY</span></div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap:12px; margin-bottom:16px;">
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Capitis <span class="hy">HY</span></div>
+        <div class="tinea-loc">📍 Scalp hair</div>
+        <ul>
+          <li>Circular bald patches, broken hair stubs</li>
+          <li>Ectothrix (<em>Microsporum</em>) vs Endothrix (<em>T. tonsurans</em>)</li>
+          <li><strong>Ectothrix</strong>: spores around hair shaft; Wood's lamp fluorescence ✅</li>
+          <li><strong>Endothrix (black dot)</strong>: spores inside hair; T. tonsurans; hairs break at follicular opening</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. mentagrophytes</span> <span class="badge badge-green">M. canis</span> <span class="badge badge-green">T. tonsurans</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Corporis (Ringworm) <span class="hy">HY</span></div>
+        <div class="tinea-loc">📍 Non-hairy smooth skin</div>
+        <ul>
+          <li>Annular lesion, red scaly border, central clearing</li>
+          <li>Active hyphae at <strong>periphery</strong> = best specimen collection site</li>
+          <li>Pruritic</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. rubrum</span> <span class="badge badge-green">E. floccosum</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Pedis (Athlete's Foot)</div>
+        <div class="tinea-loc">📍 Interdigital spaces of feet</div>
+        <ul>
+          <li>Acute: itching, red vesicular</li>
+          <li>Chronic: itching, scaling, fissures</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. rubrum</span> <span class="badge badge-green">T. mentagrophytes</span> <span class="badge badge-green">E. floccosum</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Unguium (Onychomycosis)</div>
+        <div class="tinea-loc">📍 Nails</div>
+        <ul>
+          <li>Nails thickened or crumbling, discolored, lusterless</li>
+          <li>Usually associated with tinea pedis</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. rubrum</span> <span class="badge badge-green">T. mentagrophytes</span> <span class="badge badge-green">E. floccosum</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Cruris (Jock Itch)</div>
+        <div class="tinea-loc">📍 Groin</div>
+        <ul>
+          <li>Erythematous scaling lesions, pruritic</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. rubrum</span> <span class="badge badge-green">T. mentagrophytes</span> <span class="badge badge-green">E. floccosum</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Tinea Barbae</div>
+        <div class="tinea-loc">📍 Beard hair</div>
+        <ul>
+          <li>Edematous, erythematous lesion</li>
+        </ul>
+        <div style="margin-top:8px;"><span class="badge badge-green">T. mentagrophytes</span> <span class="badge badge-green">T. rubrum</span> <span class="badge badge-green">T. verrucosum</span></div>
+      </div>
+      <div class="tinea-card">
+        <div class="tinea-name">Dermatophytid</div>
+        <div class="tinea-loc">📍 Fingers/palm (usually)</div>
+        <ul>
+          <li>Pruritic vesicular/bullous lesions</li>
+          <li><strong>No fungi in lesion</strong> — immune reaction to distant infection</li>
+          <li>Most commonly associated with tinea pedis</li>
+          <li>May become secondarily infected with bacteria</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">Laboratory Diagnosis</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Test</th><th>Findings</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>KOH preparation</strong></td><td>Hyaline, colorless, glassy septate hyphae; chains of arthroconidia</td><td>Most accessible, easiest; skin/nail/hair scrapings</td></tr>
+          <tr><td><strong>Skin biopsy + PAS stain</strong></td><td>Hyphae highlighted in red/pink</td><td>Periodic Acid-Schiff stain</td></tr>
+          <tr><td><strong>Culture on SDA</strong></td><td>Colony morphology + conidia examined</td><td>Grow 2 weeks at 25°C; for definitive species ID</td></tr>
+          <tr><td><strong>Wood's lamp</strong></td><td>Greenish fluorescence</td><td>Only <em>Microsporum</em>-infected hairs (ectothrix); useful for tinea capitis</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert alert-red"><span class="alert-icon">⭐</span><div><strong>T. rubrum</strong> is the most common cause of tinea pedis, unguium, and cruris. When in doubt, choose T. rubrum for nail/foot/groin infections!</div></div>
+  </div>
+</div>
+
+<!-- ══════════ OPPORTUNISTIC ══════════ -->
+<div id="tab-opportunistic" class="tab-content">
+  <div class="section">
+    <div class="section-title">III. Opportunistic Fungi</div>
+    <div class="alert alert-blue"><span class="alert-icon">🧠</span><div>Opportunistic = infects <strong>immunocompromised</strong> patients. Think AIDS, neutropenia, DKA, transplant. The organism is everywhere — the problem is the host.</div></div>
+
+    <div class="subsection-title">Master Comparison Table <span class="hy">HY</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Organism</th><th>Morphology ⭐</th><th>Risk Factor ⭐</th><th>Classic Disease</th><th>Key Diagnostic Clue ⭐</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><em>Candida albicans</em></td>
+            <td>Budding yeast + pseudohyphae + <strong>germ tubes</strong></td>
+            <td>Normal flora gone wrong; antibiotics; immunocompromised</td>
+            <td>Thrush, vaginitis, systemic candidiasis</td>
+            <td>Germ tube at 37°C</td>
+          </tr>
+          <tr>
+            <td><em>Cryptococcus neoformans</em></td>
+            <td>Encapsulated spherical budding yeast (5–10 µm)</td>
+            <td>Pigeon droppings; AIDS</td>
+            <td>Chronic meningitis</td>
+            <td>India ink halo; GXM capsular antigen</td>
+          </tr>
+          <tr>
+            <td><em>Aspergillus fumigatus</em></td>
+            <td>Septate hyphae, acute angle (45°) branching; uniform width</td>
+            <td>Neutropenia; transplant</td>
+            <td>Aspergilloma, invasive aspergillosis, ABPA</td>
+            <td>Air crescent sign; galactomannan antigen</td>
+          </tr>
+          <tr>
+            <td><em>Rhizopus oryzae</em> (Mucor)</td>
+            <td>Broad (10–15 µm) NON-septate hyphae, irregular branching</td>
+            <td><strong>Diabetic ketoacidosis</strong>; neutropenia; iron overload</td>
+            <td>Rhinocerebral mucormycosis</td>
+            <td>Black necrotic eschar in nasal cavity</td>
+          </tr>
+          <tr>
+            <td><em>Pneumocystis jirovecii</em></td>
+            <td>Cysts: "crushed ping-pong balls" 4–6 µm; 4–8 nuclei</td>
+            <td>HIV, CD4 &lt; 200</td>
+            <td>Interstitial pneumonia</td>
+            <td>Silver stain (GMS) of cysts</td>
+          </tr>
+          <tr>
+            <td><em>Talaromyces marneffei</em></td>
+            <td>Yeast-like cells divide by <strong>fission</strong> (not budding)</td>
+            <td>SE Asia; HIV/AIDS; bamboo rats</td>
+            <td>Disseminated infection</td>
+            <td>Red/reddish pigment in culture; yeast divides by fission</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">A. Candidiasis <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Morphology</h4>
+        <ul>
+          <li>Oval budding yeast cells (3–6 µm)</li>
+          <li>Pseudohyphae (buds fail to detach)</li>
+          <li><strong>C. albicans only:</strong> forms TRUE hyphae + <strong>germ tubes at 37°C</strong></li>
+          <li>Stain: Gram stain, KOH</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical Spectrum</h4>
+        <ul>
+          <li><strong>Thrush:</strong> white pseudomembranous lesions, tongue/palate</li>
+          <li><strong>Vulvovaginitis:</strong> pruritus, discharge</li>
+          <li><strong>Onychomycosis:</strong> painful nail fold swelling</li>
+          <li><strong>Cutaneous:</strong> intertriginous (axillae, groin, inframammary folds)</li>
+          <li><strong>Systemic:</strong> kidney, skin, eye, heart, meninges</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Diagnosis</h4>
+        <ul>
+          <li>KOH / Gram stain: budding yeast + pseudohyphae</li>
+          <li>Germ tube test: (+) = <em>C. albicans</em></li>
+          <li>Biopsy: pseudohyphae, vertical orientation (vs horizontal normal flora)</li>
+          <li>Serology: mannan antigen (latex agglutination/EIA); β-(1,3)-d-glucan</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⭐</span><div>Germ tube test at 37°C → positive for <em>C. albicans</em>. No other Candida species forms germ tubes. This is the classic ID question!</div></div>
+
+    <div class="subsection-title">B. Cryptococcosis <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Facts</h4>
+        <ul>
+          <li>Environmental basidiomycetous yeast</li>
+          <li><em>C. neoformans</em>: dry pigeon feces, trees, soil (more common)</li>
+          <li><em>C. gattii</em>: tropical trees (less common)</li>
+          <li>Infection: inhalation → lungs → CNS (meningoencephalitis)</li>
+          <li>Disseminates when immunocompromised</li>
+          <li>Also: skin, eyes, prostate</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Morphology</h4>
+        <ul>
+          <li>Spherical budding yeast (5–10 µm) + <strong>thick polysaccharide capsule</strong></li>
+          <li>Capsule = <strong>GXM (glucuronoxylomannan)</strong> — virulence factor</li>
+          <li>Produces urease</li>
+          <li>Grows at 37°C (unlike nonpathogenic)</li>
+          <li>Produces laccase</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical + Dx</h4>
+        <ul>
+          <li><strong>Chronic meningitis:</strong> fever, headache, stiff neck, photophobia, N/V, confusion</li>
+          <li>Elevated CSF pressure, protein, cell count; glucose normal/low</li>
+          <li><strong>India ink (CSF):</strong> halo around yeast (capsule outline)</li>
+          <li>Serology: GXM antigen in CSF/serum/urine (latex agglutination, EIA, lateral flow)</li>
+          <li>Culture: growth at 37°C, urease detection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">C. Aspergillosis <span class="hy">HY</span></div>
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <p style="font-weight:700; margin-bottom:8px; color:var(--primary);">Morphology</p>
+          <ul>
+            <li><strong>Septate hyphae</strong>, uniform 4 µm width</li>
+            <li>Branch dichotomously at <strong>acute angles (~45°)</strong></li>
+            <li>Long conidiophores → terminal vesicle → phialides → chains of conidia</li>
+            <li>Stain: PAS or GMS (hyaline, septate, uniform)</li>
+          </ul>
+          <p style="font-weight:700; margin: 12px 0 8px; color:var(--primary);">Pathogenesis</p>
+          <div class="algo">
+            <div class="algo-step" data-n="1">Normal: Alveolar macrophages destroy conidia</div>
+            <div class="algo-step" data-n="2">Immunocompromised: Conidia germinate</div>
+            <div class="algo-step" data-n="3">Invade preexisting cavities → <strong>Aspergilloma</strong></div>
+            <div class="algo-step" data-n="4">Invade blood vessels → thrombosis/infarction → <strong>Invasive</strong></div>
+          </div>
+        </div>
+        <div>
+          <p style="font-weight:700; margin-bottom:8px; color:var(--primary);">Clinical Spectrum</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Type</th><th>Key Features</th></tr></thead>
+              <tbody>
+                <tr><td><strong>ABPA</strong></td><td>Colonizes bronchial tree; asthma + eosinophilia; Type I + III hypersensitivity; no parenchymal invasion</td></tr>
+                <tr><td><strong>Aspergilloma</strong> ⭐</td><td>Fungal ball in pre-existing cavity (TB or emphysema); air crescent sign on CT</td></tr>
+                <tr><td><strong>Invasive</strong> ⭐</td><td>AIDS/neutropenia; hyphae invade blood vessels → necrosis of GIT, kidney, liver, brain</td></tr>
+                <tr><td><strong>Extrapulmonary</strong></td><td>Sinuses, ear canal, cornea, nails — localized noninvasive</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="alert alert-orange" style="margin-top:10px;"><span class="alert-icon">💊</span><div>Aspergilloma: itraconazole, amphotericin B, surgery. Invasive: voriconazole or amphotericin B</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection-title">D. Mucormycosis / Zygomycosis <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Facts</h4>
+        <ul>
+          <li>Most common: <strong>Rhizopus oryzae</strong></li>
+          <li>Order Mucorales; thermotolerant saprobes</li>
+          <li>Others: Rhizomucor, Lichtheimia, Cunninghamella, Mucor</li>
+          <li>Risk: <strong>DKA</strong>, lymphoma, immunodeficiency, iron overload, deferoxamine use</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Morphology</h4>
+        <ul>
+          <li>Broad hyphae (10–15 µm)</li>
+          <li>Uneven thickness; <strong>sparse septations (non-septate)</strong></li>
+          <li>Irregular branching (vs Aspergillus's regular acute-angle)</li>
+          <li>Not pigmented</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical Findings</h4>
+        <ul>
+          <li><strong>Rhinocerebral:</strong> sporangiospores → nasal → sinuses/eyes/cranial bones/brain; thrombosis, infarction, necrosis</li>
+          <li><strong>Thoracic:</strong> lung parenchyma invasion</li>
+          <li>Angioinvasive growth → hemorrhage, thrombosis, necrosis</li>
+          <li>COVID-19-associated (India 2021)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vs-strip">
+      <div class="vs-col vs-a">
+        <h4>Aspergillus hyphae</h4>
+        <ul>
+          <li>Septate (many septa)</li>
+          <li>Uniform width (4 µm)</li>
+          <li>Regular, <strong>acute angle branching (~45°)</strong></li>
+          <li>Hyaline</li>
+        </ul>
+      </div>
+      <div class="vs-col vs-b">
+        <h4>Mucor/Rhizopus hyphae</h4>
+        <ul>
+          <li>Non-septate (sparse)</li>
+          <li>Broad, uneven width (10–15 µm)</li>
+          <li>Irregular, wide-angle branching</li>
+          <li>Not pigmented</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">E. Pneumocystis Pneumonia (PCP) <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Facts</h4>
+        <ul>
+          <li>Causative agent: <em>Pneumocystis jirovecii</em></li>
+          <li>NOT a protozoan — it's a <strong>fungus</strong> (Ascomycete)</li>
+          <li>Normal lung flora in healthy people</li>
+          <li>Opportunistic in HIV/AIDS: <strong>CD4 &lt; 200</strong></li>
+          <li>Cannot be cultured in lab</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Morphology</h4>
+        <ul>
+          <li>Thin-walled trophozoites + cysts in tight mass</li>
+          <li>Cysts: thick-walled, spherical (4–6 µm), 4–8 nuclei</li>
+          <li><strong>"Crushed ping-pong balls"</strong> on silver stain</li>
+          <li>Also described as: crescent shapes, folded spheres, deflated tennis balls</li>
+          <li>Stains: <strong>GMS (silver), toluidine blue, calcofluor white</strong></li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical + Tx</h4>
+        <ul>
+          <li>Extracellular pathogen; grows in surfactant layer above alveolar epithelium</li>
+          <li>Dyspnea, nonproductive cough, fever</li>
+          <li>CXR: widespread bilateral infiltrates</li>
+          <li>Tx: <strong>TMP-SMX</strong> (first-line) or pentamidine isethionate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">F. Penicilliosis / Talaromycosis <span class="hy">HY</span></div>
+    <div class="card">
+      <ul>
+        <li>Caused by <em>Talaromyces marneffei</em> (formerly Penicillium marneffei)</li>
+        <li><strong>Endemic in Southeast Asia</strong>; associated with bamboo rats</li>
+        <li>Risk: HIV/AIDS, TB, steroids, lymphoproliferative diseases</li>
+        <li>Morphology: yeast-like cells (2×6 µm) that <strong>divide by fission</strong> (NOT budding)</li>
+        <li>Mold form: green-yellow colony with <strong>diffusible reddish pigment</strong></li>
+        <li>Clinical: fungemia, skin lesions, reticuloendothelial system involvement</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ENDEMIC ══════════ -->
+<div id="tab-endemic" class="tab-content">
+  <div class="section">
+    <div class="section-title">IV. Endemic Mycoses</div>
+    <div class="alert alert-green"><span class="alert-icon">🌍</span><div>Endemic fungi are <strong>thermally dimorphic</strong>: Mold at 25°C (environment) → Yeast at 37°C (body). All infect via <strong>inhalation of conidia</strong> → lung → may disseminate. Geographic restriction is a key buzzword trigger!</div></div>
+
+    <div class="subsection-title">Master Comparison <span class="hy">HY</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Organism</th><th>Geography ⭐</th><th>Source</th><th>Tissue Form ⭐</th><th>Unique Feature ⭐</th><th>Disease</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><em>Coccidioides immitis/posadasii</em></td>
+            <td><strong>Southwestern US</strong>, Central/South America (dry/arid)</td>
+            <td>Dry soil</td>
+            <td><strong>Spherules</strong> packed with endospores</td>
+            <td>Arthroconidia inhaled (barrel-shaped, highly infectious); spherules in host</td>
+            <td>Valley Fever, Disseminated</td>
+          </tr>
+          <tr>
+            <td><em>Histoplasma capsulatum</em></td>
+            <td><strong>Ohio/Mississippi River Valley</strong>; bird/bat caves worldwide</td>
+            <td>Bird/bat droppings (guano)</td>
+            <td><strong>Yeast inside macrophages</strong> (facultative intracellular)</td>
+            <td>Most common pulmonary fungal infection; macroconidia (large, spherical)</td>
+            <td>Pulmonary histoplasmosis, Disseminated</td>
+          </tr>
+          <tr>
+            <td><em>Blastomyces dermatitidis</em></td>
+            <td><strong>North America</strong> (US + Canada, rural riverbanks)</td>
+            <td>Soil (not well-defined)</td>
+            <td>Thick-walled yeast with <strong>broad-based single bud</strong></td>
+            <td>Bud = same size as parent; broad base distinguishes from Crypto</td>
+            <td>North American Blastomycosis</td>
+          </tr>
+          <tr>
+            <td><em>Paracoccidioides brasiliensis</em></td>
+            <td><strong>South America</strong></td>
+            <td>Soil (not well-defined)</td>
+            <td>Large, <strong>multiply-budding yeast ("captain's wheel")</strong></td>
+            <td>Narrow connections; most patients 30–60 yr old males; dormancy for decades</td>
+            <td>South American Blastomycosis</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">A. Coccidioidomycosis <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Pathogenesis Flow</h4>
+        <div class="algo">
+          <div class="algo-step" data-n="1">Arthroconidia inhaled (barrel-shaped, in chains)</div>
+          <div class="algo-step" data-n="2">In host: transform into large <strong>spherules</strong></div>
+          <div class="algo-step" data-n="3">Spherules rupture → release endospores</div>
+          <div class="algo-step" data-n="4">Endospores form new spherules → infection continues</div>
+        </div>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Clinical Types</h4>
+        <table style="font-size:0.8rem; width:100%; border-collapse:collapse;">
+          <tr style="background:var(--primary-pale);"><td style="padding:4px 8px; font-weight:700;">Asymptomatic</td><td style="padding:4px 8px;">60%</td><td style="padding:4px 8px;">No symptoms</td></tr>
+          <tr><td style="padding:4px 8px; font-weight:700;">Valley Fever</td><td style="padding:4px 8px;">40%</td><td style="padding:4px 8px;">Flu-like: fever, malaise, cough, arthralgia, headache; self-limited</td></tr>
+          <tr style="background:var(--hy-pale);"><td style="padding:4px 8px; font-weight:700; color:var(--hy);">Disseminated</td><td style="padding:4px 8px;">&lt;1%</td><td style="padding:4px 8px;">Immunosuppressed; lung nodules/cavities; skin, bones, meninges</td></tr>
+        </table>
+      </div>
+      <div class="card-mini">
+        <h4>Diagnosis</h4>
+        <ul>
+          <li>KOH/Culture: examine for spherules</li>
+          <li>Histopathology: H&E, GMS, PAS</li>
+          <li>Serology: Latex agglutination (IgM to coccidioidin), CF, ID tests</li>
+          <li><strong>Coccidioidin skin test:</strong> induration ≥5 mm at 24–48 hrs = prior exposure (NOT useful in active disease)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">B. Histoplasmosis <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Facts</h4>
+        <ul>
+          <li><strong>Most common pulmonary fungal infection</strong></li>
+          <li>Causative agent: <em>Histoplasma capsulatum</em></li>
+          <li>Mold form: hyaline septate hyphae, microconidia (small), macroconidia (large, spherical)</li>
+          <li>MOT: inhalation of conidia from contaminated soil</li>
+          <li>Thermally dimorphic soil saprophyte</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Pathogenesis</h4>
+        <div class="algo">
+          <div class="algo-step" data-n="1">Inhale conidia from soil</div>
+          <div class="algo-step" data-n="2">Conidia → yeast cells; engulfed by alveolar macrophages</div>
+          <div class="algo-step" data-n="3">Systemic dissemination to <strong>reticuloendothelial tissues</strong> (liver, spleen, lymph nodes)</div>
+          <div class="algo-step" data-n="4">Host: granulomatous inflammatory response</div>
+        </div>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical Types</h4>
+        <ul>
+          <li><strong>Acute Pulmonary:</strong> flu-like; hilar lymphadenopathy + pulmonary infiltrates/nodules</li>
+          <li><strong>African:</strong> flu-like; less lung, more skin + bone lesions</li>
+          <li><strong>Chronic Pulmonary:</strong> reactivation (emphysema)</li>
+          <li><strong>Disseminated:</strong> immunosuppressed (elderly, AIDS); lymphadenopathy, splenomegaly, hepatomegaly, fever, anemia</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Histopathology + Diagnosis</h4>
+        <ul>
+          <li><strong>Yeasts within macrophages</strong> (facultative intracellular)</li>
+          <li>Stains: GMS, PAS (fungal stains); Giemsa (bone marrow/blood smears)</li>
+          <li>Culture: mold at 25–30°C on SDA/IMA; yeast at 37°C on glucose-cysteine-blood agar</li>
+          <li>Serology: CF tests; histoplasmin skin test (past exposure only)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-red"><span class="alert-icon">⭐</span><div>The classic image: <strong>small yeast cells inside macrophages</strong>. If you see Ohio/Mississippi Valley + caves + macrophages with yeasts → Histoplasma!</div></div>
+
+    <div class="subsection-title">C. Blastomycosis (North American) <span class="hy">HY</span></div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>Key Facts</h4>
+        <ul>
+          <li>Causative: <em>Blastomyces dermatitidis</em></li>
+          <li>Endemic: US + Canada, especially rural riverbanks</li>
+          <li>MOT: spore inhalation OR direct skin inoculation</li>
+          <li>Mold form: hyaline, branching septate hyphae + conidia on slender conidiophores</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>⭐ Tissue Form (Yeast at 37°C)</h4>
+        <ul>
+          <li>Thick-walled, spherical yeast (8–15 µm)</li>
+          <li>Single buds with <strong>broad base</strong></li>
+          <li>Bud grows to same size as parent</li>
+          <li>This broad-based bud distinguishes Blastomyces from Cryptococcus (narrow-based)</li>
+        </ul>
+      </div>
+      <div class="card-mini">
+        <h4>Clinical + Diagnosis</h4>
+        <ul>
+          <li>Pulmonary infiltrate + lower respiratory symptoms / chronic pneumonia</li>
+          <li>Histology: suppurative + granulomatous inflammation with neutrophils</li>
+          <li>Skin (disseminated): <strong>ulcerated verrucous granulomas</strong></li>
+          <li>Microscopy: thick-walled yeast with broad-based buds</li>
+          <li>Serology: CF, ID tests; EIA for Blastomyces antigen A</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection-title">D. Paracoccidioidomycosis (South American Blastomycosis) <span class="hy">HY</span></div>
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>Causative: <em>Paracoccidioides brasiliensis</em></li>
+            <li>Thermally dimorphic; South American</li>
+            <li>Mold: chlamydospores + conidia; slow growth</li>
+            <li>Yeast (36°C): <strong>large multiply-budding yeast cells = "captain's wheel"</strong></li>
+            <li>Buds attached by narrow connection; larger, thinner walls than <em>B. dermatitidis</em></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Patients: 30–60 yr, majority men</li>
+            <li>Initial lesions in lungs</li>
+            <li>Dormancy for decades; then reactivation → chronic pulmonary or dissemination</li>
+            <li>Disseminates: skin, mucocutaneous tissue, lymph nodes, spleen, liver, adrenals</li>
+            <li>Histology: granulomas with central caseation; yeasts in giant cells</li>
+            <li>Serology: most useful for diagnosis; CF or ID test (paracoccidioidin)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Dimorphism Summary</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Organism</th><th>Mold (25°C) — Environment</th><th>Yeast (37°C) — Host</th></tr></thead>
+        <tbody>
+          <tr><td><em>Coccidioides</em></td><td>Hyphae with arthroconidia chains</td><td><strong>Spherules with endospores</strong></td></tr>
+          <tr><td><em>Histoplasma</em></td><td>Hyphae + macro/microconidia</td><td><strong>Yeast inside macrophages</strong></td></tr>
+          <tr><td><em>Blastomyces</em></td><td>Hyphae + conidia on conidiophores</td><td><strong>Broad-based single-budding yeast</strong></td></tr>
+          <tr><td><em>Paracoccidioides</em></td><td>Chlamydospores + conidia</td><td><strong>Multiple buds ("captain's wheel")</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ BUZZWORDS ══════════ -->
+<div id="tab-buzzwords" class="tab-content">
+  <div class="section">
+    <div class="section-title">⚡ High-Yield Buzzwords & Pattern Recognition</div>
+    <div class="alert alert-red"><span class="alert-icon">🎯</span><div>These are the most commonly tested associations. If you can map buzzword → organism instantly, you'll ace fungi questions!</div></div>
+
+    <div class="subsection-title">The Ultimate Morphology Key</div>
+    <div class="buzzword-grid">
+      <div class="buzzword-card">
+        <div class="organism">C. albicans</div>
+        <div class="buzz">Germ tube at 37°C</div>
+        <div class="detail">Only Candida spp. that forms TRUE hyphae + germ tubes at body temperature</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Cryptococcus neoformans</div>
+        <div class="buzz">India ink halo / GXM capsule</div>
+        <div class="detail">Encapsulated yeast; polysaccharide capsule glows as halo in India ink; pigeon droppings + AIDS → meningitis</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Aspergillus fumigatus</div>
+        <div class="buzz">Septate hyphae, 45° acute-angle branching</div>
+        <div class="detail">Air crescent sign (aspergilloma); galactomannan in serum for invasive; ABPA in asthmatics</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Mucor / Rhizopus</div>
+        <div class="buzz">Broad non-septate hyphae + DKA</div>
+        <div class="detail">Black necrotic eschar in nose; angioinvasive; DKA is the classic risk factor</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Pneumocystis jirovecii</div>
+        <div class="buzz">"Crushed ping-pong balls" on silver stain</div>
+        <div class="detail">CD4 &lt; 200; cannot be cultured; TMP-SMX treatment; bilateral infiltrates on CXR</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Talaromyces marneffei</div>
+        <div class="buzz">Fission (not budding) + red pigment</div>
+        <div class="detail">SE Asia + HIV; bamboo rats; yeast cells divide by fission; reddish colony pigment</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Coccidioides</div>
+        <div class="buzz">Spherules with endospores</div>
+        <div class="detail">SW USA (Valley Fever); arthroconidia inhaled → spherules in host; highly infectious arthroconidia</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Histoplasma capsulatum</div>
+        <div class="buzz">Yeast inside macrophages</div>
+        <div class="detail">Ohio/Mississippi Valley; bird/bat caves; most common pulmonary fungal infection</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Blastomyces dermatitidis</div>
+        <div class="buzz">Broad-based single bud</div>
+        <div class="detail">North America; thick-walled yeast; bud = same size as parent; verrucous skin lesions when disseminated</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Paracoccidioides brasiliensis</div>
+        <div class="buzz">"Captain's wheel" (multiple buds)</div>
+        <div class="detail">South America; men 30–60 yrs; narrow connections; dormancy for decades</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Malassezia</div>
+        <div class="buzz">"Spaghetti and meatballs" on KOH</div>
+        <div class="detail">Lipophilic; pityriasis versicolor; purplish hyphae on biopsy; Wood's lamp positive</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Hortaea werneckii</div>
+        <div class="buzz">Melanized (brown) cell walls</div>
+        <div class="detail">Tinea nigra; dark palm; dematiaceous fungus; asymptomatic; tropical coastal areas</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Epidermophyton floccosum</div>
+        <div class="buzz">Only macroconidia (club-shaped, no microconidia)</div>
+        <div class="detail">2–4 celled, smooth-walled, in small clusters; common in tinea pedis, cruris</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">T. tonsurans</div>
+        <div class="buzz">Black dot tinea (endothrix)</div>
+        <div class="detail">Spores INSIDE hair shaft; hairs break at follicular opening; tinea capitis</div>
+      </div>
+      <div class="buzzword-card">
+        <div class="organism">Microsporum spp.</div>
+        <div class="buzz">Ectothrix + Wood's lamp fluorescence</div>
+        <div class="detail">Spores AROUND hair shaft; greenish fluorescence; echinulate (rough) macroconidia</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Risk Factor → Organism Quick Map</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Risk Factor / Clue</th><th>Think of...</th></tr></thead>
+        <tbody>
+          <tr><td>HIV/AIDS + CD4 &lt; 200</td><td><em>Pneumocystis jirovecii</em> (PCP) — first-line TMP-SMX</td></tr>
+          <tr><td>HIV/AIDS + pigeon exposure / dry feces</td><td><em>Cryptococcus neoformans</em> — chronic meningitis</td></tr>
+          <tr><td>Diabetic ketoacidosis</td><td><em>Rhizopus oryzae</em> (Mucormycosis) — rhinocerebral</td></tr>
+          <tr><td>Neutropenia / transplant</td><td><em>Aspergillus fumigatus</em> — invasive aspergillosis</td></tr>
+          <tr><td>HIV/AIDS + SE Asia + bamboo rats</td><td><em>Talaromyces marneffei</em></td></tr>
+          <tr><td>Prior TB / emphysema cavity</td><td><em>Aspergillus</em> — aspergilloma (fungal ball)</td></tr>
+          <tr><td>Antibiotics + immunocompromised + oral white plaques</td><td><em>Candida albicans</em> — thrush</td></tr>
+          <tr><td>Asthmatic + eosinophilia</td><td><em>Aspergillus</em> — ABPA</td></tr>
+          <tr><td>SW USA + flu-like illness + arthralgia</td><td><em>Coccidioides</em> — Valley Fever</td></tr>
+          <tr><td>Ohio/Mississippi River Valley + caves + bat/birds</td><td><em>Histoplasma capsulatum</em></td></tr>
+          <tr><td>North America + rural rivers + lung + skin ulcers</td><td><em>Blastomyces dermatitidis</em></td></tr>
+          <tr><td>South America + man 30–60 yrs</td><td><em>Paracoccidioides brasiliensis</em></td></tr>
+          <tr><td>TPN infant + lipid emulsion</td><td><em>Malassezia</em> — fungemia</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Stain → Organism</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stain / Test</th><th>Reveals</th><th>Organism</th></tr></thead>
+        <tbody>
+          <tr><td>India ink (CSF)</td><td>Halo around encapsulated yeast</td><td><em>Cryptococcus neoformans</em></td></tr>
+          <tr><td>GMS / Silver stain (lung/BAL)</td><td>"Crushed ping-pong balls" cysts</td><td><em>Pneumocystis jirovecii</em></td></tr>
+          <tr><td>KOH "spaghetti and meatballs"</td><td>Short hyphae + spherical cells</td><td><em>Malassezia</em></td></tr>
+          <tr><td>Giemsa (bone marrow)</td><td>Yeast inside macrophages</td><td><em>Histoplasma capsulatum</em></td></tr>
+          <tr><td>GMS / PAS (tissue, hyphae)</td><td>Septate, acute-angle hyphae</td><td><em>Aspergillus</em></td></tr>
+          <tr><td>GMS / PAS (tissue)</td><td>Broad non-septate hyphae</td><td>Mucorales (Rhizopus/Mucor)</td></tr>
+          <tr><td>Germ tube test at 37°C</td><td>Germ tubes = true hyphae</td><td><em>C. albicans</em> only</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Mnemonic Corner</div>
+    <div class="card-grid">
+      <div class="card-mini">
+        <h4>🌡️ "Hot Mold = Cold Yeast"</h4>
+        <p style="font-size:0.82rem;">Dimorphic endemic fungi: Mold in cold environment (25°C), Yeast in warm body (37°C). <strong>Rule of thumb: yeast form = pathogenic form in tissue</strong></p>
+      </div>
+      <div class="card-mini">
+        <h4>🍕 Malassezia</h4>
+        <p style="font-size:0.82rem;"><strong>Spaghetti + Meatballs</strong> = hyphae + yeast cells. Lipophilic = needs fat in media. Treat to reduce, not eradicate.</p>
+      </div>
+      <div class="card-mini">
+        <h4>⚓ Blasto vs Para vs Crypto</h4>
+        <p style="font-size:0.82rem;"><strong>Blasto</strong>: broad-based bud, 1 bud<br><strong>Para</strong>: multiple buds, "captain's wheel," narrow connections<br><strong>Crypto</strong>: narrow-based bud, with capsule</p>
+      </div>
+      <div class="card-mini">
+        <h4>🎯 Aspergillus vs Mucor</h4>
+        <p style="font-size:0.82rem;"><strong>Aspergillus</strong>: Septate, Acute angle, Regular → SAR<br><strong>Mucor</strong>: Non-septate, Wide/irregular, Ribbon-like → NWR<br>Patient with DKA → Mucor, not Aspergillus!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MCQ ══════════ -->
+<div id="tab-mcq" class="tab-content">
+  <div class="section">
+    <div class="section-title">📝 MCQ Review — 20 Questions</div>
+    <div class="alert alert-blue"><span class="alert-icon">📖</span><div>Click on an answer option. Green = correct, Red = incorrect. The rationale will appear after each answer. <strong>Score tracked below.</strong></div></div>
+    <div id="score-display" style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; color:var(--primary); margin-bottom:16px; font-weight:600;">Score: 0 / 20</div>
+
+    <!-- Q1 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q1.</span> A 32-year-old HIV-positive patient develops white patches on the tongue and palate. KOH preparation shows oval budding yeast with pseudohyphae. A germ tube test at 37°C is performed. Which finding confirms the most likely causative organism?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="1" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Formation of thick-walled chlamydospores only</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Presence of germ tubes (true hyphae)</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Black pigmentation of colonies</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Encapsulated spherical budding cells</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Germ tube formation at 37°C</strong> is pathognomonic for <em>Candida albicans</em>. No other Candida species forms germ tubes. This is the classic lab confirmatory test for C. albicans.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q2.</span> A 45-year-old man with AIDS develops chronic headache, fever, and neck stiffness. CSF examination mixed with India ink shows a halo around budding yeast cells. What is the capsule composed of?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="2" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Peptidoglycan</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Galactomannan</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Glucuronoxylomannan (GXM)</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Beta-glucan</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Glucuronoxylomannan (GXM)</strong> is the polysaccharide capsule of <em>Cryptococcus neoformans</em>. It is the key virulence factor and the antigen detected in serologic tests (latex agglutination, EIA, lateral flow assay).</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q3.</span> A 54-year-old poorly controlled diabetic presents with facial pain, fever, and a black necrotic lesion on the nasal turbinate. Histopathology reveals broad hyphae (10–15 µm) with sparse septations and irregular branching. What is the MOST COMMON causative agent?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="3" data-ans="a">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Rhizopus oryzae</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Aspergillus fumigatus</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Cunninghamella species</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Mucor species</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>A. Rhizopus oryzae</strong> is the most common cause of mucormycosis. Classic triad: DKA + rhinocerebral involvement + broad non-septate hyphae. Although Mucor is in the name "mucormycosis," Rhizopus oryzae is the leading cause.</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q4.</span> A 29-year-old HIV patient (CD4 = 85) presents with progressive dyspnea and dry cough. Bronchoalveolar lavage stained with GMS reveals round structures resembling "crushed ping-pong balls." What is the first-line treatment?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="4" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Amphotericin B</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Trimethoprim-sulfamethoxazole (TMP-SMX)</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Voriconazole</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Itraconazole</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. TMP-SMX</strong> is the first-line treatment for <em>Pneumocystis jirovecii</em> pneumonia. Pentamidine isethionate is the alternative. The "crushed ping-pong ball" morphology on silver stain + CD4 &lt; 200 = PCP.</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q5.</span> A 38-year-old man returning from exploring a cave in the Ohio River Valley presents with fever, cough, and hilar lymphadenopathy. Bone marrow biopsy reveals small yeast cells inside macrophages. What organism is responsible?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="5" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Blastomyces dermatitidis</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Histoplasma capsulatum</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Coccidioides immitis</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Paracoccidioides brasiliensis</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Histoplasma capsulatum</strong>. Geographic clue: Ohio/Mississippi River Valley + bat/bird cave exposure. Key finding: <strong>yeast inside macrophages</strong> (facultative intracellular pathogen). Dissemination to reticuloendothelial system (liver, spleen, lymph nodes).</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q6.</span> A 23-year-old woman from a tropical coastal area has an asymptomatic black discoloration on her palm. KOH shows branched septate hyphae and budding yeast with melanized cell walls. What unique feature characterizes this organism?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="6" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Requires lipid in growth medium</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Forms nodules on hair shaft</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Dematiaceous (melanin-containing) cell walls</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Produces urease</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Dematiaceous (melanin-containing) cell walls</strong> — this describes <em>Hortaea werneckii</em>, the causative agent of tinea nigra. The melanized cell walls are the hallmark distinguishing feature. Lipid requirement = Malassezia; urease = Cryptococcus.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q7.</span> A patient with pre-existing pulmonary TB cavities develops hemoptysis. CT shows an "air crescent sign." Sputum culture grows hyphae with conidiophores terminating in a vesicle. What type of hypersensitivity is involved in ABPA?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="7" data-ans="d">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Type I only</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Type II and IV</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Type IV (delayed)</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Type I (immediate) AND Type III (Arthus)</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>D. Type I (immediate) AND Type III (Arthus)</strong>. ABPA involves both IgE-mediated (Type I) and immune complex-mediated (Type III) hypersensitivity to Aspergillus antigen. Air crescent sign on CT = aspergilloma (fungal ball in TB cavity).</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q8.</span> A 50-year-old man with chronic lung disease and disseminated skin lesions undergoes biopsy. It shows thick-walled yeast cells (8–15 µm) with a single bud attached by a broad base. He lives near a rural Canadian riverbank. What organism?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="8" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Histoplasma capsulatum</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Blastomyces dermatitidis</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Paracoccidioides brasiliensis</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Cryptococcus neoformans</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Blastomyces dermatitidis</strong>. North America (Canada/US, rural rivers) + broad-based single bud + same size as parent yeast + verrucous skin lesions = classic Blastomycosis. Paracoccidioides has MULTIPLE buds (captain's wheel), not a single broad-based one.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q9.</span> A 22-year-old presents with hypopigmented macules on the upper back. KOH shows "spaghetti and meatballs." What is the PRIMARY treatment GOAL for this condition?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="9" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Complete eradication of the organism from skin</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Systemic antifungal therapy for 6 months</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Reduction of the yeast to commensal levels</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Surgical debridement of affected skin</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Reduction to commensal levels</strong>. Malassezia is normal skin flora — the goal is NOT eradication but to reduce overgrowth to non-pathological levels. Treatment: selenium sulfide (Selsun Blue) or topical/oral azoles.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q10.</span> Which dermatophyte produces ONLY macroconidia (no microconidia), which are smooth-walled, club-shaped, 2–4 celled, and arranged in small clusters?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="10" data-ans="d">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Trichophyton rubrum</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Microsporum canis</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Trichophyton mentagrophytes</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Epidermophyton floccosum</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>D. Epidermophyton floccosum</strong>. This is the ONLY dermatophyte with no microconidia — it produces only smooth-walled, club-shaped, 2–4 celled macroconidia in small clusters. M. canis has echinulate (rough) macroconidia; Trichophyton species have both macro AND microconidia.</div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q11.</span> Tinea capitis caused by Microsporum canis vs. Trichophyton tonsurans: which pairing of ectothrix/endothrix and Wood's lamp result is CORRECT?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="11" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> M. canis = endothrix, Wood's lamp negative; T. tonsurans = ectothrix, Wood's lamp positive</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> M. canis = ectothrix, Wood's lamp positive (green); T. tonsurans = endothrix ("black dot"), Wood's lamp negative</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Both = ectothrix, both Wood's lamp positive</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Both = endothrix, both Wood's lamp negative</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B.</strong> M. canis = ECTOTHRIX (spores form sheath AROUND hair shaft) + greenish Wood's lamp fluorescence. T. tonsurans = ENDOTHRIX (spores INSIDE hair shaft) = "black dot tinea" because hairs break at the follicular opening, leaving black dots. Wood's lamp negative for T. tonsurans.</div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q12.</span> A 27-year-old travels to Southwestern US and develops fever, arthralgias, cough, and headache after returning. He later develops lung nodules. Sputum shows large thick-walled spherical structures containing endospores. What was the mode of transmission?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="12" data-ans="a">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Inhalation of arthroconidia (barrel-shaped spores)</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Direct skin contact with contaminated soil</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Inhalation of basidiospores from pigeon droppings</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Inhalation of macroconidia</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>A. Arthroconidia</strong> (barrel-shaped spores in chains) are the infectious form of Coccidioides. Once inhaled, they transform into spherules in the host. Arthroconidia are highly infectious. The disease described is Valley Fever (acute pulmonary coccidioidomycosis).</div>
+    </div>
+
+    <!-- Q13 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q13.</span> A 55-year-old man from rural South America presents with chronic cough, mucocutaneous lesions, and granulomatous lymphadenopathy. Microscopy of sputum shows large yeast with multiple buds arranged peripherally around a central cell. The majority of patients are:<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="13" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Children under age 10</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Women aged 20–40</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Men aged 30–60</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Immunocompromised women over 60</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Men aged 30–60</strong>. Paracoccidioidomycosis (South American blastomycosis) predominantly affects men aged 30–60. The "captain's wheel" morphology (multiple peripheral buds on central yeast cell) is pathognomonic for <em>Paracoccidioides brasiliensis</em>.</div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q14.</span> Which organism divides by FISSION (not budding) and produces a green-yellow colony with a diffusible reddish pigment, and is endemic in Southeast Asia?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="14" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Histoplasma capsulatum</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Talaromyces marneffei</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Cryptococcus neoformans</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Blastomyces dermatitidis</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Talaromyces marneffei</strong> (formerly Penicillium marneffei). Key distinguishing features: yeast cells divide by FISSION (not budding), reddish/red pigment diffuses into culture medium, endemic in SE Asia, associated with bamboo rats and HIV.</div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q15.</span> In tinea corporis (ringworm), where should the specimen be collected for highest diagnostic yield?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="15" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Central clearing of the lesion</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Deepest point of the lesion</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Periphery (advancing border) of the lesion</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Random sampling from any area</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Periphery (advancing border)</strong>. Fungal hyphae grow centrifugally (outward from center), making the peripheral advancing border the most active zone with viable fungi. The central area has mostly dead/degenerated hyphae.</div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q16.</span> A patient has pruritic vesicular lesions on the sides of her fingers and palm without any evidence of fungi in the lesion itself. What is the MOST likely diagnosis?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="16" data-ans="d">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Tinea manuum</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Tinea corporis</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Cutaneous candidiasis</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Dermatophytid (id reaction)</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>D. Dermatophytid (id reaction)</strong>. This is an immune hypersensitivity reaction to a distant fungal infection — NO FUNGI are present in the lesion itself. It is most commonly associated with tinea pedis. Lesions may become secondarily infected with bacteria.</div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q17.</span> A neutropenic transplant patient develops fever unresponsive to antibiotics. Serum galactomannan test is positive. CT shows a halo sign. Sputum histology reveals hyaline septate hyphae branching dichotomously at ~45°. The organism is MOST CLOSELY associated with which virulence mechanism in invasive disease?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="17" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Capsule production inhibiting phagocytosis</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Hyphae invading blood vessels causing thrombosis and infarction</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Urease production causing tissue alkalinity</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Fission causing rapid dissemination</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Hyphae invading blood vessels</strong> causing thrombosis and infarction is the hallmark of invasive aspergillosis. This is angioinvasive behavior → necrotic lesions of GIT, kidney, liver, brain. Galactomannan + neutropenia + 45° branching hyphae = Aspergillus fumigatus.</div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q18.</span> Which of the following CORRECTLY pairs the piedra infection with its causative organism?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="18" data-ans="a">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Black piedra → Piedraia hortae; White piedra → Trichosporon spp.</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Black piedra → Trichosporon spp.; White piedra → Piedraia hortae</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Black piedra → Malassezia furfur; White piedra → Hortaea werneckii</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Black piedra → Hortaea werneckii; White piedra → Piedraia hortae</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>A.</strong> Black piedra = hard nodules on hair shaft caused by <em>Piedraia hortae</em>. White piedra = large, soft, yellowish nodules caused by <em>Trichosporon spp.</em>. Both infect hair of axilla, genitalia, beard, and scalp. Treatment: remove infected hair + topical antifungals.</div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q19.</span> In Histoplasma capsulatum, what term describes its ability to survive and replicate INSIDE macrophages?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="19" data-ans="c">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Obligate extracellular parasite</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Obligate intracellular parasite</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Facultative intracellular parasite</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> Opportunistic extracellular pathogen</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>C. Facultative intracellular parasite</strong>. H. capsulatum can survive inside macrophages (facultative = can live inside OR outside cells). This allows dissemination to reticuloendothelial system (liver, spleen, lymph nodes). Compare with PCP which is obligate extracellular.</div>
+    </div>
+
+    <!-- Q20 -->
+    <div class="mcq-item">
+      <div class="mcq-q"><span style="color:var(--primary); font-family:'JetBrains Mono', monospace; font-size:0.8rem;">Q20.</span> A positive coccidioidin skin test (induration ≥5 mm at 24–48 hours) in a patient with suspected active coccidioidomycosis indicates which of the following?<br><span class="stem">Choose the single best answer.</span></div>
+      <div class="mcq-options" data-q="20" data-ans="b">
+        <button class="mcq-opt" data-val="a"><span class="letter">A</span> Active, disseminated infection requiring immediate treatment</button>
+        <button class="mcq-opt" data-val="b"><span class="letter">B</span> Prior exposure to Coccidioides; NOT useful for active disease diagnosis</button>
+        <button class="mcq-opt" data-val="c"><span class="letter">C</span> Definitive proof of current Valley Fever</button>
+        <button class="mcq-opt" data-val="d"><span class="letter">D</span> False positive due to cross-reactivity with Histoplasma</button>
+      </div>
+      <div class="mcq-rationale">✅ <strong>B. Prior exposure, NOT useful for active disease</strong>. The coccidioidin skin test only indicates prior exposure (immunity). It is NOT useful for diagnosing active disease. Similarly, the histoplasmin skin test indicates past exposure only. For active disease, use serology (complement fixation, latex agglutination) and culture.</div>
+    </div>
+
+    <div id="final-score" style="display:none; padding:20px; background:var(--primary-pale); border-radius:12px; text-align:center; margin-top:20px; border: 2px solid var(--primary-light);">
+      <div style="font-family:'DM Serif Display', serif; font-size:1.6rem; color:var(--primary); margin-bottom:8px;">Quiz Complete! 🎉</div>
+      <div id="final-score-text" style="font-size:1rem; color:var(--text); margin-bottom:8px;"></div>
+      <div id="final-score-msg" style="font-size:0.85rem; color:var(--text2);"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div id="score-bar">Score: <span id="score-num">0</span>/20</div>
+
+<script>
+  // Tab switching
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // MCQ Logic
+  let score = 0;
+  let answered = 0;
+  const total = 20;
+
+  document.querySelectorAll('.mcq-options').forEach(container => {
+    const correct = container.dataset.ans;
+    const rationale = container.parentElement.querySelector('.mcq-rationale');
+
+    container.querySelectorAll('.mcq-opt').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (container.dataset.done === 'true') return;
+        container.dataset.done = 'true';
+        answered++;
+
+        const chosen = btn.dataset.val;
+        container.querySelectorAll('.mcq-opt').forEach(b => {
+          b.disabled = true;
+          if (b.dataset.val === correct) b.classList.add('correct');
+          else if (b.dataset.val === chosen && chosen !== correct) b.classList.add('wrong');
+        });
+
+        if (chosen === correct) score++;
+        updateScore();
+        rationale.classList.add('show');
+
+        if (answered === total) showFinalScore();
+      });
+    });
+  });
+
+  function updateScore() {
+    document.getElementById('score-num').textContent = score;
+    document.getElementById('score-display').textContent = `Score: ${score} / ${total} (${answered} answered)`;
+    const bar = document.getElementById('score-bar');
+    bar.style.display = 'block';
+  }
+
+  function showFinalScore() {
+    const el = document.getElementById('final-score');
+    el.style.display = 'block';
+    const pct = Math.round((score/total)*100);
+    document.getElementById('final-score-text').textContent = `You scored ${score} out of ${total} (${pct}%)`;
+    let msg = '';
+    if (pct >= 90) msg = 'Outstanding! You\'ve mastered medical mycology. 🏆';
+    else if (pct >= 75) msg = 'Great job! Review the questions you missed and you\'ll be exam-ready. 💪';
+    else if (pct >= 60) msg = 'Good start! Revisit the buzzwords tab and reattempt. 📚';
+    else msg = 'Keep going! Review the tables carefully — focus on morphology and geographic clues. 🔬';
+    document.getElementById('final-score-msg').textContent = msg;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>
