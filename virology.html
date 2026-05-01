@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micro & Parasitology | High-Yield Reviewer AY 2025-2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --surface: #ffffff;
+    --surface2: #f0ece4;
+    --border: #e2dbd0;
+    --text: #2c2a26;
+    --text-soft: #6b6459;
+    --accent: #2d6a4f;
+    --accent2: #52796f;
+    --accent3: #b7791f;
+    --accent4: #7b2d8b;
+    --accent5: #c0392b;
+    --accent6: #1a5276;
+    --yellow: #fef3c7;
+    --yellow-border: #f59e0b;
+    --green: #d1fae5;
+    --green-border: #059669;
+    --red: #fee2e2;
+    --red-border: #dc2626;
+    --blue: #dbeafe;
+    --blue-border: #2563eb;
+    --purple: #ede9fe;
+    --purple-border: #7c3aed;
+    --orange: #ffedd5;
+    --orange-border: #ea580c;
+    --teal: #ccfbf1;
+    --teal-border: #0d9488;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* SIDEBAR */
+  #sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: var(--surface);
+    border-right: 1.5px solid var(--border);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    padding-bottom: 2rem;
+  }
+  #sidebar-header {
+    padding: 1.2rem 1rem 1rem;
+    border-bottom: 1.5px solid var(--border);
+    background: var(--accent);
+    color: #fff;
+  }
+  #sidebar-header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  #sidebar-header p {
+    font-size: 0.72rem;
+    opacity: 0.8;
+    margin-top: 0.2rem;
+  }
+  .nav-section-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    padding: 0.8rem 1rem 0.3rem;
+  }
+  .nav-link {
+    display: block;
+    padding: 0.45rem 1rem 0.45rem 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 400;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .nav-link:hover { background: var(--surface2); border-left-color: var(--accent2); color: var(--accent); }
+  .nav-link.active { background: var(--green); border-left-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .nav-code { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-soft); }
+
+  /* MAIN */
+  #main {
+    margin-left: 240px;
+    flex: 1;
+    padding: 2rem 2.5rem 4rem;
+    max-width: 1100px;
+  }
+
+  /* SECTION */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-sub {
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .icon { font-size: 1.1rem; }
+
+  /* CALLOUTS */
+  .callout {
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid;
+    font-size: 0.84rem;
+  }
+  .callout-yellow { background: var(--yellow); border-color: var(--yellow-border); }
+  .callout-green  { background: var(--green);  border-color: var(--green-border); }
+  .callout-red    { background: var(--red);    border-color: var(--red-border); }
+  .callout-blue   { background: var(--blue);   border-color: var(--blue-border); }
+  .callout-purple { background: var(--purple); border-color: var(--purple-border); }
+  .callout-orange { background: var(--orange); border-color: var(--orange-border); }
+  .callout-teal   { background: var(--teal);   border-color: var(--teal-border); }
+  .callout strong { display: block; margin-bottom: 0.2rem; }
+
+  /* TABLES */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 1rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  thead tr {
+    background: var(--accent);
+    color: #fff;
+  }
+  thead th {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+  tbody tr:nth-child(even) { background: var(--surface2); }
+  tbody tr:nth-child(odd) { background: var(--surface); }
+  tbody td {
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:hover { background: var(--green); }
+
+  /* THEAD VARIANTS */
+  .thead-blue thead tr { background: var(--accent6); }
+  .thead-purple thead tr { background: var(--accent4); }
+  .thead-orange thead tr { background: var(--accent3); }
+  .thead-red thead tr { background: var(--accent5); }
+  .thead-teal thead tr { background: #0d9488; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 800px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    #main { padding: 1rem; }
+    #sidebar { width: 100%; position: static; }
+    #main { margin-left: 0; }
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin: 0.1rem;
+  }
+  .badge-green { background: var(--green); color: #065f46; }
+  .badge-red { background: var(--red); color: #991b1b; }
+  .badge-yellow { background: var(--yellow); color: #92400e; }
+  .badge-blue { background: var(--blue); color: #1e3a8a; }
+  .badge-purple { background: var(--purple); color: #4c1d95; }
+  .badge-orange { background: var(--orange); color: #9a3412; }
+  .badge-teal { background: var(--teal); color: #134e4a; }
+
+  /* STAR / HIGH YIELD marker */
+  .hy { color: #d97706; font-weight: 700; }
+  .star::before { content: "⭐ "; }
+
+  /* ALGORITHM FLOW */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin: 0.5rem 0;
+  }
+  .flow-step {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.83rem;
+    position: relative;
+  }
+  .flow-step::after {
+    content: "↓";
+    display: block;
+    text-align: center;
+    color: var(--accent2);
+    font-size: 1rem;
+    margin-top: 0.2rem;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step.highlight { background: var(--green); border-color: var(--green-border); }
+  .flow-step.danger { background: var(--red); border-color: var(--red-border); }
+
+  /* MCQ */
+  .mcq-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .mcq-q { font-weight: 600; margin-bottom: 0.6rem; font-size: 0.88rem; }
+  .mcq-options { list-style: none; }
+  .mcq-options li {
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    font-size: 0.83rem;
+    border: 1.5px solid var(--border);
+    transition: all 0.15s;
+  }
+  .mcq-options li:hover { background: var(--blue); border-color: var(--blue-border); }
+  .mcq-options li.correct { background: var(--green); border-color: var(--green-border); font-weight: 600; }
+  .mcq-options li.wrong { background: var(--red); border-color: var(--red-border); }
+  .mcq-options li.revealed-correct { background: var(--green); border-color: var(--green-border); }
+  .mcq-explain {
+    display: none;
+    background: var(--yellow);
+    border-left: 3px solid var(--yellow-border);
+    padding: 0.6rem 0.8rem;
+    margin-top: 0.6rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.82rem;
+  }
+  .mcq-explain.show { display: block; }
+  .mcq-num { display: inline-block; background: var(--accent); color: #fff; border-radius: 999px; width: 22px; height: 22px; text-align: center; font-size: 0.75rem; font-weight: 700; line-height: 22px; margin-right: 0.4rem; }
+
+  /* BUZZ WORDS */
+  .buzz-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  .buzz-item {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  .buzz-term { font-weight: 700; color: var(--accent); display: block; }
+  .buzz-clue { color: var(--text-soft); font-size: 0.75rem; }
+
+  /* PROGRESS BAR (decorative) */
+  .progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 999px;
+    width: 100%;
+  }
+
+  /* SMALL UTILS */
+  ul.hy-list { padding-left: 1.2rem; }
+  ul.hy-list li { margin-bottom: 0.2rem; font-size: 0.83rem; }
+  .mono { font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+  .mt1 { margin-top: 0.5rem; }
+  .mt2 { margin-top: 1rem; }
+  h3.sub { font-size: 0.88rem; font-weight: 700; color: var(--accent2); margin: 0.8rem 0 0.4rem; letter-spacing: 0.03em; text-transform: uppercase; }
+
+  /* VS TABLE */
+  .vs-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .vs-box { background: var(--surface); border: 1.5px solid var(--border); border-radius: 8px; padding: 0.8rem; }
+  .vs-box h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; padding-bottom: 0.3rem; border-bottom: 2px solid; }
+  .vs-box.left h4 { color: var(--accent6); border-color: var(--blue-border); }
+  .vs-box.right h4 { color: var(--accent5); border-color: var(--red-border); }
+
+  /* Sticky topic header */
+  .sticky-top {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+    padding: 0.5rem 0 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h1>Micro & Parasitology<br>High-Yield Reviewer</h1>
+    <p>AY 2025–2026 · Batches 5.01–5.11</p>
+  </div>
+  <div class="nav-section-label">Foundations</div>
+  <a class="nav-link active" onclick="showSection('s01')">General Properties of Viruses <span class="nav-code">5.01</span></a>
+  <div class="nav-section-label">Respiratory</div>
+  <a class="nav-link" onclick="showSection('s02')">Respiratory Viruses <span class="nav-code">5.02</span></a>
+  <a class="nav-link" onclick="showSection('s03')">COVID-19 (Clinical) <span class="nav-code">5.03</span></a>
+  <a class="nav-link" onclick="showSection('s04')">COVID-19 (Lab) <span class="nav-code">5.04</span></a>
+  <div class="nav-section-label">GI / Enteric</div>
+  <a class="nav-link" onclick="showSection('s05')">Picornavirus <span class="nav-code">5.05</span></a>
+  <a class="nav-link" onclick="showSection('s07')">Rotavirus / Calicivirus <span class="nav-code">5.07</span></a>
+  <div class="nav-section-label">Liver</div>
+  <a class="nav-link" onclick="showSection('s06')">Hepatitis Viruses <span class="nav-code">5.06</span></a>
+  <div class="nav-section-label">Vector-borne</div>
+  <a class="nav-link" onclick="showSection('s10')">Mosquito-borne Viruses <span class="nav-code">5.10</span></a>
+  <div class="nav-section-label">Neurologic / Oncologic</div>
+  <a class="nav-link" onclick="showSection('s11')">Rabies / Prion / Tumor Viruses <span class="nav-code">5.11</span></a>
+  <div class="nav-section-label">Review</div>
+  <a class="nav-link" onclick="showSection('smcq')">📝 MCQ Practice</a>
+  <a class="nav-link" onclick="showSection('sbuzz')">⚡ Buzzwords & Mnemonics</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main id="main">
+
+<!-- ===== 5.01 GENERAL PROPERTIES ===== -->
+<section id="s01" class="section active">
+  <div class="sticky-top">
+    <div class="section-title">⚙️ General Properties of Viruses</div>
+    <div class="section-sub">5.01 · Jan 21, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="callout callout-yellow"><strong>⭐ Core Concept</strong> Viruses are obligate intracellular parasites — they are biologically inert outside host cells. NOT placed in kingdoms. Classified into groups/families.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔑</span> Key Definitions (High-Yield)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Virion</strong></td><td>Complete, infectious virus particle (with or without envelope)</td></tr>
+          <tr><td><strong>Capsid</strong></td><td>Protein shell/coat enclosing nucleic acid genome</td></tr>
+          <tr><td><strong>Capsomere</strong></td><td>Morphologic units on surface of icosahedral virus</td></tr>
+          <tr><td><strong>Nucleocapsid</strong></td><td>Protein-nucleic acid complex (packaged viral genome)</td></tr>
+          <tr><td><strong>Envelope</strong></td><td>Lipid-containing membrane around some viruses; acquired during budding</td></tr>
+          <tr><td><strong>Peplomers</strong></td><td>Virus-encoded glycoprotein projections on envelope surface</td></tr>
+          <tr><td><strong>Pseudovirion</strong></td><td>Host cell DNA accidentally packaged inside a capsid</td></tr>
+          <tr><td><strong>Protomer</strong></td><td>Basic protein building block of structural unit of the coat</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🧱</span> Naked vs Enveloped</div>
+      <div class="callout callout-green"><strong>HARD Mnemonic (Naked viruses)</strong>
+        <ul class="hy-list">
+          <li><strong>H</strong>eat resistant</li>
+          <li><strong>A</strong>cid resistant</li>
+          <li><strong>R</strong>esist drying</li>
+          <li><strong>D</strong>etergent resistant</li>
+        </ul>
+      </div>
+      <p style="font-size:0.82rem">Enveloped viruses: more fragile, lipid envelope disrupted by detergents/ether. Most appear circular/spherical under EM — <strong>except Rhabdovirus (bullet-shaped!)</strong></p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🔬</span> Capsid Morphology</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Type</th><th>Example</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Helical</strong></td><td>Influenza (env), TMV (naked)</td><td>Protein winds around nucleic acid</td></tr>
+            <tr><td><strong>Icosahedral</strong></td><td>Adenovirus (naked), Herpes (env)</td><td>Most common; forms independent of NA</td></tr>
+            <tr><td><strong>Complex</strong></td><td>T-even bacteriophage</td><td>Irregular; head + tailpiece</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-red mt1"><strong>⭐ Exception:</strong> Rhabdovirus = enveloped BUT bullet-shaped (helical inside, odd envelope)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🧬</span> Baltimore Classification (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table class="thead-blue">
+        <thead><tr><th>Class</th><th>Genome</th><th>Key Viruses</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>I</strong></td><td>dsDNA</td><td>Herpes, Adeno, Pox, Papilloma, Hepadna</td><td>DNA replicates in nucleus (except Pox)</td></tr>
+          <tr><td><strong>II</strong></td><td>ssDNA</td><td>Parvovirus</td><td>Smallest; needs co-infection with adeno</td></tr>
+          <tr><td><strong>III</strong></td><td>dsRNA</td><td>Reovirus, Rotavirus</td><td>Segmented genome</td></tr>
+          <tr><td><strong>IV</strong></td><td>(+) ssRNA</td><td>Picornavirus, Togavirus, Flavivirus, Coronavirus</td><td>Acts as mRNA directly → translated immediately</td></tr>
+          <tr><td><strong>V</strong></td><td>(−) ssRNA</td><td>Rhabdovirus (Rabies), Paramyxovirus, Orthomyxovirus (Influenza)</td><td>Needs RNA-dependent RNA polymerase</td></tr>
+          <tr><td><strong>VI</strong></td><td>ssRNA→DNA</td><td>Retrovirus (HIV, HTLV)</td><td>Uses reverse transcriptase</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-yellow mt1"><strong>🧠 DNA Virus Mnemonic: PaPa P Ad Po HeHe</strong> Pa(pilloma) Pa(rvovirus) P(olyoma) Ad(enovirus) Po(xvirus) He(padnavirus) He(rpesvirus)</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🔄</span> Viral Replication Steps</div>
+      <div class="flow">
+        <div class="flow-step">1. <strong>Attachment</strong> — viral attachment proteins bind host receptors (lock & key)</div>
+        <div class="flow-step">2. <strong>Entry</strong> — fusion or endocytosis</div>
+        <div class="flow-step">3. <strong>Uncoating</strong> — capsid removed; genome released</div>
+        <div class="flow-step">4. <strong>Transcription</strong> — viral mRNA synthesized</div>
+        <div class="flow-step">5. <strong>Replication</strong> — genome duplicated</div>
+        <div class="flow-step">6. <strong>Translation</strong> — viral proteins made by host ribosomes</div>
+        <div class="flow-step">7. <strong>Assembly</strong> — genome + capsid proteins packaged</div>
+        <div class="flow-step highlight">8. <strong>Budding/Release</strong> — enveloped: budding acquires lipid envelope; naked: cell lysis</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🌀</span> Reproductive Cycles</div>
+      <div class="callout callout-red"><strong>Lytic Cycle</strong> Replication kills the host cell. Used by virulent viruses.</div>
+      <div class="callout callout-green"><strong>Lysogenic Cycle</strong> Virus replicates without destroying host. Temperate viruses (e.g., lambda phage).</div>
+      <div class="callout callout-blue mt1"><strong>Retrovirus Special:</strong><br>
+        RNA → (Reverse Transcriptase) → cDNA → dsDNA → integrated as <em>provirus</em> → transcribed by host polymerase
+      </div>
+      <h3 class="sub">Viral Glycoproteins</h3>
+      <ul class="hy-list">
+        <li><strong>Hemagglutinin</strong> — agglutinates RBCs; facilitates attachment (Orthomyxo, Paramyxo)</li>
+        <li><strong>Neuraminidase (Sialidase)</strong> — facilitates release of virions from infected cells</li>
+        <li><strong>Reverse Transcriptase</strong> — retroviruses; converts ssRNA → dsDNA</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5.02 RESPIRATORY VIRUSES ===== -->
+<section id="s02" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🫁 Respiratory Viruses</div>
+    <div class="section-sub">5.02 · Jan 21, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> Respiratory Virus Comparison (MASTER TABLE)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Virus</th><th>Family/Genome</th><th>Envelope</th><th>Key Feature</th><th>Clinical Pearl</th><th>Tx/Prevention</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Adenovirus</strong></td><td>dsDNA; icosahedral</td><td>None (naked)</td><td>Fibers at 12 vertices; persists in lymphoid tissue</td><td>Tonsillitis, nasopharyngitis, keratoconjunctivitis, hemorrhagic cystitis; self-limiting</td><td>No specific tx; vaccine types 4&7 (military only)</td></tr>
+          <tr><td><strong>Rhinovirus</strong></td><td>(+) ssRNA; naked</td><td>None</td><td>Acid-labile (pH 3); replicates at 33°C</td><td>Common cold; limited to nasopharynx; #1 asthma exacerbation trigger; NO viremia</td><td>No tx; intranasal IFN-α (prevention only)</td></tr>
+          <tr><td><strong>RSV</strong></td><td>(−) ssRNA; enveloped</td><td>Yes</td><td>Syncytium formation (CPE); NO viremia</td><td>⭐ #1 cause of bronchiolitis in infants <1 yr; pneumonia; maternal Ab does NOT protect</td><td>Ribavirin (severe); no routine infant vaccine</td></tr>
+          <tr><td><strong>Influenza A/B</strong></td><td>(−) ssRNA; segmented (8); enveloped</td><td>Yes</td><td>HA (attachment) + NA (release/sialidase); segmented genome → reassortment</td><td>Upper & lower RT; virulence: A>B>C; secondary bacterial infection risk</td><td>Amantadine/Rimantadine (uncoating); Oseltamivir (NA inhibitor)</td></tr>
+          <tr><td><strong>Parainfluenza</strong></td><td>(−) ssRNA; enveloped</td><td>Yes</td><td>Unstable; contagion precedes symptoms</td><td>⭐ 2nd most common lower RT infections in infants; CROUP; no viremia; temp immunity</td><td>None</td></tr>
+          <tr><td><strong>Coronavirus</strong></td><td>(+) ssRNA; enveloped</td><td>Yes</td><td>Peplomers (club-shaped spikes); does NOT grow in cultured cells; buds into RER</td><td>URT in adults; LRT in hospitalized children; replicates best at 33–35°C</td><td>RT-PCR (main Dx); no antiviral/vaccine (pre-COVID)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🦠</span> Influenza: Antigenic Drift vs Shift</div>
+      <div class="vs-wrap">
+        <div class="vs-box left">
+          <h4>Antigenic DRIFT</h4>
+          <ul class="hy-list">
+            <li>Minor changes</li>
+            <li>Point mutations → AA changes</li>
+            <li>Gradual process</li>
+            <li>Causes <strong>seasonal outbreaks</strong></li>
+            <li>→ Annual vaccine needed</li>
+            <li>Affects Influenza A, B, C</li>
+          </ul>
+        </div>
+        <div class="vs-box right">
+          <h4>Antigenic SHIFT</h4>
+          <ul class="hy-list">
+            <li>Major changes</li>
+            <li>Genetic reassortment of segments</li>
+            <li>Sudden; new subtype appears</li>
+            <li>Causes <strong>pandemics</strong></li>
+            <li>Two strains infect same host</li>
+            <li>ONLY Influenza A (animals have related strains)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-yellow mt1"><strong>Influenza Surface Antigens (HA & NA)</strong> Vary independently. HA = neutralizing Ab target. NA = sialidase = Oseltamivir target. M2 protein = Amantadine/Rimantadine target.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🧒</span> Adenovirus Clinical by Serotype</div>
+      <div class="tbl-wrap">
+        <table class="thead-blue">
+          <thead><tr><th>Serotype</th><th>Disease</th></tr></thead>
+          <tbody>
+            <tr><td>1, 2, 5, 6 (Subgroup C)</td><td>Mild URT in children; persists in lymphoid tissue</td></tr>
+            <tr><td>3, 7 (Subgroup B)</td><td>ARD, pharyngoconjunctival fever; epidemic respiratory illness</td></tr>
+            <tr><td>5, 8, 19 (Subgroup D)</td><td>Epidemic keratoconjunctivitis (most serious ocular)</td></tr>
+            <tr><td>11, 21</td><td>Acute hemorrhagic cystitis (young adult males)</td></tr>
+            <tr><td>40, 41 (Subgroup F)</td><td>Pediatric gastroenteritis (fastidious enteric)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-blue mt1"><strong>Lab Interpretation:</strong> Diagnostic = from eye, GIT, lung, brain. Suggestive = from throat. Ambiguous = from feces.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔬</span> Coronavirus Key Proteins</div>
+    <div class="tbl-wrap">
+      <table class="thead-teal">
+        <thead><tr><th>Protein</th><th>Location</th><th>Function</th></tr></thead>
+        <tbody>
+          <tr><td><strong>S (Spike)</strong></td><td>Envelope (peplomer)</td><td>Major antigen; receptor binding; cell fusion — ⭐ most important</td></tr>
+          <tr><td><strong>E2 (peplomeric GP)</strong></td><td>Envelope spikes</td><td>Binding to host cells; fusion activity</td></tr>
+          <tr><td><strong>E (Envelope)</strong></td><td>Envelope</td><td>Small envelope-associated protein</td></tr>
+          <tr><td><strong>M (Membrane)</strong></td><td>Transmembrane</td><td>Budding and envelope formation</td></tr>
+          <tr><td><strong>N (Nucleoprotein)</strong></td><td>Core</td><td>Ribonucleoprotein</td></tr>
+          <tr><td><strong>HE (Hemagglutinin esterase)</strong></td><td>Peplomer</td><td>Hemagglutination (only in some types; 4th glycoprotein)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5.03 COVID CLINICAL ===== -->
+<section id="s03" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🦠 COVID-19 (Clinical)</div>
+    <div class="section-sub">5.03 · Masbang · Jan 28, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="callout callout-blue"><strong>SARS-CoV-2 Basics</strong>
+      <ul class="hy-list">
+        <li>BETAcoronavirus</li>
+        <li>Enveloped, (+)-sense, ssRNA</li>
+        <li>4 structural proteins: S, E, M, N</li>
+        <li><strong>ACE2 receptor</strong> = primary receptor for host cell entry</li>
+        <li>S protein = receptor-binding domain on ACE2</li>
+      </ul>
+    </div>
+    <div class="callout callout-yellow"><strong>Variants (VOC vs VOI)</strong>
+      <ul class="hy-list">
+        <li><strong>VOI:</strong> Genetic changes affecting transmissibility/virulence</li>
+        <li><strong>VOC:</strong> VOI criteria + ↑ severity OR ↓ vaccine effectiveness</li>
+        <li>VOCs: Alpha, Beta, Gamma, <strong>Delta</strong> (most toxic/severe), Omicron (milder, flu-like)</li>
+        <li>Current: <strong>JN.1</strong> (Omicron lineage) = VOI</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📈</span> COVID-19 Disease Stages (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table class="thead-red">
+        <thead><tr><th>Stage</th><th>Duration</th><th>Key Features</th><th>Viral Load/Inflammation</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Stage I: Early Infection</strong></td><td>≤7 days</td><td>Mild flu-like; <strong>Anosmia/dysgeusia</strong> distinguishes from other URI</td><td>↑ Viral load; ↓ inflammation</td></tr>
+          <tr><td><strong>Stage II: Pulmonary Phase</strong></td><td>7–14 days</td><td>⭐ PNEUMONIA; CXR infiltrates; SOB; ↓ O2 sat</td><td>Viral load declining; inflammation rising</td></tr>
+          <tr><td><strong>Stage III: Hyperinflammatory</strong></td><td>14–21 days</td><td>⭐ Cytokine storm; ARDS; shock; cardiac failure; ↑ CRP, IL-6, Ferritin — DISTINGUISHING feature of COVID</td><td>Low viral load; peak inflammation; high mortality</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🏥</span> NIH/WHO Severity Classification (ALGORITHM)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Classification</th><th>Definition</th><th>SpO₂</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Asymptomatic</strong></td><td>Positive test + NO symptoms</td><td>Normal</td></tr>
+          <tr><td><strong>Mild</strong></td><td>Symptoms (fever, cough, etc.) but NO SOB, dyspnea, or abnormal CXR</td><td>Normal</td></tr>
+          <tr><td><strong>Moderate ⭐</strong></td><td>Evidence of LOWER respiratory disease on exam/imaging (pneumonia). ANYTHING with pneumonia = moderate</td><td>≥94%</td></tr>
+          <tr><td><strong>Severe ⭐</strong></td><td>Pneumonia + O2 desaturation; RR >30; lung infiltrates >50%</td><td><strong>&lt;94%</strong> (WHO) / <strong>&lt;92%</strong> (DOH)</td></tr>
+          <tr><td><strong>Critical ⭐</strong></td><td>Respiratory failure + Septic shock + Multi-organ dysfunction</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-orange mt1"><strong>DOH Moderate:</strong> Also includes age ≥60 OR with comorbidity (even if SpO2 ≥92%)</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">💊</span> COVID-19 Treatment Algorithm</div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Non-hospitalized (high-risk for progression)</h3>
+        <div class="flow">
+          <div class="flow-step highlight">1st: <strong>Paxlovid</strong> (Nirmatrelvir/Ritonavir) — oral; within 5 days of symptom onset</div>
+          <div class="flow-step">2nd: <strong>Remdesivir</strong> — IV; within 7 days (needs admission)</div>
+          <div class="flow-step">3rd: <strong>Molnupiravir</strong> — oral; within 5 days (cheaper; used more in PH)</div>
+        </div>
+        <div class="callout callout-yellow mt1"><strong>Risk factors for antiviral indication:</strong> Age >60, DM, CKD, COPD, obesity, cancer, serious heart conditions</div>
+      </div>
+      <div>
+        <h3 class="sub">Hospitalized (requires O₂)</h3>
+        <div class="callout callout-green"><strong>⭐ Dexamethasone</strong> = life-saving; given when patient needs oxygen supplementation. Corticosteroid → ↓ inflammation. First evidence-based intervention for hypoxemia.</div>
+        <h3 class="sub">NOT used (historical/disproven)</h3>
+        <div class="buzz-grid">
+          <span class="badge badge-red">Hydroxychloroquine</span>
+          <span class="badge badge-red">Azithromycin</span>
+          <span class="badge badge-red">Ivermectin</span>
+          <span class="badge badge-red">Lopinavir/Ritonavir</span>
+          <span class="badge badge-red">Oseltamivir</span>
+          <span class="badge badge-red">Convalescent Plasma</span>
+          <span class="badge badge-red">Colchicine</span>
+        </div>
+        <div class="callout callout-blue mt1"><strong>Management is purely SUPPORTIVE for all patients.</strong> No medicine has been shown to CURE COVID-19.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🏠</span> Isolation vs Quarantine + Infectious Period</div>
+    <div class="vs-wrap">
+      <div class="vs-box left">
+        <h4>Isolation</h4>
+        <ul class="hy-list">
+          <li>Separates persons WHO HAVE infectious disease</li>
+          <li>Day 0 = day symptoms appear (symptomatic)</li>
+          <li>Day 0 = day positive test (asymptomatic)</li>
+        </ul>
+      </div>
+      <div class="vs-box right">
+        <h4>Quarantine</h4>
+        <ul class="hy-list">
+          <li>Separates persons EXPOSED to infectious disease</li>
+          <li>No need to quarantine if asymptomatic close contact</li>
+          <li>Wear well-fitted mask for 10 days</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout callout-green mt1"><strong>⭐ Infectious Period:</strong> Starts 2.3 days before symptoms; PEAK 0.7 days before onset; infectiousness ↓ from Day 7; lost by Day 10. → Repeat swab NOT needed after Day 7 to label as recovered. RT-PCR can remain (+) up to 6 weeks but does NOT mean active infection.</div>
+  </div>
+</section>
+
+<!-- ===== 5.04 COVID LAB ===== -->
+<section id="s04" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🧪 COVID-19 (Laboratory)</div>
+    <div class="section-sub">5.04 · Jan 28, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">⚖️</span> RT-PCR vs Antigen vs Antibody (MASTER COMPARISON)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>RT-PCR</th><th>Antigen (Lateral Flow)</th><th>Antibody (Serologic)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Detects</strong></td><td>Viral RNA</td><td>Viral proteins (antigens)</td><td>Patient antibodies (past infection/vaccination)</td></tr>
+          <tr><td><strong>Gold standard?</strong></td><td>⭐ YES — gold standard</td><td>No</td><td>No</td></tr>
+          <tr><td><strong>Sample</strong></td><td>Nasopharyngeal/throat swab; saliva</td><td>Nasal/throat swab</td><td>Finger stick or blood draw</td></tr>
+          <tr><td><strong>Turnaround</strong></td><td>Hours–days</td><td>≤1 hour</td><td>Same day–3 days</td></tr>
+          <tr><td><strong>Sensitivity</strong></td><td>Highest (amplification)</td><td>Lower (no amplification)</td><td>N/A for active infection</td></tr>
+          <tr><td><strong>(+) result</strong></td><td>Highly accurate</td><td>Highly accurate</td><td>Past infection OR vaccination (cannot distinguish)</td></tr>
+          <tr><td><strong>(−) result</strong></td><td>Does not confirm recovery</td><td>May need RT-PCR confirmation</td><td>Does not rule out active infection</td></tr>
+          <tr><td><strong>Use case</strong></td><td>Diagnosis, screening</td><td>Symptomatic phase only</td><td>NOT for acute diagnosis</td></tr>
+          <tr><td><strong>Misses</strong></td><td>Cannot show past infection</td><td>Asymptomatic; early/late disease</td><td>Active infection timing</td></tr>
+          <tr><td><strong>Becomes (+) at</strong></td><td>Day 1 (detectable up to Day 20+)</td><td>Day 1 (best at peak viral load)</td><td>≥10 days post-infection</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">📉</span> Viral Load vs Test Detection Timeline</div>
+      <div class="tbl-wrap">
+        <table class="thead-blue">
+          <thead><tr><th>Phase</th><th>Antigen Test</th><th>RT-PCR</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Beginning</strong> (low viral load)</td><td class="badge badge-red">Undetectable</td><td class="badge badge-green">Detectable</td></tr>
+            <tr><td><strong>Symptomatic</strong> (peak viral load)</td><td class="badge badge-green">Detectable</td><td class="badge badge-green">Detectable</td></tr>
+            <tr><td><strong>Tail-end</strong> (tapering)</td><td class="badge badge-red">Undetectable</td><td class="badge badge-green">Detectable</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-yellow mt1"><strong>Key concept:</strong> Lateral flow ONLY useful during symptomatic phase when viral load is HIGH. RT-PCR detects throughout.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">📈</span> RT-PCR: CT Value Interpretation</div>
+      <ul class="hy-list">
+        <li><strong>Ct (Cycle Threshold)</strong> = cycle number where amplification crosses threshold</li>
+        <li><strong>Low Ct</strong> = High viral load (earlier amplification)</li>
+        <li><strong>High Ct</strong> = Low viral load (later amplification)</li>
+        <li>Successful amplification = <strong>sigmoidal (S-shaped) curve</strong></li>
+        <li>Threshold set manually = best practice (set at exponential phase)</li>
+      </ul>
+      <div class="callout callout-red mt1"><strong>Threshold errors:</strong><br>
+        Too HIGH → false negatives (misses late amplifiers)<br>
+        Too LOW → false positives
+      </div>
+      <div class="callout callout-orange mt1"><strong>False results:</strong><br>
+        Non-sigmoidal curve = non-specific amplification = FALSE POSITIVE<br>
+        Inhibitors → shift curve RIGHT → falsely HIGH Ct
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🎯</span> RT-PCR Gene Targets for SARS-CoV-2</div>
+    <div class="tbl-wrap">
+      <table class="thead-teal">
+        <thead><tr><th>Gene</th><th>Protein</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>RdRP</strong></td><td>RNA-dependent RNA polymerase</td><td>Initial target; highly specific</td></tr>
+          <tr><td><strong>N gene</strong></td><td>Nucleocapsid</td><td>Stable; commonly used</td></tr>
+          <tr><td><strong>S gene</strong></td><td>Spike protein</td><td>⚠️ HIGH mutation rate → early pandemic false negatives due to primer mismatch</td></tr>
+          <tr><td><strong>E gene / ORF</strong></td><td>Envelope / Open reading frame</td><td>Used in multiplex assays</td></tr>
+          <tr><td><strong>Internal Control (Rp/RNase P)</strong></td><td>Human gene</td><td>Confirms sample quality and extraction; if absent = bad sampling OR inhibitors present</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-green mt1"><strong>Why use multiple gene targets?</strong> If one gene mutates → primer doesn't hybridize → false negative. Second gene catches the sample. Modern assays target ≥2 genes.</div>
+  </div>
+</section>
+
+<!-- ===== 5.05 PICORNAVIRUS ===== -->
+<section id="s05" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🦠 Picornavirus</div>
+    <div class="section-sub">5.05 · Jan 28, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="callout callout-blue"><strong>Picornavirus Properties:</strong> Naked icosahedral; 28–30 nm; (+) ssRNA (acts as mRNA); genome linked protein VPg. Two groups: <strong>Enteroviruses</strong> (alimentary tract) & <strong>Rhinoviruses</strong> (nose/throat). Surface VP1/VP3 = major antibody-binding sites. Internal VP4 = associated with viral RNA.</div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">💉</span> Poliovirus — HIGH YIELD</div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Clinical Types</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Features</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Abortive ⭐ (most common)</strong></td><td>Fever, malaise, headache, nausea, sore throat; recovers in days</td></tr>
+              <tr><td><strong>Nonparalytic</strong></td><td>+ Stiffness/pain in back (aseptic meningitis); lasts 2–10 days</td></tr>
+              <tr><td><strong>Paralytic</strong></td><td>Flaccid paralysis (LMN damage); max recovery at 6 months</td></tr>
+              <tr><td><strong>Progressive muscle atrophy ⭐ (most severe)</strong></td><td>Recrudescence decades later; aging + neuromuscular loss</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Vaccines</h3>
+        <div class="tbl-wrap">
+          <table class="thead-blue">
+            <thead><tr><th>Vaccine</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Salk (IPV)</strong></td><td>Killed/inactivated; humoral immunity ONLY; no intestinal immunity</td></tr>
+              <tr><td><strong>Sabin (OPV)</strong></td><td>Live attenuated; IgM + IgG in blood + ⭐ secretory IgA in intestines (intestinal immunity)</td></tr>
+              <tr><td><strong>Recombinant DNA</strong></td><td>cDNA clones; cannot mutate to neurovirulence</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-red mt1"><strong>⭐ Vaccination ONLY effective BEFORE CNS symptoms. Once paralysis develops → vaccination cannot stop symptoms.</strong></div>
+      </div>
+    </div>
+    <div class="callout callout-yellow mt1"><strong>Immunity:</strong> Permanent; type-specific (1, 2, or 3). Passive (maternal Ab) disappears at 6 months. Specimen of choice: throat swab (early) + rectal swab/stool (long period). CPE in 3–6 days in human/monkey tissue culture. Identify by neutralization test.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🦠</span> Coxsackievirus Clinical Syndromes (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table class="thead-purple">
+        <thead><tr><th>Syndrome</th><th>Virus</th><th>Key Features</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Herpangina</strong></td><td>Group A (2–6, 8, 10)</td><td>Severe febrile pharyngitis; vesicles on POSTERIOR pharynx, palate, tonsils; self-limited; small children; ≠ herpesvirus!</td></tr>
+          <tr><td><strong>Hand-Foot-Mouth Disease</strong></td><td>A16 (main), B1, Enterovirus 71</td><td>Oral ulcerations + vesicular rash on palms/soles; vesicles heal WITHOUT crusting (≠ herpes/pox)</td></tr>
+          <tr><td><strong>Pleurodynia (Bornholm disease)</strong></td><td>Group B (1–5)</td><td>Fever + stabbing chest pain; epidemic myalgia; abdominal pain in children; self-limited, relapses common</td></tr>
+          <tr><td><strong>Myocarditis/Pericarditis</strong></td><td>Group B</td><td>Acute heart inflammation; may → cardiomyopathy via autoimmune</td></tr>
+          <tr><td><strong>Aseptic Meningitis</strong></td><td>Group B + A7, A9</td><td>Lymphocytic pleocytosis; negative bacterial culture; milder than bacterial</td></tr>
+          <tr><td><strong>Hemorrhagic Conjunctivitis</strong></td><td>A24, Enterovirus 70</td><td>Acute onset</td></tr>
+          <tr><td><strong>Type 1 DM association</strong></td><td>Group B (3, 4)</td><td>Molecular mimicry → autoimmune destruction of β-cells</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">👁️</span> Echovirus (ECHO = Enteric Cytopathogenic Human Orphan)</div>
+      <ul class="hy-list">
+        <li>Types 1–33 (no 10, 22, 23, 28)</li>
+        <li>Grows in: monkey kidney, human amnion, HeLa cells</li>
+        <li>Causes: aseptic meningitis, rashes (<strong>"Boston Exanthem Disease"</strong> — types 4, 9, 16, 18), conjunctivitis</li>
+        <li><strong>⭐ Typically diagnosed by EXCLUSION</strong></li>
+        <li>Best lab Dx: neutralization tests / immunofluorescence</li>
+        <li>Think in: summer outbreaks of aseptic meningitis; summer epidemics of febrile illness with rash in children</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🤧</span> Rhinovirus vs Enterovirus (Key Differences)</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Rhinovirus</th><th>Enterovirus</th></tr></thead>
+          <tbody>
+            <tr><td>Site</td><td>Nasopharynx ONLY; no viremia</td><td>Mouth → bloodstream → target tissues</td></tr>
+            <tr><td>pH stability</td><td>Acid-labile (pH 3)</td><td>Acid-stable; pH 3–10</td></tr>
+            <tr><td>Incubation</td><td>2–4 days</td><td>2–35 days (varies)</td></tr>
+            <tr><td>Treatment</td><td>Intranasal IFN-α only; no cure</td><td>Supportive; vaccine for polio only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-orange mt1"><strong>Other Enteroviruses:</strong><br>
+        EV-68 → Bronchiolitis/pneumonia in children<br>
+        EV-70 → Hemorrhagic conjunctivitis<br>
+        EV-71 → Meningitis, encephalitis, paralysis
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔄</span> Enterovirus Pathogenesis Pathway</div>
+    <div class="flow">
+      <div class="flow-step"><strong>Portal of Entry:</strong> Mouth (enteroviruses) or Nasopharynx (Rhinovirus)</div>
+      <div class="flow-step"><strong>Primary replication:</strong> Oropharynx → throat and upper GI</div>
+      <div class="flow-step"><strong>Primary Viremia:</strong> Virus enters bloodstream (if no Ab blockage)</div>
+      <div class="flow-step highlight"><strong>Target Tissue Infection:</strong> CNS (meningitis, paralysis), Heart (myocarditis), Skin (rashes), Liver (Hepatitis A)</div>
+      <div class="flow-step"><strong>Secondary Viremia:</strong> Further spread</div>
+    </div>
+    <div class="callout callout-green"><strong>Transmission:</strong> Fecal-oral. Capsid resistant to mild sewage treatment, saltwater, detergents. Shellfish = vehicle. Shed in feces for weeks despite antibodies.</div>
+  </div>
+</section>
+
+<!-- ===== 5.06 HEPATITIS ===== -->
+<section id="s06" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🫀 Hepatitis Viruses</div>
+    <div class="section-sub">5.06 · Jan 28, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> Hepatitis Virus Master Table (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Feature</th><th>HAV</th><th>HBV ⭐</th><th>HCV ⭐</th><th>HDV</th><th>HEV</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Family</strong></td><td>Picornaviridae</td><td>Hepadnaviridae</td><td>Flaviviridae</td><td>Unclassified</td><td>Hepeviridae</td></tr>
+          <tr><td><strong>Genome</strong></td><td>ssRNA</td><td>⭐ dsDNA (ONLY DNA hepatitis virus)</td><td>ssRNA+</td><td>ssRNA−</td><td>ssRNA+</td></tr>
+          <tr><td><strong>Envelope</strong></td><td>No</td><td>Yes (HBsAg)</td><td>Yes</td><td>Yes (HBsAg!)</td><td>No</td></tr>
+          <tr><td><strong>Transmission</strong></td><td>⭐ Fecal-oral</td><td>Parenteral</td><td>Parenteral</td><td>Parenteral</td><td>⭐ Fecal-oral</td></tr>
+          <tr><td><strong>Chronic disease</strong></td><td>NEVER</td><td>Often (5–10%; neonates 95%)</td><td>Often (70–90%!)</td><td>Often</td><td>NEVER</td></tr>
+          <tr><td><strong>Oncogenic</strong></td><td>No</td><td>Yes (HCC)</td><td>Yes (HCC)</td><td>Unknown</td><td>No</td></tr>
+          <tr><td><strong>Fulminant disease</strong></td><td>Rare</td><td>Rare</td><td>Rare</td><td>Frequent ⭐</td><td>In pregnancy ⭐</td></tr>
+          <tr><td><strong>Incubation</strong></td><td>10–50 days</td><td>50–180 days</td><td>15–160 days</td><td>—</td><td>Regional</td></tr>
+          <tr><td><strong>Vaccine</strong></td><td>Yes</td><td>Yes (given at birth with BCG)</td><td>NO vaccine</td><td>Via HBV vaccine</td><td>No</td></tr>
+          <tr><td><strong>Special note</strong></td><td>Infectious hepatitis; 1 serotype; IgM = acute, IgG = past</td><td>Serum hepatitis; HBsAg detected 2–6 wks before symptoms</td><td>Posttransfusion hepatitis; anti-HCV stays for life</td><td>Defective virus; needs HBsAg coat (HBV must be present)</td><td>High mortality in pregnant women; first outbreak in New Delhi 1955</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔬</span> HBV Serologic Markers Algorithm (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table class="thead-orange">
+        <thead><tr><th>Scenario</th><th>HBsAg</th><th>Anti-HBs</th><th>Anti-HBc IgM</th><th>Anti-HBc IgG</th><th>HBeAg</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Never infected</strong></td><td>−</td><td>−</td><td>−</td><td>−</td><td>−</td></tr>
+          <tr><td><strong>Vaccinated</strong></td><td>−</td><td>+</td><td>−</td><td>−</td><td>−</td></tr>
+          <tr><td><strong>Early acute infection</strong></td><td>+</td><td>−</td><td>− or not yet detectable</td><td>−</td><td>+</td></tr>
+          <tr><td><strong>Acute infection (active)</strong></td><td>+</td><td>−</td><td>+</td><td>+</td><td>+</td></tr>
+          <tr><td><strong>Window period ⭐</strong></td><td>−</td><td>−</td><td>+</td><td>+</td><td>−</td></tr>
+          <tr><td><strong>Resolved infection</strong></td><td>−</td><td>+</td><td>−</td><td>+</td><td>−</td></tr>
+          <tr><td><strong>Chronic carrier</strong></td><td>+ (&gt;6 mos)</td><td>−</td><td>−</td><td>+</td><td>+ or −</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-yellow mt1"><strong>Key Rule:</strong> In the WINDOW PERIOD: HBsAg has disappeared but Anti-HBs not yet formed → IgM anti-HBc is the ONLY marker present.</div>
+    <div class="callout callout-green mt1"><strong>⭐ Communicability is highest</strong> when HBV DNA levels are highest (early infection). HBeAg = viral replication marker. Anti-HBe appearance = beginning of resolution.</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🔗</span> HDV: Key Rules</div>
+      <div class="callout callout-red"><strong>HDV = Defective Virus</strong> Requires HBsAg coat for transmission. CANNOT infect without HBV.</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Pattern</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td>Anti-HD+ & HBsAg+</td><td>Infection with HDV</td></tr>
+            <tr><td>Anti-HD+ & Anti-HBc IgM+</td><td>Co-infection with HDV and HBV</td></tr>
+            <tr><td>Anti-HD+ & Anti-HBc IgM− & Anti-HBc IgG+ ⭐</td><td>Superinfection of chronic HBV with HDV</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout callout-orange mt1"><strong>⭐ Superinfection (HDV on chronic HBV) = more dangerous</strong> than co-infection → higher risk of fulminant liver failure and rapid cirrhosis.</div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">💉</span> HBV Treatment & Chronic Carriers</div>
+      <h3 class="sub">First-Line Therapy</h3>
+      <ul class="hy-list">
+        <li>Pegylated interferon alpha-2a</li>
+        <li><strong>Entecavir</strong></li>
+        <li><strong>Tenofovir</strong></li>
+      </ul>
+      <h3 class="sub">Key Facts</h3>
+      <ul class="hy-list">
+        <li>Neonates: 95% become chronic carriers if infected at birth</li>
+        <li>⭐ Earlier exposure → higher risk of chronic infection → higher HCC risk</li>
+        <li>Adults infected later: most recover from acute infection</li>
+        <li>Fulminant hepatitis: mostly HBV + HDV co-infection</li>
+        <li>HBV vaccine: given at birth with BCG per national immunization program</li>
+      </ul>
+      <div class="callout callout-blue mt1"><strong>HCV Treatment:</strong> Pegylated IFN + Ribavirin (standard). Telaprevir/Boceprevir added for genotype 1. NO vaccine for HCV. Anti-HCV stays for LIFE.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5.07 ROTAVIRUS ===== -->
+<section id="s07" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🌀 Rotavirus, Reovirus & Calicivirus</div>
+    <div class="section-sub">5.07 · Jan 28, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> GI Virus Master Table</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Virus</th><th>Family/Genome</th><th>Population</th><th>Incubation</th><th>Key Feature</th><th>Dx</th><th>Tx</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rotavirus ⭐</strong></td><td>Reoviridae; dsRNA; non-enveloped</td><td>⭐ Infants/children (most common viral gastroenteritis)</td><td>1–3 days</td><td>Wheel-like EM; NSP4 = viral enterotoxin; 11 dsRNA segments</td><td>ELISA, PCR (most sensitive)</td><td>Supportive; vaccine at 6 weeks</td></tr>
+          <tr><td><strong>Norovirus ⭐</strong></td><td>Caliciviridae; ssRNA; non-enveloped</td><td>⭐ Adults (epidemic viral gastroenteritis)</td><td>24–48 hrs</td><td>Low infectious dose; stable at 10 ppm Cl & 60°C; GII.4 = most outbreaks</td><td>RT-qPCR (gold standard); EIA</td><td>Supportive; handwashing key</td></tr>
+          <tr><td><strong>Astrovirus</strong></td><td>Astroviridae; (+) ssRNA</td><td>Infants, elderly, immunocompromised</td><td>—</td><td>Star-like morphology under EM; Mamastrovirus genus; ≥8 serotypes</td><td>EM, antigen, RT-PCR (not routine)</td><td>None usually needed</td></tr>
+          <tr><td><strong>Reovirus (Orthoreovirus)</strong></td><td>Reoviridae; dsRNA; non-enveloped</td><td>All ages</td><td>—</td><td>No apparent disease; Sigma-1 (hemagglutinin) for attachment; replication entirely cytoplasmic</td><td>EM (inclusions at 4h post-infection)</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🔑</span> Rotavirus Key Facts (HIGH YIELD)</div>
+      <h3 class="sub">Structure</h3>
+      <ul class="hy-list">
+        <li>11 segments dsRNA; 2 concentric icosahedral capsids</li>
+        <li>Classification: 8 species (A–H) based on <strong>VP6</strong> antigenic epitopes</li>
+        <li>Genotypes: based on <strong>VP4</strong> and <strong>VP7</strong> outer capsid proteins</li>
+        <li>Group A = most frequent human pathogen (G1–G4, G9)</li>
+        <li>Most important proteins for classification: <strong>VP6, VP4, VP7</strong></li>
+      </ul>
+      <h3 class="sub">Protein Functions</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Protein</th><th>Function</th></tr></thead>
+          <tbody>
+            <tr><td>VP1</td><td>RNA polymerase</td></tr>
+            <tr><td>VP4</td><td>Spikes (cell attachment)</td></tr>
+            <tr><td>VP6</td><td>Middle capsid (species classification)</td></tr>
+            <tr><td>VP7</td><td>Outer capsid layer</td></tr>
+            <tr><td><strong>NSP4 ⭐</strong></td><td>Viral enterotoxin; Ca²⁺ signaling → 5-HT release</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">💨</span> Rotavirus Pathogenesis Pathway (HIGH YIELD)</div>
+      <div class="flow">
+        <div class="flow-step"><strong>Infects villi of SMALL INTESTINE</strong> (spares gastric and colonic mucosa)</div>
+        <div class="flow-step">Multiplies in cytoplasm of enterocytes; damages transport mechanisms</div>
+        <div class="flow-step highlight"><strong>NSP4 released → Ca²⁺-dependent signal transduction pathway</strong></div>
+        <div class="flow-step highlight">↑ Ca²⁺ stimulates <strong>5-HT (serotonin)</strong> release</div>
+        <div class="flow-step">5-HT activates 5-HT3 receptors in myenteric plexus → ↑ GI motility</div>
+        <div class="flow-step">5-HT stimulates VIP release → ↑ cAMP → secretion of NaCl & H₂O → <strong>DIARRHEA</strong></div>
+        <div class="flow-step danger">5-HT stimulates vagal afferents to vomiting center in brain → <strong>VOMITING</strong></div>
+      </div>
+      <div class="callout callout-yellow mt1"><strong>Also:</strong> Impaired glucose/Na absorption due to damaged villi → replaced by non-absorbing immature crypt cells (restored in 3–8 weeks). Viral excretion lasts 2–12 days (healthy); longer in immunocompromised.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📱</span> Reoviridae Family Overview</div>
+    <div class="tbl-wrap">
+      <table class="thead-teal">
+        <thead><tr><th>Virus</th><th>Human Disease</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Rotavirus</strong></td><td>Infant/child gastroenteritis ⭐</td><td>Sedoreovirinae; smooth; no spikes</td></tr>
+          <tr><td><strong>Orthoreovirus</strong></td><td>Usually no apparent disease</td><td>Spinareovirinae; large spikes at vertices</td></tr>
+          <tr><td><strong>Orbivirus</strong></td><td>Mild fever</td><td>NOT common in humans; insect vector; acid-sensitive (unlike reovirus)</td></tr>
+          <tr><td><strong>Coltivirus</strong></td><td>Colorado Tick Fever</td><td>Via ticks; fever, rash, systemic symptoms; NOT common in humans</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-blue mt1"><strong>Spinareovirinae</strong> = large spikes at 12 vertices (Orthoreovirus, Coltivirus). <strong>Sedoreovirinae</strong> = smooth, no large surface projections (Rotavirus, Orbivirus)</div>
+  </div>
+</section>
+
+<!-- ===== 5.10 MOSQUITO-BORNE ===== -->
+<section id="s10" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🦟 Mosquito-borne Viruses</div>
+    <div class="section-sub">5.10 · Ligsay · Feb 4, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🦟</span> Mosquito Genera & Diseases (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Genus</th><th>Breeding Site</th><th>Biting Time</th><th>Diseases</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Aedes</strong></td><td>Clean, stagnant water</td><td>Daytime</td><td>Dengue, Chikungunya, Zika, Yellow fever</td><td>Urban; anthropophilic</td></tr>
+          <tr><td><strong>Anopheles</strong></td><td>Clean water</td><td>Night ⭐</td><td>Malaria</td><td>Night biter → prevention = avoid night exposure</td></tr>
+          <tr><td><strong>Culex</strong></td><td>Dirty/brackish water ⭐</td><td>Night</td><td>Japanese Encephalitis, West Nile fever</td><td>Prefers dirty water (≠ Aedes = clean)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🦠</span> Dengue Virus — Comprehensive Review</div>
+    <div class="callout callout-blue"><strong>Family:</strong> Flaviviridae | <strong>Genome:</strong> (+) ssRNA | <strong>4 serotypes:</strong> DENV-1, 2, 3, 4 | <strong>Vector:</strong> Aedes aegypti, A. albopictus</div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Key Proteins</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Protein</th><th>Function / Significance</th></tr></thead>
+            <tbody>
+              <tr><td><strong>E (Envelope)</strong></td><td>Most important structural protein; binding; fusion; main virulence/antigenic protein</td></tr>
+              <tr><td><strong>NS1 ⭐</strong></td><td>Surface of infected cell; diagnostic target; conserved across serotypes; evades complement</td></tr>
+              <tr><td><strong>NS5</strong></td><td>Largest/most conserved; related to pathogenicity</td></tr>
+              <tr><td><strong>C (Capsid)</strong></td><td>Specific antigen; does NOT induce Ab production; induces apoptosis</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="sub">Course of Dengue Infection</h3>
+        <div class="tbl-wrap">
+          <table class="thead-red">
+            <thead><tr><th>Phase</th><th>Days</th><th>Key</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Febrile ⭐</strong></td><td>1–7</td><td>Fever, ↓ WBC; <strong>best time for NS1 test</strong>; IgM still low</td></tr>
+              <tr><td><strong>Critical ⭐</strong></td><td>D3–D7</td><td>Life-threatening! Defervescence; plasma leakage; ↑ HCT + ↓ platelets; <strong>best time to give fluids</strong></td></tr>
+              <tr><td><strong>Recovery</strong></td><td>D7+</td><td>Diuresis; rashes "islands of white in a sea of red"</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Diagnosis (when to use what)</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Test</th><th>Best Used</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><strong>NS1 antigen ⭐</strong></td><td>Febrile phase (early/primary)</td><td>Detectable from Day 1; max at Day 6</td></tr>
+              <tr><td><strong>IgM</strong></td><td>Acute phase (first to rise)</td><td>Primary infection</td></tr>
+              <tr><td><strong>IgG</strong></td><td>Secondary infection</td><td>Higher and earlier in secondary</td></tr>
+              <tr><td><strong>RT-PCR</strong></td><td>Febrile phase; serotyping</td><td>For severe dengue diagnosis</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-yellow mt1"><strong>Primary Dx:</strong> Clinical + IgM/IgG serology. NS1 for early primary. IgG for secondary. ⭐ Clinical diagnosis still preferred.</div>
+        <h3 class="sub">Dengue Severity Classification</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Category</th><th>Criteria</th></tr></thead>
+            <tbody>
+              <tr><td>Dengue ± warning signs</td><td>Fever + ≥2: nausea, rash, aches, tourniquet test (+), leukopenia, warning signs</td></tr>
+              <tr><td>Warning signs ⭐</td><td>Abdominal pain, persistent vomiting, fluid accumulation, mucosal bleed, lethargy, liver >2 cm, ↑ HCT + ↓ platelets</td></tr>
+              <tr><td>Severe dengue</td><td>Severe plasma leakage (shock/DSS), severe bleeding, severe organ involvement (AST/ALT ≥1000; CNS impaired)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔁</span> Antibody-Mediated Enhancement (ADE) — HIGH YIELD</div>
+    <div class="flow">
+      <div class="flow-step">Primary DENV infection → non-neutralizing antibodies produced (low seroprotection)</div>
+      <div class="flow-step danger">Secondary infection with DIFFERENT serotype → non-neutralizing Ab ENHANCES viral entry (forms complex via FcR binding; represses antiviral response)</div>
+      <div class="flow-step danger">Virus-Ab complex phagocytosed by macrophages → stimulates inflammatory factors → <strong>DIC, shock, hemorrhage</strong></div>
+    </div>
+    <div class="callout callout-red mt1"><strong>⭐ ADE = Major challenge for dengue vaccine development.</strong> Vaccine must protect against ALL 4 serotypes. If one serotype not covered → vaccine primes for more severe disease on secondary infection.</div>
+    <div class="callout callout-yellow mt1"><strong>Cytokine Storm:</strong> TNF-α stimulates DENV-infected endothelial cells → reactive nitrogen/oxygen → Dengue Hemorrhagic Fever (DHF) and Dengue Shock Syndrome (DSS)</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">💉</span> Dengue Vaccines Summary</div>
+    <div class="tbl-wrap">
+      <table class="thead-blue">
+        <thead><tr><th>Vaccine</th><th>Backbone</th><th>Key Point</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dengvaxia (Sanofi)</strong></td><td>Yellow fever</td><td>⭐ ONLY for dengue-IMMUNE individuals. Risky in dengue-naive (increases risk of severe disease). Best against DENV-3, 4.</td></tr>
+          <tr><td><strong>Qdenga (Takeda)</strong></td><td>DENV2</td><td>Safer for naive patients. Best against DENV-1, 2 in seronegative. WHO recommends for high-burden areas, ages 6–16 yrs.</td></tr>
+          <tr><td><strong>TV003 (NIH/Butantan) ⭐</strong></td><td>DENV4</td><td>⭐ Best vaccine candidate. Phase trials ongoing. Possibility of equal protection against all 4 serotypes.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">🦟</span> Chikungunya vs Dengue</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Feature</th><th>Chikungunya</th><th>Dengue</th></tr></thead>
+          <tbody>
+            <tr><td>Family</td><td>Togaviridae; (+) ssRNA</td><td>Flaviviridae; (+) ssRNA</td></tr>
+            <tr><td>Vector</td><td>Aedes</td><td>Aedes</td></tr>
+            <tr><td>Key difference ⭐</td><td><strong>Prolonged joint pain (chronic)</strong></td><td>Hemorrhagic manifestations; shock</td></tr>
+            <tr><td>Fever</td><td>+++ (higher)</td><td>++ </td></tr>
+            <tr><td>Joint pain</td><td>+++ prolonged (months–years)</td><td>± mild</td></tr>
+            <tr><td>Thrombocytopenia</td><td>+</td><td>+++ (key lab finding)</td></tr>
+            <tr><td>Chronic phase</td><td>RA-like arthritis</td><td>No chronic phase</td></tr>
+            <tr><td>Treatment</td><td>Ribavirin (only DA-licensed)</td><td>Supportive only</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🦟</span> Japanese Encephalitis — Key Points</div>
+      <div class="tbl-wrap">
+        <table class="thead-purple">
+          <thead><tr><th>Feature</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Virus</strong></td><td>JEV; Flaviviridae; related to dengue/West Nile</td></tr>
+            <tr><td><strong>Vector ⭐</strong></td><td>Culex fatigans (prefers DIRTY, brackish water)</td></tr>
+            <tr><td><strong>Region ⭐</strong></td><td>ASIA ONLY; ~68,000 cases/year</td></tr>
+            <tr><td><strong>Incubation ⭐</strong></td><td>4–14 days</td></tr>
+            <tr><td><strong>Transmission cycle ⭐</strong></td><td>Requires animal amplifying hosts (pigs, birds) → mosquito → human</td></tr>
+            <tr><td><strong>EEG finding ⭐</strong></td><td>Low-voltage waves (characteristic)</td></tr>
+            <tr><td><strong>Diagnosis</strong></td><td>JEV-specific IgM in CSF (IgM-capture ELISA)</td></tr>
+            <tr><td><strong>Treatment</strong></td><td>NO antiviral; best = prevention and control</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🩸</span> Malaria — HIGH YIELD</div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Types of Malaria</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Species</th><th>Key Feature</th><th>Philippines</th></tr></thead>
+            <tbody>
+              <tr><td><strong>P. falciparum ⭐</strong></td><td>Most severe; cerebral malaria; irregular periodicity; irregular fever</td><td>Heavy burden; most dangerous</td></tr>
+              <tr><td><strong>P. vivax & P. ovale ⭐</strong></td><td>Hypnozoites → true relapse months–years later; Tertian malaria (48h)</td><td>Not found in PH (vivax/ovale)</td></tr>
+              <tr><td><strong>P. malariae</strong></td><td>Quartan malaria (72h fever cycle); majority of deaths</td><td>Present</td></tr>
+              <tr><td><strong>P. knowlesi</strong></td><td>Rapid erythrocytic cycling</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-red mt1"><strong>⭐ Incubation period: 7–30 days</strong> (as early as 1 week, as late as 1 year)</div>
+      </div>
+      <div>
+        <h3 class="sub">Malaria Paroxysm Stages ⭐⭐⭐</h3>
+        <div class="tbl-wrap">
+          <table class="thead-red">
+            <thead><tr><th>Stage</th><th>Duration</th><th>Features</th><th>Mechanism</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Cold ⭐</strong></td><td>15–60 min</td><td>Shivering, cold feeling, cold extremities</td><td>RBCs rupturing → merozoites released</td></tr>
+              <tr><td><strong>Hot</strong></td><td>2–6 hrs</td><td>Fever ~41°C, flushed, headache, N&V</td><td>Parasites invading new RBCs</td></tr>
+              <tr><td><strong>Sweating (Diaphoresis)</strong></td><td>2–4 hrs</td><td>Fever drops rapidly; profuse sweating → dehydration</td><td>Fever resolution</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-yellow mt1"><strong>Clinical tip:</strong> Cold extremities = clue patient about to enter Hot stage. Give paracetamol now!</div>
+        <div class="callout callout-green mt1"><strong>Diagnosis Gold Standard:</strong> Thick & thin smear with Giemsa stain. Prevention: avoid Anopheles (bites at NIGHT). Artemether-lumefantrine = newer treatment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5.11 RABIES / PRION / TUMOR ===== -->
+<section id="s11" class="section">
+  <div class="sticky-top">
+    <div class="section-title">🧠 Rabies, Prion Disease & Tumor Viruses</div>
+    <div class="section-sub">5.11 · Feb 4, 2026</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🐕</span> Rabies — HIGH YIELD</div>
+    <div class="callout callout-red"><strong>Fatal, vaccine-preventable; affects ALL mammals. No treatment — only supportive. Incubation: 1 week to 1 year (usually 1–3 months).</strong></div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Virology</h3>
+        <ul class="hy-list">
+          <li>Family: Rhabdoviridae; Genus: Lyssavirus</li>
+          <li>ss-(−) RNA; enveloped; <strong>bullet-shaped</strong> (helical nucleocapsid)</li>
+          <li><strong>G glycoprotein</strong> = major factor in neuroinvasiveness/pathogenicity</li>
+          <li>Replication in CYTOPLASM</li>
+        </ul>
+        <h3 class="sub">Pathogenesis Pathway ⭐</h3>
+        <div class="flow">
+          <div class="flow-step">Virus inoculated (animal bite/exposure)</div>
+          <div class="flow-step">Replicates in <strong>muscle or connective tissue</strong></div>
+          <div class="flow-step">Binds nicotinic acetylcholine receptors at NMJ + Phosphatidylserine receptors</div>
+          <div class="flow-step">Travels retrograde along peripheral nerves (retrograde fast axonal transport) → CNS</div>
+          <div class="flow-step">Replicates in motor neurons of spinal cord + dorsal root ganglia → brain</div>
+          <div class="flow-step danger">Brain neurons infected → neuronal dysfunction</div>
+          <div class="flow-step">Centrifugal spread → salivary glands ⭐, skin, cornea, organs</div>
+        </div>
+        <div class="callout callout-yellow mt1"><strong>⭐ Highest titer:</strong> Submaxillary salivary gland. Bite at distal foot = longer travel time to CNS than proximal bite. NOT detectable in blood.</div>
+      </div>
+      <div>
+        <h3 class="sub">Clinical Phases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Phase</th><th>Duration</th><th>Features</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Prodromal</strong></td><td>2–10 days</td><td>Abnormal sensation at wound; malaise, anorexia, headache, photophobia, N/V</td></tr>
+              <tr><td><strong>Acute Neurologic</strong></td><td>2–7 days</td><td>Bizarre behavior, hallucinations, lacrimation; hydrophobia, aerophobia, seizures; sympathetic overactivity</td></tr>
+              <tr><td><strong>Coma/Death</strong></td><td>—</td><td>Inevitable if symptomatic; Paralytic rabies (30%) = bat-associated, more indolent</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 class="sub">Laboratory Diagnosis</h3>
+        <div class="tbl-wrap">
+          <table class="thead-red">
+            <thead><tr><th>Test</th><th>Specimen</th><th>Key Point</th></tr></thead>
+            <tbody>
+              <tr><td><strong>DFA ⭐ (Direct Fluorescent Antibody)</strong></td><td>Brain tissue (ideal)</td><td>High sensitivity/specificity; fluorescent-apple-green areas = positive; gold standard for ante/postmortem</td></tr>
+              <tr><td><strong>DRIT</strong></td><td>Brain tissue</td><td>Similar to DFA; chromogenic marker; light microscopy</td></tr>
+              <tr><td><strong>RT-PCR (LN34)</strong></td><td>Brainstem, nape biopsy, saliva</td><td>Targets leader region + nucleoprotein gene; run in triplicate; high sensitivity</td></tr>
+              <tr><td><strong>IHC</strong></td><td>Formalin-fixed brain</td><td>More sensitive than H&E / Sellers stain</td></tr>
+              <tr><td><strong>Serology</strong></td><td>CSF + blood</td><td>Ab in CSF = INFECTION (not vaccination). Helps distinguish vaccine-induced vs infection Ab</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout callout-yellow mt1"><strong>⭐ Negri Bodies:</strong> Eosinophilic cytoplasmic inclusions in nerve cells; filled with viral nucleocapsids; pathognomonic but NOT sensitive (absent in 20% cases). ABSENCE does not rule out rabies if clinical context is right.</div>
+        <div class="callout callout-blue mt1"><strong>10-day holding period:</strong> Observe animal; if no signs of rabies at 10 days → evidence against rabies. If animal not caught → give post-exposure prophylaxis.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🧠</span> Prion Diseases — KEY POINTS</div>
+    <div class="callout callout-red"><strong>Prion = Proteinaceous infectious material devoid of nucleic acid.</strong> Misfolded PrP(Sc) → induces misfolding of normal PrP(C) → aggregation → neurodegeneration. Fatal; no known remission or recovery.</div>
+    <div class="grid-2">
+      <div>
+        <h3 class="sub">Disease Hallmarks</h3>
+        <ul class="hy-list">
+          <li>Disease confined to CNS</li>
+          <li>Spongiform changes (vacuoles = sponge appearance)</li>
+          <li>Neurodegeneration; incubation then progressive chronic disease</li>
+          <li>Fatal; no remission</li>
+        </ul>
+        <h3 class="sub">Types of Human Prion Diseases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Disease</th><th>Cause</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Sporadic CJD ⭐</strong></td><td>Most common prion disease; spontaneous transformation; 1/million/yr; age >50</td></tr>
+              <tr><td><strong>Familial CJD</strong></td><td>Inherited PrP germline mutations; Gerstmann-Sträussler-Scheinker syndrome; Fatal familial insomnia</td></tr>
+              <tr><td><strong>Iatrogenic CJD</strong></td><td>Introduced by physician (contaminated instruments, transplant)</td></tr>
+              <tr><td><strong>Variant CJD (vCJD)</strong></td><td>BSE ("Mad Cow Disease"); psychiatric symptoms first, then dementia + ataxia; MRI: pulvinar sign</td></tr>
+              <tr><td><strong>Kuru</strong></td><td>Cannibalism (ritual practices); among Fore people of Papua New Guinea</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub">Prion Resistance / Sensitivity</h3>
+        <div class="callout callout-red"><strong>RESISTANT to:</strong> Formaldehyde (3.7%), Urea (8M), Dry heat, Boiling, Ethanol (50%), Proteases, Ionizing radiation</div>
+        <div class="callout callout-green"><strong>SENSITIVE to:</strong> Phenol (90%), Household bleach, Ether, NaOH (2N), 10% SDS, Autoclaving (1 hr, 121°C), Guanidine thiocyanate</div>
+        <h3 class="sub">Diagnosis of Prion Diseases</h3>
+        <ul class="hy-list">
+          <li>Clinical history + neurologic exam</li>
+          <li>EEG: periodic sharp waves</li>
+          <li>MRI: cortical ribboning (CJD); pulvinar sign (vCJD)</li>
+          <li>CSF: RT-QuIC (Real-time quaking-induced conversion) — detects prion proteins</li>
+          <li><strong>GOLD STANDARD: Brain biopsy (post-mortem)</strong> — vacuolization, NO inflammation</li>
+        </ul>
+        <div class="callout callout-orange mt1"><strong>BSE = "Mad Cow Disease"</strong> Emerged UK 1986; peaked 1993. Source: infected/contaminated cattle feed. Common agent = Variant CJD. Most recent: "Zombie Deer Disease" (2024) = chronic wasting disease in deer.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🧬</span> SSPE (Subacute Sclerosing Panencephalitis)</div>
+    <div class="callout callout-purple"><strong>Slow progressive demyelination in CNS → death.</strong> Rare disease of young adults. More prevalent in 3rd world countries (measles endemic). Caused by persistent defective measles virus infection in CNS.</div>
+    <div class="callout callout-yellow"><strong>⭐ Diagnostic clue:</strong> High titers of anti-measles antibodies BUT LACKING antibodies against M-protein (matrix protein). Young adults. EEG changes. MRI: white matter demyelination.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔬</span> Oncogenic Viruses (HIGH YIELD)</div>
+    <div class="tbl-wrap">
+      <table class="thead-purple">
+        <thead><tr><th>Virus</th><th>Cancer Associated</th><th>Mechanism</th></tr></thead>
+        <tbody>
+          <tr><td><strong>HPV (16, 18) ⭐</strong></td><td>Cervical, anal, oropharyngeal cancer</td><td>E6 inactivates p53; E7 inactivates pRb → cell cycle progression</td></tr>
+          <tr><td><strong>EBV</strong></td><td>Burkitt's lymphoma, Nasopharyngeal carcinoma, Hodgkin's lymphoma</td><td>LMP1 + EBNA-2 promote B-cell proliferation</td></tr>
+          <tr><td><strong>HBV</strong></td><td>Hepatocellular carcinoma</td><td>Chronic inflammation + integration into host genome</td></tr>
+          <tr><td><strong>HCV</strong></td><td>Hepatocellular carcinoma</td><td>Chronic inflammation → cirrhosis → HCC</td></tr>
+          <tr><td><strong>HHV-8</strong></td><td>Kaposi Sarcoma (AIDS patients); Primary effusion lymphoma</td><td>—</td></tr>
+          <tr><td><strong>Merkel Cell Polyomavirus</strong></td><td>Merkel Cell Carcinoma (neuroendocrine skin cancer)</td><td>Integration into host DNA → oncoprotein expression</td></tr>
+          <tr><td><strong>HTLV-1 (Retrovirus)</strong></td><td>Adult T-cell leukemia/lymphoma; HAM/TSP</td><td>T-cell transformation/immune dysregulation</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout callout-blue mt1"><strong>HPV Dx:</strong> P16 IHC = surrogate marker for high-risk HPV infection (overexpression = HPV-associated). PCR for HPV 16 and 18 (high-risk types). DNA sequencing (Sanger, X-Gen). Cannot distinguish HPV-associated tumors by H&E alone → need ancillary tests.</div>
+  </div>
+</section>
+
+<!-- ===== MCQ PRACTICE ===== -->
+<section id="smcq" class="section">
+  <div class="sticky-top">
+    <div class="section-title">📝 MCQ Practice Questions</div>
+    <div class="section-sub">Click an option to check your answer</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div id="mcq-container"></div>
+</section>
+
+<!-- ===== BUZZWORDS ===== -->
+<section id="sbuzz" class="section">
+  <div class="sticky-top">
+    <div class="section-title">⚡ Buzzwords, Mnemonics & Quick Facts</div>
+    <div class="section-sub">High-yield associations for exam day</div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔑</span> Classic Buzzword-Diagnosis Pairs</div>
+    <div class="buzz-grid" id="buzz-container"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🧠</span> Key Mnemonics</div>
+    <div class="grid-2">
+      <div class="callout callout-yellow"><strong>DNA Viruses: PaPa P Ad Po HeHe</strong><br>Pa(pilloma), Pa(rvovirus), P(olyoma), Ad(enovirus), Po(xvirus), He(padnavirus), He(rpesvirus)</div>
+      <div class="callout callout-green"><strong>Naked Viruses = HARD</strong><br>Heat resistant, Acid resistant, Resist drying, Detergent resistant</div>
+      <div class="callout callout-blue"><strong>HAV IgM = ACUTE (Maaga, Mauuna)</strong><br>IgM comes first. IgG = past infection/immunity (persists for decades)</div>
+      <div class="callout callout-purple"><strong>Rotavirus NSP4 pathway: NSP4 → Ca²⁺ → 5-HT → VIP → cAMP → Diarrhea</strong></div>
+      <div class="callout callout-orange"><strong>COVID Severity: AMSC</strong><br>Asymptomatic, Mild (no pneumonia), Severe (<94% O2), Critical (organ failure)</div>
+      <div class="callout callout-teal"><strong>Dengue Phases: F-C-R</strong><br>Febrile (NS1 test here), Critical (fluids here), Recovery (diuresis, rash)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">⚠️</span> "Onlys" and "Nevers" (HIGH EXAM RISK)</div>
+    <div class="tbl-wrap">
+      <table class="thead-red">
+        <thead><tr><th>Statement</th><th>Fact</th></tr></thead>
+        <tbody>
+          <tr><td>ONLY DNA hepatitis virus</td><td>HBV (Hepadnaviridae; dsDNA)</td></tr>
+          <tr><td>ONLY hepatitis never causing chronicity</td><td>HAV and HEV</td></tr>
+          <tr><td>ONLY hepatitis with fulminant disease in pregnancy</td><td>HEV</td></tr>
+          <tr><td>ONLY hepatitis requiring co-virus to replicate</td><td>HDV (needs HBsAg from HBV)</td></tr>
+          <tr><td>ONLY polio vaccine giving intestinal immunity</td><td>OPV (Sabin) — secretory IgA in intestines</td></tr>
+          <tr><td>ONLY confirmed Rabies DFA specimen</td><td>Brain tissue (ideal)</td></tr>
+          <tr><td>ONLY mosquito that bites at night (malaria vector)</td><td>Anopheles</td></tr>
+          <tr><td>ONLY Japanese Encephalitis restricted to Asia</td><td>JEV (Culex vector; needs pig/bird amplifying host)</td></tr>
+          <tr><td>NEVER use RT-PCR to confirm COVID recovery</td><td>Can remain (+) for 6 weeks despite clinical recovery</td></tr>
+          <tr><td>NEVER use antibody test for acute COVID diagnosis</td><td>Detects past infection and vaccination; cannot distinguish</td></tr>
+          <tr><td>NEVER Dengvaxia in dengue-naive patients</td><td>Increases risk of severe disease on subsequent infection</td></tr>
+          <tr><td>NEVER vaccinate against polio once CNS symptoms present</td><td>Vaccination only effective before CNS involvement</td></tr>
+          <tr><td>ONLY adenovirus vaccine available (not routine)</td><td>Types 4 & 7 for military use only</td></tr>
+          <tr><td>ONLY influenza A undergoes antigenic SHIFT</td><td>B and C: drift only (few animal reservoirs)</td></tr>
+          <tr><td>ONLY malaria with hypnozoites (true relapse)</td><td>P. vivax and P. ovale</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🔬</span> Classic EM / Histologic Findings</div>
+    <div class="tbl-wrap">
+      <table class="thead-teal">
+        <thead><tr><th>Finding</th><th>Virus / Disease</th></tr></thead>
+        <tbody>
+          <tr><td>Negri bodies (eosinophilic cytoplasmic inclusions in neurons)</td><td>Rabies — pathognomonic but only 80% sensitive</td></tr>
+          <tr><td>Owl's eye inclusion</td><td>CMV (Cytomegalovirus)</td></tr>
+          <tr><td>Spongiform appearance of brain tissue</td><td>Prion diseases (CJD, BSE, Kuru)</td></tr>
+          <tr><td>Syncytia / multinucleated giant cells</td><td>RSV (cytopathic effect giving it its name)</td></tr>
+          <tr><td>Star-like morphology under EM</td><td>Astrovirus</td></tr>
+          <tr><td>Wheel-like appearance under EM</td><td>Rotavirus</td></tr>
+          <tr><td>Bullet-shaped virion</td><td>Rhabdovirus (Rabies)</td></tr>
+          <tr><td>Solar corona appearance with peplomers</td><td>Coronavirus</td></tr>
+          <tr><td>Keratin pearl with invasive cells in stroma</td><td>HPV-associated SCC of uterine cervix</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ========== NAVIGATION ==========
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ========== MCQ DATA ==========
+const questions = [
+  {
+    q: "A patient presents with fever, hydrophobia, and aerophobia 2 months after being bitten by a stray dog. Which receptor mediates rabies virus entry at the neuromuscular junction?",
+    opts: ["CD4 receptor", "ACE2 receptor", "Nicotinic acetylcholine receptor", "Toll-like receptor 4"],
+    ans: 2,
+    exp: "Rabies virus binds to nicotinic acetylcholine receptors (and phosphatidylserine receptors) at the NMJ, facilitating retrograde axonal transport to the CNS. The incubation of 2 months fits typical 1–3 month range."
+  },
+  {
+    q: "A brain biopsy of a suspected rabies patient shows NO Negri bodies. What is the correct interpretation?",
+    opts: ["Rabies is ruled out", "The patient was vaccinated", "Absence does not rule out rabies — it is absent in ~20% of cases", "The biopsy sample was from the wrong location"],
+    ans: 2,
+    exp: "Negri bodies (eosinophilic cytoplasmic inclusions filled with viral nucleocapsids) are pathognomonic for rabies but are only present in ~80% of cases. Absence with correct clinical context does NOT rule out rabies."
+  },
+  {
+    q: "Which hepatitis virus is considered defective because it requires the surface antigen of another virus for transmission?",
+    opts: ["HAV", "HBV", "HCV", "HDV"],
+    ans: 3,
+    exp: "HDV is a defective virus requiring HBsAg (from HBV) as its envelope for transmission. It cannot infect independently. HDV superinfection on chronic HBV is more dangerous than coinfection."
+  },
+  {
+    q: "A 2-year-old presents with profuse watery diarrhea, vomiting, and fever. Which protein of the causative virus acts as a viral enterotoxin triggering calcium-dependent signaling?",
+    opts: ["VP4", "VP7", "NSP4", "VP6"],
+    ans: 2,
+    exp: "Rotavirus NSP4 is the viral enterotoxin released in infected enterochromaffin cells. It triggers Ca²⁺-dependent signaling → 5-HT release → VIP → ↑ cAMP → secretion of NaCl and water → watery diarrhea."
+  },
+  {
+    q: "A worldwide influenza pandemic occurs due to a new hemagglutinin subtype emerging from genetic exchange between human and avian influenza viruses. This is an example of:",
+    opts: ["Antigenic drift", "Antigenic shift", "Viral mutation accumulation", "Reverse transcription"],
+    ans: 1,
+    exp: "Antigenic shift = major changes from genetic reassortment (exchange of RNA segments) between two different influenza viruses infecting the same host simultaneously. It causes pandemics. Only Influenza A undergoes shift (requires animal reservoirs with related viruses)."
+  },
+  {
+    q: "A patient with confirmed dengue develops rising hematocrit and falling platelet count during defervescence. What is the primary mechanism?",
+    opts: ["Bone marrow suppression by DENV", "Immune-mediated platelet destruction only", "Plasma leakage from cytokine-mediated endothelial dysfunction", "Direct endothelial lysis by virus"],
+    ans: 2,
+    exp: "During the critical phase (D3–D7), plasma leakage from cytokine-mediated endothelial dysfunction causes hemoconcentration (↑ HCT) and thrombocytopenia. This is the best time to administer IV fluids to prevent shock."
+  },
+  {
+    q: "Which COVID-19 severity classification applies to a patient with pneumonia on CXR and SpO₂ of 96% on room air?",
+    opts: ["Mild illness", "Moderate illness", "Severe illness", "Critical illness"],
+    ans: 1,
+    exp: "Anything with pneumonia (lower respiratory disease) is AUTOMATICALLY classified as moderate illness per NIH/WHO, provided SpO₂ ≥94% on room air. Severe requires SpO₂ <94% (WHO) or <92% (DOH)."
+  },
+  {
+    q: "A young adult in an endemic area presents with progressive cognitive decline years after measles infection. Which laboratory finding best supports the diagnosis of SSPE?",
+    opts: ["Low measles antibody titers", "Presence of anti-M protein antibodies", "High anti-measles Ab titers but ABSENCE of anti-M protein antibodies", "Detection of rabies antigen in CSF"],
+    ans: 2,
+    exp: "SSPE (Subacute Sclerosing Panencephalitis) = persistent defective measles virus in CNS causing progressive demyelination. Characterized by HIGH anti-measles Ab titers but LACKING antibodies against M (matrix) protein."
+  },
+  {
+    q: "Which RT-PCR cycle threshold (Ct) value finding suggests the HIGHEST viral load?",
+    opts: ["Ct of 35", "Ct of 28", "Ct of 15", "Ct greater than 40"],
+    ans: 2,
+    exp: "Lower Ct value = earlier amplification = higher viral load. Ct of 15 means the reaction crossed the threshold at cycle 15, indicating abundant viral RNA. Ct >40 = very low or undetectable viral load. PCR is qualitative but Ct gives an approximation."
+  },
+  {
+    q: "A 6-year-old develops fever and vesicles in the POSTERIOR pharynx only, with NO hand or foot lesions. The most likely causative virus is:",
+    opts: ["Coxsackievirus A16", "Coxsackievirus A (2–6, 8, 10)", "Echovirus", "Enterovirus 71"],
+    ans: 1,
+    exp: "Herpangina = severe febrile pharyngitis with vesicles specifically on the POSTERIOR pharynx, soft palate, tonsils. Caused by Group A Coxsackievirus (2–6, 8, 10). HFMD = palms and soles (A16). No herpesviruses involved (despite similar name)."
+  },
+  {
+    q: "A patient in the window period of HBV infection. Which marker is present?",
+    opts: ["HBsAg positive, Anti-HBs positive", "HBsAg negative, Anti-HBs positive, Anti-HBc IgG positive", "HBsAg negative, Anti-HBs negative, IgM anti-HBc positive", "All markers negative"],
+    ans: 2,
+    exp: "Window period = HBsAg has disappeared BUT Anti-HBs not yet formed. The ONLY marker present is IgM anti-HBc. This is a critical concept — the window period can give a false sense of resolved infection."
+  },
+  {
+    q: "Which malaria species has hypnozoites that cause TRUE RELAPSE months to years after initial infection?",
+    opts: ["P. falciparum", "P. malariae", "P. vivax and P. ovale", "P. knowlesi"],
+    ans: 2,
+    exp: "Hypnozoites = dormant liver stage found ONLY in P. vivax and P. ovale. These can reactivate months to years later causing true relapse. P. falciparum causes recrudescence (persistent blood-stage infection), not relapse. P. vivax/ovale are not found in the Philippines."
+  },
+  {
+    q: "The Dengvaxia (Sanofi) dengue vaccine should only be given to which population?",
+    opts: ["Dengue-naive individuals to prevent first infection", "All children in endemic areas regardless of prior exposure", "Dengue-immune (seropositive) individuals only", "Adults over 40 with comorbidities"],
+    ans: 2,
+    exp: "Dengvaxia is WHO-recommended ONLY for dengue-immune (previously infected) individuals. In dengue-naive recipients, it primes for more severe disease on subsequent natural infection (risk of ADE). Pre-testing for prior exposure required."
+  },
+  {
+    q: "A college student develops abrupt nausea, vomiting, watery diarrhea, and mild fever within 24 hours of eating at a shared cafeteria. No fever. The most likely causative virus is:",
+    opts: ["Rotavirus", "Norovirus (Calicivirus)", "Reovirus", "Astrovirus"],
+    ans: 1,
+    exp: "Norovirus (Calicivirus) = epidemic viral gastroenteritis in ADULTS. Short incubation 24–48 hours, abrupt onset, low-grade or no fever, rapid disease course, outbreak settings. Rotavirus primarily affects infants. Low infectious dose makes it highly contagious."
+  },
+  {
+    q: "Which is the MOST sensitive laboratory method for detecting rotavirus in stool?",
+    opts: ["ELISA antigen detection", "Electron microscopy", "PCR-based genotyping", "Lateral flow immunoassay"],
+    ans: 2,
+    exp: "PCR-based genotyping of rotavirus nucleic acid is the MOST SENSITIVE detection method. ELISA/lateral flow immunoassay kits are used routinely but have lower sensitivity (~50–75%). PCR also allows genotyping for epidemiologic purposes."
+  }
+];
+
+// Render MCQs
+const mcqContainer = document.getElementById('mcq-container');
+questions.forEach((q, i) => {
+  const card = document.createElement('div');
+  card.className = 'mcq-card';
+  card.innerHTML = `
+    <div class="mcq-q"><span class="mcq-num">${i+1}</span> ${q.q}</div>
+    <ul class="mcq-options" id="mcq-opts-${i}">
+      ${q.opts.map((o, j) => `<li onclick="selectAnswer(${i}, ${j}, ${q.ans})">${String.fromCharCode(65+j)}. ${o}</li>`).join('')}
+    </ul>
+    <div class="mcq-explain" id="mcq-exp-${i}"><strong>✅ Explanation:</strong> ${q.exp}</div>
+  `;
+  mcqContainer.appendChild(card);
+});
+
+function selectAnswer(qIdx, selectedIdx, ansIdx) {
+  const opts = document.querySelectorAll(`#mcq-opts-${qIdx} li`);
+  opts.forEach(o => o.style.pointerEvents = 'none');
+  if (selectedIdx === ansIdx) {
+    opts[selectedIdx].classList.add('correct');
+  } else {
+    opts[selectedIdx].classList.add('wrong');
+    opts[ansIdx].classList.add('revealed-correct');
+  }
+  document.getElementById(`mcq-exp-${qIdx}`).classList.add('show');
+}
+
+// ========== BUZZWORDS ==========
+const buzzwords = [
+  { term: "Negri Bodies", clue: "Rabies — eosinophilic cytoplasmic inclusions in neurons; pathognomonic but absent in 20%" },
+  { term: "Submaxillary gland", clue: "Highest titer of rabies virus" },
+  { term: "Bullet-shaped virus", clue: "Rhabdovirus (Rabies)" },
+  { term: "DFA test", clue: "Rabies lab Dx; brain tissue; fluorescent-apple-green = positive" },
+  { term: "NSP4", clue: "Rotavirus viral enterotoxin → Ca²⁺ → 5-HT → diarrhea/vomiting" },
+  { term: "VP6", clue: "Rotavirus species (A–H) classification" },
+  { term: "Wheel-like EM", clue: "Rotavirus" },
+  { term: "Star-like EM", clue: "Astrovirus" },
+  { term: "GII.4 Norovirus", clue: "Most gastroenteritis outbreaks worldwide" },
+  { term: "Window period (HBV)", clue: "HBsAg (-), Anti-HBs (-), IgM anti-HBc (+) ONLY" },
+  { term: "Only DNA hepatitis", clue: "HBV (dsDNA)" },
+  { term: "Fulminant in pregnancy", clue: "HEV (Hepatitis E)" },
+  { term: "Defective virus", clue: "HDV — needs HBsAg from HBV to survive" },
+  { term: "P16 IHC overexpression", clue: "Surrogate marker for high-risk HPV infection" },
+  { term: "E6 / E7 (HPV)", clue: "E6 inactivates p53; E7 inactivates pRb → carcinogenesis" },
+  { term: "Antigenic Shift", clue: "Major; reassortment; pandemics; Influenza A ONLY" },
+  { term: "Antigenic Drift", clue: "Minor; point mutations; seasonal outbreaks; A, B, C" },
+  { term: "Oseltamivir", clue: "Inhibits Neuraminidase (NA) = sialidase" },
+  { term: "Amantadine/Rimantadine", clue: "Inhibits M2 protein (uncoating step) of Influenza" },
+  { term: "Syncytia formation", clue: "RSV — cytopathic effect naming the virus" },
+  { term: "RSV = #1", clue: "Most common cause of bronchiolitis in infants <1 year" },
+  { term: "CROUP", clue: "Parainfluenza virus (laryngotracheobronchitis)" },
+  { term: "ACE2 receptor", clue: "SARS-CoV-2 host receptor; S protein binds it" },
+  { term: "Stage III COVID", clue: "Hyperinflammation; cytokine storm; ↑ CRP, IL-6, Ferritin; distinguishing feature" },
+  { term: "Dexamethasone (COVID)", clue: "First life-saving intervention for hypoxic COVID patients" },
+  { term: "Paxlovid", clue: "First-line oral antiviral for mild-moderate high-risk COVID (within 5 days)" },
+  { term: "NS1 antigen (Dengue)", clue: "Early/primary diagnostic target; detectable from Day 1; max at Day 6" },
+  { term: "ADE (Dengue)", clue: "Antibody-dependent enhancement — non-neutralizing Ab worsens secondary infection" },
+  { term: "Dengvaxia warning", clue: "ONLY for seropositive; risky in dengue-naive individuals" },
+  { term: "TV003", clue: "Best dengue vaccine candidate (NIH/Butantan; DENV4 backbone)" },
+  { term: "Culex vector + dirty water", clue: "Japanese Encephalitis virus" },
+  { term: "JEV = Asia only", clue: "Pigs/birds as amplifying hosts; Culex; Low-voltage EEG waves" },
+  { term: "P. vivax hypnozoites", clue: "True relapse months–years later; treated with primaquine" },
+  { term: "P. falciparum", clue: "Cerebral malaria; most severe; irregular periodicity; heavy burden in PH" },
+  { term: "Tertian malaria", clue: "P. vivax/ovale — fever every 48 hours" },
+  { term: "Quartan malaria", clue: "P. malariae — fever every 72 hours" },
+  { term: "Chikungunya key feature", clue: "Prolonged joint pain (months–years); RA-like chronic arthritis" },
+  { term: "Herpangina vs HFMD", clue: "Herpangina = posterior pharynx only (Coxsackie A); HFMD = palms + soles (Coxsackie A16)" },
+  { term: "Boston Exanthem", clue: "Echovirus (types 4, 9, 16, 18) — fever + rash" },
+  { term: "Pleurodynia (Bornholm)", clue: "Coxsackie B — stabbing chest pain; epidemic myalgia" },
+  { term: "Abortive poliomyelitis", clue: "Most common form of polio; minor illness; complete recovery" },
+  { term: "OPV vs IPV", clue: "OPV = intestinal immunity (secretory IgA); IPV = humoral only" },
+  { term: "RT-QuIC", clue: "Detects prion proteins in CSF for CJD diagnosis" },
+  { term: "Mad Cow Disease", clue: "BSE → variant CJD; psychiatric symptoms first, then dementia" },
+  { term: "SSPE clue", clue: "High anti-measles Ab + NO anti-M protein Ab; demyelination; young adults" },
+  { term: "Pseudovirion", clue: "Host cell DNA accidentally packaged in viral capsid" },
+  { term: "HARD (naked viruses)", clue: "Heat, Acid, Resist drying, Detergent resistant" },
+  { term: "10-day holding period", clue: "Animal observation for rabies; if no signs → evidence against rabies" },
+  { term: "Sigmoidal curve (PCR)", clue: "S-shaped curve = legitimate amplification; non-sigmoidal = false positive" },
+  { term: "Internal control (PCR)", clue: "RNase P gene (human); confirms proper sample collection and extraction" },
+];
+
+const buzzContainer = document.getElementById('buzz-container');
+const colors = ['badge-green','badge-blue','badge-purple','badge-orange','badge-teal','badge-yellow','badge-red'];
+buzzwords.forEach((b, i) => {
+  const div = document.createElement('div');
+  div.className = 'buzz-item';
+  div.innerHTML = `<span class="buzz-term">${b.term}</span><span class="buzz-clue">${b.clue}</span>`;
+  buzzContainer.appendChild(div);
+});
+</script>
+</body>
+</html>
